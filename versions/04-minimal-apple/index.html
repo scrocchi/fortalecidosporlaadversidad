@@ -562,28 +562,18 @@
   .sp-topic { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.55; margin: 0 0 var(--space-4); }
 
   /* ---------- Banda decorativa: bandera de Venezuela ---------- */
-  /* Visible por defecto; si el navegador lo soporta, se "abre" desde el centro al hacer scroll */
-  .flag-band { overflow: hidden; }
+  /* La bandera queda pegada al fondo, DETRÁS de la página. Todo el contenido
+     va en una capa opaca (.page) que la tapa; solo se descubre al llegar al
+     final, como si el footer se levantara para revelarla. */
+  .page { position: relative; z-index: 1; background: var(--bg); }
+  .flag-band { position: sticky; bottom: 0; z-index: 0; overflow: hidden; }
   .flag-vz {
-    height: clamp(48px, 6.5vw, 80px);
+    height: clamp(24px, 3.25vw, 40px);
     background: linear-gradient(180deg,
       #FCD116 0 33.333%, #00247D 33.333% 66.666%, #CF142B 66.666% 100%);
     display: grid; place-items: center;
   }
-  .flag-stars { width: min(190px, 42%); height: auto; fill: #fff; }
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      .flag-band {
-        animation: flagOpen linear both;
-        animation-timeline: view();
-        animation-range: entry 8% entry 72%;
-      }
-      @keyframes flagOpen {
-        from { clip-path: inset(50% 0 50% 0); }
-        to   { clip-path: inset(0 0 0 0); }
-      }
-    }
-  }
+  .flag-stars { height: 60%; width: auto; max-width: 58%; fill: #fff; }
 
   /* ---------- Footer ---------- */
   footer.site { border-top: 1px solid var(--line); padding-block: var(--space-8); }
@@ -614,6 +604,9 @@
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
+
+<!-- Capa opaca: cubre la bandera del fondo hasta llegar al final -->
+<div class="page">
 
 <!-- ============ BARRA DE PROMOCIÓN ============ -->
 <div class="promobar" role="note">
@@ -971,8 +964,10 @@
   </div>
 </footer>
 
+</div><!-- /.page -->
+
 <!-- ============ BANDA DECORATIVA: BANDERA DE VENEZUELA (remate final) ============ -->
-<!-- Va después del footer: oculta por defecto, se revela al llegar al fondo -->
+<!-- Detrás de .page: oculta hasta el final; se descubre al llegar al fondo -->
 <div class="flag-band" role="img" aria-label="Bandera de Venezuela">
   <div class="flag-vz">
     <svg class="flag-stars" viewBox="0 0 220 44" aria-hidden="true">
