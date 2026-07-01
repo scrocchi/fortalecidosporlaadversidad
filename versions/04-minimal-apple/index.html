@@ -205,6 +205,15 @@
   }
   .textlink:hover::after { transform: scaleX(1); }
 
+  /* ---------- Barra de promoción (arriba del header) ---------- */
+  .promobar { background: var(--ink); color: #fff; text-align: center; }
+  .promobar p {
+    margin: 0; padding: 0.55rem clamp(1rem, 4vw, 2rem);
+    font-size: var(--text-sm); line-height: 1.45;
+    font-weight: 500; letter-spacing: 0.01em; text-wrap: balance;
+  }
+  @media (max-width: 560px) { .promobar p { font-size: var(--text-xs); } }
+
   /* ---------- Header ---------- */
   header.site {
     position: sticky; top: 0; z-index: 50;
@@ -605,6 +614,11 @@
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
+
+<!-- ============ BARRA DE PROMOCIÓN ============ -->
+<div class="promobar" role="note">
+  <p>Evento solidario en vivo — Sábado, 12 horas continuas — Tu donación se convierte en ayuda real</p>
+</div>
 
 <!-- ============ HEADER ============ -->
 <header class="site">
