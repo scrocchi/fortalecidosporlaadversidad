@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-design-deslop": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design-deslop/SKILL.md",
+      "computedHash": "05c1fdca526ff4efa21d3ee7a7306a0f449aead9e66a28d100f07f6dbcb6ee30"
+    },
+    "gsap-awwwards-website": {
+      "source": "eng0ai/eng0-template-skills",
+      "sourceType": "github",
+      "skillPath": "gsap-awwwards-website/SKILL.md",
+      "computedHash": "31885704a171d33427eef4d7245a4c4591c35b628f332f68cd9517bc33deb5ad"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "f3bc47f890f42a44db1007ab390709ec368e4b8c089baee6b0007182236ac474"
+    }
+  }
+}

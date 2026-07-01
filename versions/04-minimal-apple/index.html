@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fortalecidos Por la Adversidad — Evento solidario en vivo</title>
+<meta name="description" content="24 conferencias en 12 horas, en vivo y 100% gratis. Regístrate y ayuda a las familias afectadas por el terremoto en Venezuela. El 100% de las donaciones va a la causa." />
+
+<!-- Tipografía: Hanken Grotesk (neo-grotesca, face principal) + IBM Plex Mono (labels/números) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!-- Fraunces: serif de contraste, solo para frases especiales (formato editorial) -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     VERSIÓN 04 — MINIMAL / APPLE
+     Signature move: "Aire absoluto + hairline tricolor"
+       whitespace extremo, tipografía display a gran escala con
+       tracking negativo preciso, y una única costura de color:
+       una línea fina blue/amarillo/rojo (2px) con la estrella.
+     ============================================================ */
+
+  :root {
+    /* --- Tipografía --- */
+    --font: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+
+    /* Escala modular — ratio 1.28, base 16px; display extendido */
+    --text-xs:   0.75rem;
+    --text-sm:   0.875rem;
+    --text-base: 1rem;
+    --text-lg:   1.125rem;
+    --text-xl:   clamp(1.25rem, 1.6vw, 1.5rem);
+    --text-2xl:  clamp(1.6rem, 2.4vw, 2.1rem);
+    --text-3xl:  clamp(2.1rem, 3.6vw, 3rem);
+    --text-4xl:  clamp(2.6rem, 5vw, 4.25rem);
+    --text-hero: clamp(3rem, 8.5vw, 7rem);
+
+    --leading-tight:  1.02;
+    --leading-snug:   1.14;
+    --leading-normal: 1.6;
+
+    /* --- Color (OKLCH con fallback hex) --- */
+    --bg:         #FFFFFF;   /* blanco protagonista */
+    --bg-soft:    #FAFAFA;   /* near-white sutil, lee como blanco */
+    --ink:        #14161C;   /* tinta near-black */
+    --ink-2:      #565B66;   /* texto secundario */
+    --ink-3:      #8A8F99;   /* labels / terciario */
+    --line:       #E7E7EA;   /* hairline */
+    --line-2:     #D4D4D9;   /* hairline fuerte */
+    --blue:       #1B3A97;   /* azul de marca (acento) */
+    --blue-deep:  #142C73;   /* azul hover */
+    --yellow:     #F4B825;   /* detalle tricolor */
+    --red:        #D42A2A;   /* detalle tricolor */
+    --focus:      #1B3A97;
+
+    @supports (color: oklch(0.5 0.1 250)) {
+      --bg:        oklch(1 0 0);
+      --bg-soft:   oklch(0.985 0 0);
+      --ink:       oklch(0.205 0.012 268);
+      --ink-2:     oklch(0.470 0.014 268);
+      --ink-3:     oklch(0.645 0.014 268);
+      --line:      oklch(0.925 0.002 268);
+      --line-2:    oklch(0.865 0.004 268);
+      --blue:      oklch(0.400 0.150 264);
+      --blue-deep: oklch(0.325 0.125 264);
+      --yellow:    oklch(0.800 0.145 85);
+      --red:       oklch(0.560 0.205 27);
+      --focus:     oklch(0.400 0.150 264);
+    }
+
+    /* --- Espacio y ritmo --- */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-8: 3rem;
+    --space-10: 4rem;
+    --section-y: clamp(6rem, 13vw, 10rem);   /* 96–160px vertical */
+
+    --maxw: 1200px;
+    --maxw-text: 54ch;
+
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --dur: 240ms;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img, video, svg { display: block; max-width: 100%; }
+
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--blue); color: #fff; }
+
+  /* Foco visible y gestionado */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  /* Enlace de salto */
+  .skip {
+    position: absolute; left: 50%; top: 0; transform: translate(-50%, -120%);
+    background: var(--ink); color: #fff; padding: 0.75rem 1.25rem;
+    font-size: var(--text-sm); z-index: 100; transition: transform var(--dur) var(--ease);
+  }
+  .skip:focus { transform: translate(-50%, 0.5rem); }
+
+  /* ---------- Layout base ---------- */
+  .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 3rem); }
+  .section { padding-block: var(--section-y); scroll-margin-top: 84px; }
+
+  /* Etiqueta mono (eyebrow / labels de sección) */
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  /* ---------- Costura tricolor (signature) ---------- */
+  .seam {
+    display: inline-flex; align-items: center; gap: 0;
+    height: 2px; width: 88px; overflow: visible;
+  }
+  .seam span { height: 2px; flex: 1; }
+  .seam .s-blue   { background: var(--blue); }
+  .seam .s-yellow { background: var(--yellow); }
+  .seam .s-red    { background: var(--red); }
+  .seam--center { margin-inline: auto; }
+
+  .star {
+    width: 14px; height: 14px; fill: var(--blue); flex: none;
+  }
+
+  /* ---------- Botones ---------- */
+  .btn {
+    position: relative;
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 0.6rem;
+    min-height: 52px; padding: 0 1.75rem;
+    font-family: var(--font); font-size: 0.9375rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border-radius: 0; border: none;
+    cursor: pointer;
+    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease),
+                transform var(--dur) var(--ease);
+  }
+  /* Principal: negro sólido con la bandera fina arriba */
+  .btn--primary {
+    background: var(--ink); color: #fff;
+  }
+  .btn--primary:hover { background: #23262f; background: color-mix(in srgb, var(--ink) 87%, #ffffff); }
+  .btn--primary:active { transform: translateY(1px); }
+  .btn--primary::after {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+    background: linear-gradient(90deg,
+      var(--blue) 0 33.333%, var(--yellow) 33.333% 66.666%, var(--red) 66.666% 100%);
+    transition: height var(--dur) var(--ease);
+  }
+  .btn--primary:hover::after { height: 3px; }
+
+  /* Secundario: blanco con borde hairline completo */
+  .btn--ghost {
+    background: #fff; color: var(--ink);
+    border: 1px solid var(--line-2);
+  }
+  .btn--ghost:hover { background: var(--bg-soft); border-color: var(--ink-3); }
+  .btn--ghost:active { transform: translateY(1px); }
+
+  .btn--sm { min-height: 44px; padding: 0 1.15rem; font-size: 0.8125rem; letter-spacing: 0.07em; }
+
+  /* Enlace de texto con subrayado animado */
+  .textlink {
+    position: relative; font-weight: 500; color: var(--ink);
+    padding-bottom: 2px;
+  }
+  .textlink::after {
+    content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+    background: currentColor; transform: scaleX(0); transform-origin: left;
+    transition: transform var(--dur) var(--ease);
+  }
+  .textlink:hover::after { transform: scaleX(1); }
+
+  /* ---------- Header ---------- */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  @supports not (backdrop-filter: blur(1px)) {
+    header.site { background: var(--bg); }
+  }
+  .site-inner {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    gap: 1rem; min-height: 68px;
+  }
+  .site-inner .brand { justify-self: start; }
+  .site-inner > .btn { justify-self: end; }
+  .brand { display: inline-flex; align-items: center; gap: 0.65rem; min-height: 44px; }
+  .brand img { height: 34px; width: auto; }
+
+  /* Contador centrado en la barra superior: número arriba, etiqueta abajo */
+  .head-count {
+    justify-self: center;
+    display: inline-flex; align-items: flex-start; gap: clamp(0.85rem, 1.5vw, 1.5rem);
+    font-family: var(--font-mono); color: var(--ink); white-space: nowrap;
+  }
+  .head-count .hc-cell { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; }
+  .head-count .hc-cell b {
+    font-size: 1.45rem; font-weight: 600; color: var(--ink); line-height: 1;
+    font-variant-numeric: tabular-nums; letter-spacing: -0.01em;
+  }
+  .head-count .hc-l {
+    font-size: 0.5rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+  }
+  @media (max-width: 620px) { .head-count .hc-s { display: none; } }
+  @media (max-width: 520px) { .head-count { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    text-align: center;
+    padding-top: clamp(2.5rem, 6vw, 4.5rem);
+    padding-bottom: clamp(3rem, 7vw, 6rem);
+  }
+  .hero-top {
+    max-width: var(--maxw); margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 3rem);
+  }
+  .hero .seam { margin-bottom: var(--space-5); }
+  .hero .eyebrow { display: block; margin-bottom: var(--space-4); }
+  .hero h1 {
+    margin: 0 auto;
+    max-width: 22ch;
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .hero h1 em { font-style: italic; font-weight: 700; }
+  .hero .sub {
+    margin: var(--space-5) auto 0;
+    max-width: 58ch;
+    font-size: var(--text-lg);
+    line-height: 1.5;
+    color: var(--ink-2);
+    font-weight: 400;
+    text-wrap: pretty;
+  }
+  .hero .cta-row {
+    margin-top: var(--space-6);
+    display: flex; flex-wrap: wrap; gap: var(--space-4);
+    align-items: center; justify-content: center;
+  }
+  .hero .hero-when { margin: var(--space-6) auto 0; }
+  .hero .hw-date {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-mono); font-size: var(--text-xs);
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+  }
+  .hero .hw-date b { color: var(--ink); font-weight: 500; }
+  .hw-zones {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 0.6rem clamp(1rem, 2.4vw, 1.9rem);
+  }
+  .hw-zones li { display: inline-flex; align-items: center; gap: 0.5rem; }
+  /* Divisor sutil entre husos (se oculta al envolver por el flex-wrap) */
+  .hw-zones li + li::before {
+    content: ""; align-self: center;
+    width: 1px; height: 14px; margin-right: clamp(1rem, 2.4vw, 1.9rem);
+    background: var(--line-2);
+  }
+  .hw-flag {
+    width: 22px; height: auto; aspect-ratio: 3 / 2; flex: none;
+    border: 1px solid var(--line-2);
+  }
+  .hw-zones b { font-weight: 600; font-size: var(--text-sm); color: var(--ink); }
+  .hw-zones .c {
+    font-family: var(--font-mono); font-size: 0.6875rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
+  }
+  @media (max-width: 420px) {
+    .hw-zones { gap: 0.55rem 1rem; }
+    .hw-zones li + li::before { margin-right: 1rem; }
+    .hw-zones .c { display: none; } /* en pantallas muy chicas dejamos bandera + hora */
+  }
+
+  /* ---------- Hero: bloque de video 16:9 casi a pantalla completa ---------- */
+  .hero-figure {
+    margin: clamp(3.5rem, 8vw, 7rem) auto 0;
+    width: 100%; max-width: 1800px;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+  }
+  .hero-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--ink); border: 1px solid var(--line); overflow: hidden;
+  }
+  .hero-media > video { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Botón central de reproducir (solo si el autoplay no corre: reduced-motion / fallback) */
+  .vplay {
+    position: absolute; inset: 0; margin: auto;
+    width: 76px; height: 76px;
+    display: none; align-items: center; justify-content: center;
+    color: #fff;
+    background: rgba(20,22,28,0.72);
+    background: color-mix(in srgb, var(--ink) 72%, transparent);
+    border: 0; border-radius: 0; cursor: pointer;
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
+  .vplay svg { width: 26px; height: 26px; fill: currentColor; }
+  .hero-media.paused .vplay { display: inline-flex; }
+
+  .hero-media-cap {
+    margin: var(--space-5) 0 0;
+    text-align: center;
+  }
+  .hero-media-cap .t { font-size: var(--text-sm); color: var(--ink-2); max-width: 64ch; margin: 0 auto; }
+
+  /* Transición al scroll: el video se mantiene completo y solo se encoge al salir */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .hero-media {
+        animation: heroMediaScroll linear both;
+        animation-timeline: view();
+        animation-range: exit 5% exit 95%;
+      }
+      @keyframes heroMediaScroll {
+        0%   { transform: scale(1);    opacity: 1; }
+        100% { transform: scale(0.85); opacity: 0.28; }
+      }
+    }
+  }
+
+  /* ---------- Ticker de ponentes/temas (arriba del video) ---------- */
+  .hero-ticker {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    gap: clamp(0.75rem, 1.4vw, 1.15rem);
+    /* Desvanecido en los bordes para que las tarjetas "entren/salgan" limpio */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .tk-row { display: flex; width: max-content; will-change: transform; }
+  .tk-track {
+    display: flex; flex: none;
+    margin: 0; list-style: none;
+    gap: clamp(0.75rem, 1.4vw, 1.15rem);
+    padding-block: 0.35rem;
+    padding-inline: clamp(0.375rem, 0.7vw, 0.575rem);
+  }
+
+  .tk-head { margin: 0 0 0.4rem; }
+  .tk-nav { display: none; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .tk-row[data-dir="left"]  { animation: tkLeft  60s linear infinite; }
+    .tk-row[data-dir="right"] { animation: tkRight 60s linear infinite; }
+  }
+  @keyframes tkLeft  { from { transform: translateX(0); }      to { transform: translateX(-50%); } }
+  @keyframes tkRight { from { transform: translateX(-50%); }   to { transform: translateX(0); } }
+
+  /* Tarjeta — desktop: foto a la izquierda, texto a la derecha */
+  .tk-card {
+    flex: none; width: clamp(320px, 25vw, 370px);
+    display: flex; align-items: stretch; gap: 1rem;
+    padding: 0.9rem 1.1rem 0.9rem 0.9rem;
+    text-align: left;
+    background: var(--bg);
+    border: 1px solid var(--line);
+  }
+  .tk-photo {
+    flex: none; width: 92px; aspect-ratio: 1; align-self: center;
+    display: grid; place-items: center; overflow: hidden;
+    background: var(--bg-soft);
+    color: var(--line-2);
+    border: 1px solid var(--line);
+  }
+  .tk-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .tk-photo .silh { width: 40px; height: 40px; }
+  .tk-text { min-width: 0; display: flex; flex-direction: column; gap: 0.15rem; text-align: left; }
+  .tk-area {
+    margin: 0; font-size: 0.9375rem; font-weight: 700;
+    letter-spacing: -0.01em; color: var(--ink); line-height: 1.2;
+  }
+  .tk-topic {
+    margin: 0.1rem 0 0; font-size: var(--text-sm);
+    color: var(--ink-2); line-height: 1.32;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .tk-name {
+    margin: auto 0 0; padding-top: 0.35rem;
+    font-style: italic; font-size: var(--text-xs);
+    letter-spacing: 0.01em; color: var(--ink-3);
+  }
+
+  /* Mobile: tarjetas verticales + carrusel deslizable (scroll-snap, sin marquee) */
+  @media (max-width: 640px) {
+    .hero-ticker {
+      -webkit-mask-image: none; mask-image: none;
+      gap: 0;
+    }
+    .tk-row {
+      width: auto; animation: none !important;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 0.5rem;
+    }
+    .tk-row::-webkit-scrollbar { display: none; }
+    .tk-row[data-dir="right"] { display: none; } /* una sola fila deslizable en mobile */
+    .tk-track { flex: none; padding-inline: clamp(1rem, 5vw, 1.5rem); }
+    .tk-track[aria-hidden="true"] { display: none; } /* sin duplicado en el slider */
+    .tk-card {
+      width: 15rem; flex-direction: column; gap: 0;
+      scroll-snap-align: start;
+      padding: 0.85rem;
+    }
+    .tk-photo {
+      width: 100%; aspect-ratio: 1; align-self: auto;
+      margin-bottom: 0.85rem;
+    }
+    .tk-photo .silh { width: 48px; height: 48px; }
+    .tk-topic { -webkit-line-clamp: 3; }
+    .tk-name { padding-top: 0.5rem; }
+
+    /* Flechas para indicar que hay más tarjetas */
+    .tk-nav { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
+    .tk-arrow {
+      width: 46px; height: 46px; display: grid; place-items: center;
+      background: #fff; border: 1px solid var(--line-2); color: var(--ink);
+      cursor: pointer;
+    }
+    .tk-arrow svg { width: 20px; height: 20px; }
+    .tk-arrow:active { background: var(--bg-soft); }
+  }
+
+  /* ---------- La causa (centrada, limpia, con aire) ---------- */
+  .causa { text-align: center; }
+  .causa .cz { max-width: 64ch; margin-inline: auto; }
+  .causa h2 {
+    font-size: var(--text-3xl); font-weight: 600; letter-spacing: -0.025em;
+    margin: 0 0 var(--space-6); white-space: nowrap;
+  }
+  @media (max-width: 560px) { .causa h2 { white-space: normal; } }
+  .causa .cz p {
+    color: var(--ink-2); font-size: var(--text-lg); line-height: 1.7;
+    margin: 0 auto var(--space-5); max-width: 58ch;
+  }
+  .causa .cz strong { color: var(--ink); font-weight: 600; }
+  /* Lead-in que introduce la pregunta */
+  .causa .cz-lead { margin-bottom: var(--space-3); color: var(--ink-3); }
+  /* Frase especial (pivote) — serif italic, formato editorial */
+  .causa .cz-pivot {
+    font-family: var(--font-serif);
+    font-optical-sizing: auto;
+    font-style: italic; font-weight: 400;
+    font-size: clamp(2rem, 4.4vw, 3.25rem);
+    line-height: 1.08; letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: none;
+    margin: 0 auto var(--space-8);
+  }
+
+  /* ---------- Números ---------- */
+  .numbers { text-align: center; }
+  .numbers .head { margin-bottom: var(--space-10); }
+  .numbers h2 { font-size: var(--text-3xl); font-weight: 600; letter-spacing: -0.025em; margin: 0.75rem 0 0; }
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .stat {
+    padding: clamp(2rem, 5vw, 3.25rem) 1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 0.5rem; align-items: center;
+  }
+  .stat:not(:last-child) { border-right: 1px solid var(--line); }
+  .stat .n {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700;
+    letter-spacing: -0.04em; line-height: 0.95; color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .k { font-size: var(--text-sm); color: var(--ink-2); max-width: 22ch; }
+  @media (max-width: 760px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2n) { border-right: 0; }
+  }
+
+  /* ---------- Speakers ---------- */
+  .speakers .head { text-align: center; margin-bottom: var(--space-10); }
+  .speakers h2 { font-size: var(--text-3xl); font-weight: 600; letter-spacing: -0.025em; margin: 0.75rem 0 0.75rem; }
+  .speakers .head p { color: var(--ink-2); max-width: 48ch; margin-inline: auto; }
+  .sp-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 900px) { .sp-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .sp-grid { grid-template-columns: 1fr; } }
+  .sp-card { background: var(--bg); padding: var(--space-5); display: flex; flex-direction: column; }
+  .sp-photo {
+    position: relative; aspect-ratio: 4 / 5; background: var(--bg-soft);
+    border: 1px solid var(--line); margin-bottom: var(--space-4);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  /* Silueta digna: busto genérico en trazo, sin stock */
+  .sp-photo svg.silh { width: 46%; height: auto; opacity: 0.5; color: var(--ink-3); }
+  .sp-photo .ph-cap {
+    position: absolute; bottom: 8px; left: 0; right: 0; text-align: center;
+    font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
+  .sp-num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--blue); letter-spacing: 0.12em; }
+  .sp-role { font-size: var(--text-sm); font-weight: 600; color: var(--ink); margin: 0.5rem 0 0.25rem; }
+  .sp-topic { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.45; }
+
+  /* ---------- CTA final ---------- */
+  .final { text-align: center; }
+  .final .seam { margin-bottom: var(--space-6); }
+  .final h2 {
+    font-size: var(--text-4xl); font-weight: 700; letter-spacing: -0.035em;
+    line-height: var(--leading-snug); margin: 0 auto; max-width: 18ch;
+  }
+  .final p { margin: var(--space-5) auto 0; max-width: 44ch; color: var(--ink-2); font-size: var(--text-lg); }
+  .final .cta-row { margin-top: var(--space-8); display: flex; justify-content: center; }
+
+  /* ---------- Footer ---------- */
+  footer.site { border-top: 1px solid var(--line); padding-block: var(--space-8); }
+  .foot-inner { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; }
+  .foot-inner .fb { display: flex; align-items: center; gap: 0.6rem; }
+  .foot-inner img { height: 26px; width: auto; }
+  .foot-inner p { font-size: var(--text-xs); color: var(--ink-3); max-width: 52ch; margin: 0; line-height: 1.6; }
+
+  /* ---------- Reveal (motion sutil) ---------- */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 260ms var(--ease), transform 260ms var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .textlink::after, .skip { transition: none; }
+    .btn, .btn--primary::after { transition: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="wrap site-inner">
+    <a class="brand" href="#top" aria-label="Operación Esperanza — inicio">
+      <img src="../../assets/logos/LOGO-V-1.png" alt="Operación Esperanza" />
+    </a>
+    <div class="head-count" id="headCount" role="timer" aria-label="Cuenta regresiva para el evento">
+      <span class="hc-cell"><b data-cd="d">--</b><span class="hc-l">Días</span></span>
+      <span class="hc-cell"><b data-cd="h">--</b><span class="hc-l">Horas</span></span>
+      <span class="hc-cell"><b data-cd="m">--</b><span class="hc-l">Min</span></span>
+      <span class="hc-cell hc-s"><b data-cd="s">--</b><span class="hc-l">Seg</span></span>
+    </div>
+    <a class="btn btn--primary btn--sm" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">
+      Registrarme gratis
+    </a>
+  </div>
+</header>
+
+<main id="contenido">
+  <span id="top"></span>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-top">
+      <div class="seam seam--center" aria-hidden="true">
+        <span class="s-blue"></span><span class="s-yellow"></span><span class="s-red"></span>
+      </div>
+      <span class="label eyebrow">Fortalecidos por la Adversidad</span>
+      <h1 id="hero-title">Aprende de <em>24 expertos</em> en un solo día y ayuda a Venezuela</h1>
+      <p class="sub">Una jornada de clases en vivo —finanzas, mentalidad, inteligencia artificial, espiritualidad y más— para recaudar fondos para las familias afectadas por el terremoto en Venezuela. El registro es gratis; durante el evento donas lo que quieras y el 100% llega a la causa.</p>
+      <div class="cta-row">
+        <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">Quiero registrarme gratis</a>
+        <a class="btn btn--ghost" href="#causa">Conoce la causa</a>
+      </div>
+      <div class="hero-when">
+        <p class="hw-date">Sábado 4 de julio · <b>En vivo</b></p>
+        <ul class="hw-zones" aria-label="Horario del evento por país">
+          <li>
+            <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="México"><rect width="10" height="20" fill="#006847"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#CE1126"/></svg>
+            <b>7:00 a.m.</b><span class="c">México</span>
+          </li>
+          <li>
+            <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="Colombia"><rect width="30" height="20" fill="#FCD116"/><rect y="10" width="30" height="5" fill="#003893"/><rect y="15" width="30" height="5" fill="#CE1126"/></svg>
+            <b>8:00 a.m.</b><span class="c">Colombia</span>
+          </li>
+          <li>
+            <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="Venezuela"><rect width="30" height="20" fill="#FCD116"/><rect y="6.667" width="30" height="6.667" fill="#00247D"/><rect y="13.333" width="30" height="6.667" fill="#CF142B"/></svg>
+            <b>9:00 a.m.</b><span class="c">Venezuela</span>
+          </li>
+          <li>
+            <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="Argentina"><rect width="30" height="20" fill="#74ACDF"/><rect y="6.667" width="30" height="6.667" fill="#fff"/><rect y="13.333" width="30" height="6.667" fill="#74ACDF"/></svg>
+            <b>10:00 a.m.</b><span class="c">Argentina</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ticker: vistazo rápido a ponentes y temas -->
+    <div class="hero-ticker" role="region" aria-label="Algunos de los temas y ponentes del evento">
+      <p class="tk-head label">Ponentes del día</p>
+      <!-- Fila 1 — se desplaza a la izquierda -->
+      <div class="tk-row" data-dir="left">
+        <ul class="tk-track">
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=12" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Resiliencia</p><p class="tk-topic">Sostener una actitud fuerte cuando la vida golpea.</p><p class="tk-name">Marcela Ríos</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=13" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Finanzas personales</p><p class="tk-topic">Administra, genera y ahorra dinero de forma inteligente.</p><p class="tk-name">Diego Fuentes</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=33" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Comunicación persuasiva</p><p class="tk-topic">Negocia y comunica tus ideas con más impacto.</p><p class="tk-name">Valentina Serrano</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=51" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Inteligencia artificial</p><p class="tk-topic">Optimiza tu tiempo y tu dinero con IA en tu día a día.</p><p class="tk-name">Andrés Molina</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=16" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Conexión espiritual</p><p class="tk-topic">Herramientas para expandir y fortalecer tu vida espiritual.</p><p class="tk-name">Camila Duarte</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=60" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Marca personal</p><p class="tk-topic">Crea una marca que crezca y tenga impacto masivo.</p><p class="tk-name">Sebastián Rojas</p></div>
+          </li>
+        </ul>
+        <ul class="tk-track" aria-hidden="true">
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=12" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Resiliencia</p><p class="tk-topic">Sostener una actitud fuerte cuando la vida golpea.</p><p class="tk-name">Marcela Ríos</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=13" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Finanzas personales</p><p class="tk-topic">Administra, genera y ahorra dinero de forma inteligente.</p><p class="tk-name">Diego Fuentes</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=33" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Comunicación persuasiva</p><p class="tk-topic">Negocia y comunica tus ideas con más impacto.</p><p class="tk-name">Valentina Serrano</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=51" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Inteligencia artificial</p><p class="tk-topic">Optimiza tu tiempo y tu dinero con IA en tu día a día.</p><p class="tk-name">Andrés Molina</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=16" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Conexión espiritual</p><p class="tk-topic">Herramientas para expandir y fortalecer tu vida espiritual.</p><p class="tk-name">Camila Duarte</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=60" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Marca personal</p><p class="tk-topic">Crea una marca que crezca y tenga impacto masivo.</p><p class="tk-name">Sebastián Rojas</p></div>
+          </li>
+        </ul>
+      </div>
+      <!-- Fila 2 — se desplaza a la derecha -->
+      <div class="tk-row" data-dir="right">
+        <ul class="tk-track">
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=8" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Mentalidad de crecimiento</p><p class="tk-topic">Rompe las creencias que frenan tu potencial.</p><p class="tk-name">Laura Beltrán</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=11" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Liderazgo con propósito</p><p class="tk-topic">Guía equipos y proyectos con dirección clara.</p><p class="tk-name">Tomás Herrera</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=5" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Productividad y hábitos</p><p class="tk-topic">Diseña rutinas que sostienen tus metas.</p><p class="tk-name">Paula Cordero</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=68" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Ventas con propósito</p><p class="tk-topic">Cierra sin presionar, partiendo del valor real.</p><p class="tk-name">Nicolás Vega</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=3" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Emprendimiento</p><p class="tk-topic">Convierte una idea en un negocio que funciona.</p><p class="tk-name">Gabriela Ponce</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=47" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Bienestar emocional</p><p class="tk-topic">Cuida tu mente en medio de la adversidad.</p><p class="tk-name">Mateo Salazar</p></div>
+          </li>
+        </ul>
+        <ul class="tk-track" aria-hidden="true">
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=8" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Mentalidad de crecimiento</p><p class="tk-topic">Rompe las creencias que frenan tu potencial.</p><p class="tk-name">Laura Beltrán</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=11" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Liderazgo con propósito</p><p class="tk-topic">Guía equipos y proyectos con dirección clara.</p><p class="tk-name">Tomás Herrera</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=5" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Productividad y hábitos</p><p class="tk-topic">Diseña rutinas que sostienen tus metas.</p><p class="tk-name">Paula Cordero</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=68" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Ventas con propósito</p><p class="tk-topic">Cierra sin presionar, partiendo del valor real.</p><p class="tk-name">Nicolás Vega</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=3" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Emprendimiento</p><p class="tk-topic">Convierte una idea en un negocio que funciona.</p><p class="tk-name">Gabriela Ponce</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=47" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Bienestar emocional</p><p class="tk-topic">Cuida tu mente en medio de la adversidad.</p><p class="tk-name">Mateo Salazar</p></div>
+          </li>
+        </ul>
+      </div>
+      <div class="tk-nav" aria-hidden="true">
+        <button type="button" class="tk-arrow" data-tk="prev" aria-label="Ver ponentes anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" class="tk-arrow" data-tk="next" aria-label="Ver más ponentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+
+    <!-- Bloque de video en loop (cierre del hero) -->
+    <figure class="hero-figure" id="video">
+      <div class="hero-media" id="heroMedia">
+        <video id="heroVideo" muted loop playsinline preload="metadata"
+          poster="../../assets/videos/video-preview.webp"
+          aria-label="Imágenes reales del trabajo de rescate tras el terremoto en Venezuela">
+          <source src="../../assets/videos/video.mp4" type="video/mp4" />
+        </video>
+        <button class="vplay" type="button" aria-label="Reproducir video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+      <figcaption class="hero-media-cap">
+        <p class="t">Imágenes reales del trabajo de rescate en Venezuela. Cada registro suma; cada donación durante el evento llega directo a la causa.</p>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ LA CAUSA ============ -->
+  <section class="section causa wrap" id="causa" aria-labelledby="causa-title">
+    <div class="cz reveal">
+      <h2 id="causa-title">Qué pasó en Venezuela</h2>
+      <p>Un fuerte terremoto sacudió la región de La Guaira, en la costa de Venezuela, y dejó a miles de familias sin hogar. Los equipos de rescate siguen trabajando sin descanso entre los escombros para encontrar sobrevivientes.</p>
+      <p class="cz-lead">Frente a una tragedia así, muchos sentimos la misma pregunta:</p>
+      <p class="cz-pivot">¿Qué puedo hacer yo?</p>
+      <p>De ahí nació <strong>Fortalecidos por la Adversidad</strong>, una iniciativa de <strong>Operación Esperanza</strong>: reunimos a mentores y expertos para compartir conocimiento valioso de forma gratuita y convertir cada donación voluntaria en ayuda directa para quienes más lo necesitan hoy. No es un evento de venta: es un espacio para <strong>aprender, acompañar y aportar</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ============ NÚMEROS ============ -->
+  <section class="section numbers wrap" aria-labelledby="num-title">
+    <div class="head">
+      <span class="label">El evento en números</span>
+      <h2 id="num-title">Un día completo, una sola causa</h2>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><span class="n">12<span style="font-size:0.5em; font-weight:500;">h</span></span><span class="k">Transmisión continua, sin pausas</span></div>
+      <div class="stat reveal"><span class="n">24</span><span class="k">Conferencias de expertos invitados</span></div>
+      <div class="stat reveal"><span class="n">$0</span><span class="k">Costo de inscripción</span></div>
+      <div class="stat reveal"><span class="n">100<span style="font-size:0.5em; font-weight:500;">%</span></span><span class="k">De las donaciones para la causa</span></div>
+    </div>
+  </section>
+
+  <!-- ============ SPEAKERS ============ -->
+  <section class="section speakers wrap" aria-labelledby="sp-title">
+    <div class="head">
+      <span class="label">Ponentes</span>
+      <h2 id="sp-title">Los expertos, en camino</h2>
+      <p>Estamos confirmando a los mentores de cada área. Estos son algunos de los temas que vas a encontrar durante las 24 conferencias.</p>
+    </div>
+    <div class="sp-grid">
+      <!-- Card 1 -->
+      <article class="sp-card reveal">
+        <div class="sp-photo">
+          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
+            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
+          </svg>
+          <span class="ph-cap">Foto por confirmar</span>
+        </div>
+        <span class="sp-num">01</span>
+        <p class="sp-role">Ponente por confirmar</p>
+        <p class="sp-topic"><b>Resiliencia frente a la adversidad</b> — sostener una actitud fuerte cuando la vida golpea.</p>
+      </article>
+      <!-- Card 2 -->
+      <article class="sp-card reveal">
+        <div class="sp-photo">
+          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
+            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
+          </svg>
+          <span class="ph-cap">Foto por confirmar</span>
+        </div>
+        <span class="sp-num">02</span>
+        <p class="sp-role">Ponente por confirmar</p>
+        <p class="sp-topic"><b>Finanzas personales</b> — administra, genera y ahorra dinero de forma inteligente.</p>
+      </article>
+      <!-- Card 3 -->
+      <article class="sp-card reveal">
+        <div class="sp-photo">
+          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
+            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
+          </svg>
+          <span class="ph-cap">Foto por confirmar</span>
+        </div>
+        <span class="sp-num">03</span>
+        <p class="sp-role">Ponente por confirmar</p>
+        <p class="sp-topic"><b>Comunicación persuasiva</b> — negocia y comunica tus ideas con más impacto.</p>
+      </article>
+      <!-- Card 4 -->
+      <article class="sp-card reveal">
+        <div class="sp-photo">
+          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
+            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
+          </svg>
+          <span class="ph-cap">Foto por confirmar</span>
+        </div>
+        <span class="sp-num">04</span>
+        <p class="sp-role">Ponente por confirmar</p>
+        <p class="sp-topic"><b>Inteligencia artificial aplicada</b> — optimiza tu tiempo y tu dinero con IA en tu día a día.</p>
+      </article>
+      <!-- Card 5 -->
+      <article class="sp-card reveal">
+        <div class="sp-photo">
+          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
+            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
+          </svg>
+          <span class="ph-cap">Foto por confirmar</span>
+        </div>
+        <span class="sp-num">05</span>
+        <p class="sp-role">Ponente por confirmar</p>
+        <p class="sp-topic"><b>Conexión espiritual</b> — herramientas para expandir y fortalecer tu vida espiritual.</p>
+      </article>
+      <!-- Card 6 -->
+      <article class="sp-card reveal">
+        <div class="sp-photo">
+          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
+            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
+          </svg>
+          <span class="ph-cap">Foto por confirmar</span>
+        </div>
+        <span class="sp-num">06</span>
+        <p class="sp-role">Ponente por confirmar</p>
+        <p class="sp-topic"><b>Marca personal</b> — crea una marca que crezca y tenga impacto masivo.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="section final wrap" aria-labelledby="final-title">
+    <div class="seam seam--center" aria-hidden="true">
+      <span class="s-blue"></span><span class="s-yellow"></span><span class="s-red"></span>
+    </div>
+    <h2 id="final-title">Tu registro es gratis. Tu ayuda puede ser enorme.</h2>
+    <p>Únete el sábado a 12 horas de aprendizaje con un propósito: acompañar a Venezuela.</p>
+    <div class="cta-row">
+      <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">Quiero registrarme gratis</a>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap foot-inner">
+    <div class="fb">
+      <img src="../../assets/logos/LOGO-V-1-N.png" alt="Operación Esperanza" />
+      <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88-5-4.87 7.1-1.01L12 2z"/></svg>
+    </div>
+    <p>Evento digital solidario “Fortalecidos Por la Adversidad” · Operación Esperanza. Todo lo recaudado se destina a la ayuda humanitaria para las familias afectadas por el terremoto en Venezuela.</p>
+  </div>
+</footer>
+
+<script>
+  // ---------- Reveal sutil (transform + opacity) ----------
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    }
+  })();
+
+  // ---------- Video del hero: loop silenciado (sin audio) ----------
+  (function () {
+    var media = document.getElementById('heroMedia');
+    var v = document.getElementById('heroVideo');
+    if (!media || !v) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var playBtn = media.querySelector('.vplay');
+
+    function markPaused(p) { media.classList.toggle('paused', p); }
+
+    // Autoplay silenciado solo si el usuario no pidió reducir movimiento
+    if (!reduce) {
+      var p = v.play();
+      if (p && p.catch) { p.catch(function () { markPaused(true); }); }
+    } else {
+      markPaused(true);
+    }
+
+    v.addEventListener('pause', function () { markPaused(true); });
+    v.addEventListener('play',  function () { markPaused(false); });
+    if (playBtn) playBtn.addEventListener('click', function () { v.play(); });
+  })();
+
+  // ---------- Contador regresivo (barra superior) ----------
+  // Próximo sábado: 4 de julio de 2026, 9:00 a.m. hora de Venezuela (UTC-4).
+  // Ajusta la hora si el evento arranca a otra hora.
+  (function () {
+    var TARGET = new Date('2026-07-04T09:00:00-04:00').getTime();
+    var out = {
+      d: document.querySelector('[data-cd="d"]'),
+      h: document.querySelector('[data-cd="h"]'),
+      m: document.querySelector('[data-cd="m"]'),
+      s: document.querySelector('[data-cd="s"]')
+    };
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      if (!TARGET) return; // sin fecha => se mantiene el placeholder "--"
+      var diff = Math.max(0, TARGET - Date.now());
+      var s = Math.floor(diff / 1000);
+      out.d.textContent = pad(Math.floor(s / 86400));
+      out.h.textContent = pad(Math.floor((s % 86400) / 3600));
+      out.m.textContent = pad(Math.floor((s % 3600) / 60));
+      out.s.textContent = pad(s % 60);
+    }
+    if (TARGET) { tick(); setInterval(tick, 1000); }
+  })();
+
+  // ---------- Flechas del slider de ponentes (mobile) ----------
+  (function () {
+    var slider = document.querySelector('.tk-row[data-dir="left"]');
+    var arrows = document.querySelectorAll('.tk-arrow');
+    if (!slider || !arrows.length) return;
+    arrows.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var amount = Math.max(220, slider.clientWidth * 0.8);
+        slider.scrollBy({ left: btn.dataset.tk === 'next' ? amount : -amount, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

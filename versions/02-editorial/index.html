@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fortalecidos Por la Adversidad — Clase solidaria en vivo | Operación Esperanza</title>
+<meta name="description" content="Un sábado, 12 horas en vivo, 24 conferencias de expertos. Registro 100% gratuito. Durante el evento donas si quieres, y el 100% ayuda a las familias afectadas por el terremoto en Venezuela." />
+
+<!-- Fonts: Fraunces (display serif, warm/editorial) + Libre Franklin (humanist institutional sans) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — "Editorial claro / Institucional"
+   Positioning: masterclass con propósito. Blanco dominante,
+   azul de marca como acento principal (60-30-10), amarillo/rojo
+   como detalle mínimo. Aire generoso, tipografía serena.
+   ============================================================ */
+:root{
+  /* Type */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  --fw-regular:400; --fw-medium:500; --fw-semibold:600; --fw-bold:700;
+
+  /* Modular scale — Perfect fourth (1.333), editorial */
+  --text-xs: .75rem;
+  --text-sm: .875rem;
+  --text-base: 1rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+  --text-4xl: clamp(2.6rem, 6vw, 4.6rem);
+  --text-5xl: clamp(3.4rem, 8vw, 6rem);
+
+  /* Color — authored in OKLCH with hex fallback */
+  --bg:            #fafafb;  --bg-ok:      oklch(0.985 0.003 255);
+  --surface:       #ffffff;  --surface-ok: oklch(1 0 0);
+  --surface-2:     #f4f6fb;  --surface2-ok:oklch(0.965 0.008 262);
+  --ink:           #1a2338;  --ink-ok:     oklch(0.255 0.032 264);
+  --muted:         #59607a;  --muted-ok:   oklch(0.505 0.028 268);
+  --faint:         #8a90a6;  --faint-ok:   oklch(0.655 0.024 270);
+  --border:        #e5e8f0;  --border-ok:  oklch(0.925 0.007 264);
+  --border-strong: #d3d8e6;  --borders-ok: oklch(0.88 0.011 264);
+
+  --brand:         #1b3a97;  --brand-ok:   oklch(0.402 0.152 264);
+  --brand-strong:  #142d78;  --brands-ok:  oklch(0.335 0.14 264);
+  --brand-wash:    #edf1fb;  --brandw-ok:  oklch(0.955 0.022 264);
+  --on-brand:      #f5f7fd;  --onbrand-ok: oklch(0.97 0.006 264);
+
+  --amber:         #f4b825;  --amber-ok:   oklch(0.808 0.14 84);
+  --red:           #d42a2a;  --red-ok:     oklch(0.552 0.202 27);
+
+  /* Spacing base unit = 4px */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px;
+  --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px; --sp-10:128px;
+
+  --radius: 6px;
+  --radius-lg: 12px;
+
+  /* One elevation approach: soft, low, transparent-ink shadow (no borders stacked) */
+  --shadow-1: 0 1px 2px rgba(20,28,54,.05), 0 8px 24px -12px rgba(20,28,54,.14);
+  --shadow-2: 0 2px 4px rgba(20,28,54,.06), 0 20px 48px -20px rgba(20,28,54,.22);
+
+  --measure: 62ch;
+  --container: 1180px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --dur: 240ms;
+}
+
+@supports (color: oklch(0 0 0)){
+  :root{
+    --bg:var(--bg-ok); --surface:var(--surface-ok); --surface-2:var(--surface2-ok);
+    --ink:var(--ink-ok); --muted:var(--muted-ok); --faint:var(--faint-ok);
+    --border:var(--border-ok); --border-strong:var(--borders-ok);
+    --brand:var(--brand-ok); --brand-strong:var(--brands-ok);
+    --brand-wash:var(--brandw-ok); --on-brand:var(--onbrand-ok);
+    --amber:var(--amber-ok); --red:var(--red-ok);
+  }
+}
+
+/* ============================================================ RESET */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font-sans); font-size:var(--text-base);
+  line-height:1.65; font-weight:var(--fw-regular);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img,video,svg{display:block; max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,p{margin:0}
+:focus-visible{outline:none; box-shadow:0 0 0 3px var(--surface), 0 0 0 5.5px var(--brand); border-radius:4px}
+
+.skip{position:absolute; left:-999px; top:8px; z-index:100; background:var(--brand); color:#fff;
+  padding:10px 16px; border-radius:var(--radius); font-weight:600; font-size:var(--text-sm)}
+.skip:focus{left:16px}
+
+/* ============================================================ LAYOUT */
+.container{width:100%; max-width:var(--container); margin-inline:auto; padding-inline:24px}
+.section{padding-block:clamp(64px,10vw,128px)}
+.tricolor{height:3px; background:linear-gradient(90deg,var(--brand) 0 55%,var(--amber) 55% 82%,var(--red) 82% 100%)}
+
+.eyebrow{
+  font-family:var(--font-sans); font-weight:var(--fw-semibold);
+  font-size:var(--text-xs); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--brand); display:inline-flex; align-items:center; gap:10px;
+}
+.eyebrow .star{width:14px;height:14px;color:var(--amber);flex:none}
+
+h1,h2,h3{font-family:var(--font-display); font-weight:var(--fw-semibold); line-height:1.05;
+  letter-spacing:-.015em; color:var(--ink); font-optical-sizing:auto}
+.h-serif-lead{font-family:var(--font-display); font-weight:var(--fw-regular); font-style:normal}
+
+.lead{font-size:var(--text-lg); line-height:1.6; color:var(--muted); max-width:var(--measure)}
+
+/* ============================================================ BUTTONS */
+.btn{
+  --_pad:15px 26px;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--font-sans); font-weight:var(--fw-semibold); font-size:var(--text-base);
+  line-height:1; min-height:48px; padding:var(--_pad); border-radius:var(--radius);
+  border:1px solid transparent; cursor:pointer; text-decoration:none;
+  transition:transform var(--dur) var(--ease), background-color var(--dur) var(--ease),
+             box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--brand); color:#fff; box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--brand-strong); transform:translateY(-1px); box-shadow:var(--shadow-2)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{background:transparent; color:var(--brand); border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--brand-wash); border-color:var(--brand)}
+.btn-sm{min-height:44px; padding:11px 18px; font-size:var(--text-sm)}
+.btn-lg{min-height:56px; padding:18px 34px; font-size:var(--text-lg)}
+
+/* ============================================================ HEADER */
+.site-header{position:sticky; top:0; z-index:50; background:color-mix(in srgb,var(--bg) 88%, transparent);
+  backdrop-filter:saturate(1.4) blur(10px); border-bottom:1px solid transparent;
+  transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease)}
+.site-header[data-scrolled="true"]{border-bottom-color:var(--border); box-shadow:0 1px 0 rgba(20,28,54,.02)}
+.header-inner{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:74px}
+.brand-lockup{display:flex; align-items:center; gap:12px; text-decoration:none}
+.brand-lockup img{height:44px; width:auto}
+.brand-lockup .wordmark{display:none; font-weight:600; font-size:var(--text-sm); color:var(--muted); letter-spacing:.01em}
+.header-cta{display:flex; align-items:center; gap:14px}
+.header-note{display:none; font-size:var(--text-sm); color:var(--muted); font-weight:500}
+
+/* ============================================================ HERO */
+.hero{position:relative; overflow:hidden; padding-block:clamp(56px,9vw,110px) clamp(56px,8vw,96px)}
+.hero::before{ /* subtle guiding-star glow, top-right */
+  content:""; position:absolute; inset:auto -10% auto auto; top:-140px; right:-120px;
+  width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle, var(--brand-wash) 0%, transparent 68%); z-index:0; pointer-events:none;
+}
+.hero-grid{position:relative; z-index:1; display:grid; grid-template-columns:1.35fr .85fr; gap:clamp(32px,5vw,72px); align-items:start}
+.hero-copy{max-width:660px}
+.hero h1{font-size:var(--text-5xl); margin-top:22px; letter-spacing:-.025em}
+.hero h1 .warm{color:var(--brand)}
+.hero .lead{margin-top:24px; font-size:clamp(1.05rem,1.6vw,1.28rem)}
+.chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; padding:0; list-style:none}
+.chip{display:inline-flex; align-items:center; gap:9px; padding:9px 15px; background:var(--surface);
+  border:1px solid var(--border); border-radius:100px; font-size:var(--text-sm); font-weight:500; color:var(--ink)}
+.chip svg{width:16px;height:16px;color:var(--brand);flex:none}
+.hero-actions{margin-top:34px; display:flex; flex-wrap:wrap; align-items:center; gap:16px}
+.hero-micro{margin-top:18px; font-size:var(--text-sm); color:var(--muted); max-width:54ch; display:flex; gap:9px}
+.hero-micro svg{width:17px;height:17px;color:var(--amber);flex:none;margin-top:2px}
+
+/* Date + countdown module (credibility anchor) */
+.event-card{position:relative; z-index:1; background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--radius-lg); box-shadow:var(--shadow-1); padding:26px 26px 24px; align-self:start}
+.event-card .tag{font-size:var(--text-xs); letter-spacing:.13em; text-transform:uppercase; font-weight:600; color:var(--faint)}
+.event-card .when{font-family:var(--font-display); font-weight:600; font-size:var(--text-xl); margin-top:8px; color:var(--ink); line-height:1.15}
+.event-card .tz{font-size:var(--text-sm); color:var(--muted); margin-top:6px}
+.event-card hr{border:none; border-top:1px solid var(--border); margin:20px 0}
+.count-label{font-size:var(--text-xs); letter-spacing:.11em; text-transform:uppercase; color:var(--faint); font-weight:600}
+.countdown{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:12px}
+.count-cell{background:var(--surface-2); border-radius:var(--radius); padding:12px 6px; text-align:center}
+.count-num{font-family:var(--font-display); font-weight:600; font-size:1.7rem; color:var(--brand);
+  line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+.count-unit{display:block; margin-top:6px; font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:600}
+.event-card .foot{margin-top:18px; font-size:var(--text-xs); color:var(--faint); display:flex; align-items:center; gap:7px}
+.event-card .foot .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);flex:none}
+
+/* ============================================================ WHY + VIDEO */
+.why-head{max-width:760px}
+.why-head h2{font-size:var(--text-4xl); margin-top:18px}
+.why-sub{font-family:var(--font-display); font-weight:var(--fw-regular); font-size:clamp(1.35rem,2.6vw,1.9rem);
+  color:var(--brand); margin-top:14px; line-height:1.25; letter-spacing:-.01em}
+.why-body{display:grid; grid-template-columns:1fr; gap:18px; margin-top:26px; max-width:var(--measure)}
+.why-body p{color:var(--muted); font-size:var(--text-lg); line-height:1.7}
+.why-body p strong{color:var(--ink); font-weight:600}
+
+.video-frame{margin-top:clamp(40px,6vw,64px)}
+.video-shell{position:relative; max-width:940px; margin-inline:auto; border-radius:var(--radius-lg);
+  overflow:hidden; background:#0d1220; box-shadow:var(--shadow-2); border:1px solid var(--border)}
+.video-shell .bar{position:absolute; top:0; left:0; right:0; height:3px; z-index:3;
+  background:linear-gradient(90deg,var(--brand) 0 55%,var(--amber) 55% 82%,var(--red) 82% 100%)}
+.video-shell video{width:100%; aspect-ratio:16/9; object-fit:cover; display:block}
+.video-caption{max-width:940px; margin:16px auto 0; font-size:var(--text-sm); color:var(--muted);
+  display:flex; gap:9px; align-items:flex-start}
+.video-caption svg{width:16px;height:16px;color:var(--brand);flex:none;margin-top:3px}
+
+/* ============================================================ NUMBERS (blue band = the 30%) */
+.numbers{background:var(--brand); color:var(--on-brand); position:relative; overflow:hidden}
+.numbers::after{content:""; position:absolute; right:-80px; bottom:-120px; width:360px; height:360px;
+  border-radius:50%; background:radial-gradient(circle,rgba(244,184,37,.16),transparent 66%); pointer-events:none}
+.numbers .eyebrow{color:var(--amber)}
+.numbers h2{color:#fff; font-size:var(--text-3xl); margin-top:14px; max-width:16ch}
+.stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:clamp(36px,5vw,56px);
+  position:relative; z-index:1}
+.stat{padding:8px 26px; border-left:1px solid rgba(245,247,253,.16)}
+.stat:first-child{padding-left:0; border-left:none}
+.stat .num{font-family:var(--font-display); font-weight:600; font-size:clamp(2.8rem,6vw,4rem);
+  line-height:1; letter-spacing:-.02em; color:#fff; font-variant-numeric:tabular-nums}
+.stat .num .u{color:var(--amber); font-size:.5em; margin-left:2px}
+.stat .lbl{margin-top:14px; font-size:var(--text-sm); color:var(--on-brand); line-height:1.45; opacity:.92}
+
+/* ============================================================ SPEAKERS */
+.speakers .head{display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:24px; max-width:100%}
+.speakers .head .htxt{max-width:640px}
+.speakers h2{font-size:var(--text-4xl); margin-top:16px}
+.speakers .head p{margin-top:16px; color:var(--muted); font-size:var(--text-lg); max-width:56ch}
+.spk-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:clamp(40px,5vw,60px)}
+.spk-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+  overflow:hidden; display:flex; flex-direction:column; transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease)}
+.spk-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-2); border-color:var(--border-strong)}
+.spk-photo{position:relative; aspect-ratio:5/4; background:
+    radial-gradient(120% 120% at 30% 15%, var(--brand-wash) 0%, var(--surface-2) 60%);
+  display:flex; align-items:center; justify-content:center}
+.spk-photo .num{position:absolute; top:14px; left:16px; font-family:var(--font-display);
+  font-weight:600; font-size:var(--text-sm); color:var(--brand); letter-spacing:.02em}
+.spk-photo .pending{position:absolute; bottom:14px; left:16px; font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; font-weight:600; color:var(--faint); display:flex; align-items:center; gap:7px}
+.spk-photo .pending .dot{width:6px;height:6px;border-radius:50%;background:var(--amber)}
+.medallion{width:88px; height:88px; border-radius:50%; background:var(--surface); border:1px solid var(--border);
+  box-shadow:var(--shadow-1); display:flex; align-items:center; justify-content:center}
+.medallion svg{width:38px;height:38px;color:var(--brand)}
+.spk-body{padding:22px 22px 24px; display:flex; flex-direction:column; gap:10px; flex:1}
+.spk-topic{font-size:var(--text-xs); letter-spacing:.1em; text-transform:uppercase; font-weight:600; color:var(--brand)}
+.spk-name{font-family:var(--font-display); font-weight:600; font-size:var(--text-xl); color:var(--ink); line-height:1.15}
+.spk-role{font-size:var(--text-sm); color:var(--muted); line-height:1.55}
+.spk-bio{margin-top:auto; padding-top:16px; border-top:1px solid var(--border)}
+.spk-bio .k{font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:600; color:var(--faint)}
+.spk-bio .v{font-size:var(--text-sm); color:var(--muted); margin-top:5px; line-height:1.55}
+.speakers .more{margin-top:34px; font-size:var(--text-sm); color:var(--muted); display:flex; align-items:center; gap:9px; justify-content:center}
+.speakers .more svg{width:15px;height:15px;color:var(--amber)}
+
+/* ============================================================ CLOSING CTA */
+.closing{text-align:center}
+.closing .inner{max-width:720px; margin-inline:auto}
+.closing .eyebrow{justify-content:center}
+.closing h2{font-size:var(--text-4xl); margin-top:18px}
+.closing .sub{font-family:var(--font-display); font-weight:var(--fw-regular); color:var(--brand);
+  font-size:clamp(1.3rem,2.4vw,1.8rem); margin-top:14px; line-height:1.3}
+.closing p{margin-top:20px; color:var(--muted); font-size:var(--text-lg); max-width:52ch; margin-inline:auto}
+.closing .hero-actions{justify-content:center; margin-top:32px}
+.closing .hero-micro{justify-content:center; margin-inline:auto; text-align:left}
+
+/* ============================================================ FOOTER */
+.site-footer{background:var(--surface); border-top:1px solid var(--border); padding-block:48px}
+.footer-inner{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px}
+.site-footer img{height:40px; width:auto}
+.site-footer p{font-size:var(--text-sm); color:var(--muted); max-width:56ch; line-height:1.6}
+
+/* ============================================================ REVEAL MOTION */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity 460ms var(--ease), transform 460ms var(--ease)}
+.reveal.is-in{opacity:1; transform:none}
+.reveal[data-d="1"]{transition-delay:70ms}
+.reveal[data-d="2"]{transition-delay:140ms}
+.reveal[data-d="3"]{transition-delay:210ms}
+
+/* ============================================================ RESPONSIVE */
+@media (min-width:600px){
+  .brand-lockup .wordmark{display:block}
+  .header-note{display:block}
+}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr; gap:44px}
+  .event-card{max-width:460px}
+  .spk-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-grid{grid-template-columns:repeat(2,1fr); gap:32px 0}
+  .stat{padding:8px 22px}
+  .stat:nth-child(odd){padding-left:0; border-left:none}
+  .stat:nth-child(even){border-left:1px solid rgba(245,247,253,.16)}
+}
+@media (max-width:560px){
+  .container{padding-inline:20px}
+  .spk-grid{grid-template-columns:1fr}
+  .chips{gap:8px}
+  .header-cta .btn span.long{display:none}
+  .hero-actions .btn{width:100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important; transition-duration:.01ms !important; scroll-behavior:auto !important}
+  .reveal{opacity:1; transform:none}
+  .btn-primary:hover, .spk-card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#registro">Saltar al registro</a>
+<div class="tricolor" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand-lockup" href="#top" aria-label="Operación Esperanza — inicio">
+      <img src="../../assets/logos/LOGO-V-1.png" alt="Operación Esperanza" />
+      <span class="wordmark">Fortalecidos Por la Adversidad</span>
+    </a>
+    <div class="header-cta">
+      <span class="header-note">Sábado · 12 horas en vivo</span>
+      <a class="btn btn-primary btn-sm" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">
+        Reserva tu lugar <span class="long">gratis</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal">
+        <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>
+        Clase solidaria en vivo · Un solo sábado
+      </span>
+      <h1 class="reveal" data-d="1">Fortalecidos <span class="warm">Por la Adversidad</span></h1>
+      <p class="lead reveal" data-d="2">24 conferencias en 12 horas sobre finanzas, mentalidad, persuasión y espiritualidad. Un día completo para aprender de expertos y, si tu corazón lo indica, ayudar a las familias afectadas por el terremoto en Venezuela.</p>
+
+      <ul class="chips reveal" data-d="2">
+        <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>12 horas en vivo</li>
+        <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>24 conferencias</li>
+        <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L9 18l-5-5"/></svg>Registro 100% gratuito</li>
+      </ul>
+
+      <div class="hero-actions reveal" data-d="3">
+        <a class="btn btn-primary btn-lg" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">
+          Quiero registrarme gratis
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <p class="hero-micro reveal" data-d="3">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>
+        Tu lugar es gratis. Durante el evento podrás donar lo que quieras y quedarte con las 24 grabaciones.
+      </p>
+    </div>
+
+    <!-- Date + countdown anchor -->
+    <aside class="event-card reveal" data-d="2" aria-label="Fecha y cuenta regresiva del evento">
+      <span class="tag">Guarda la fecha</span>
+      <p class="when">Sábado · <span data-placeholder>Fecha por confirmar</span></p>
+      <p class="tz">Inicio 9:00 a.m. (hora Venezuela) · <em>horario por confirmar</em></p>
+      <hr />
+      <span class="count-label">Cuenta regresiva (referencial)</span>
+      <div class="countdown" id="countdown" aria-hidden="true">
+        <div class="count-cell"><span class="count-num" data-c="d">00</span><span class="count-unit">Días</span></div>
+        <div class="count-cell"><span class="count-num" data-c="h">00</span><span class="count-unit">Horas</span></div>
+        <div class="count-cell"><span class="count-num" data-c="m">00</span><span class="count-unit">Min</span></div>
+        <div class="count-cell"><span class="count-num" data-c="s">00</span><span class="count-unit">Seg</span></div>
+      </div>
+      <p class="foot"><span class="dot" aria-hidden="true"></span>Recaudación 100% para la causa · Organiza Operación Esperanza</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ===================== POR QUÉ ESTE EVENTO ===================== -->
+<section class="section" id="por-que">
+  <div class="container">
+    <div class="why-head reveal">
+      <span class="eyebrow">
+        <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>
+        Por qué este evento
+      </span>
+      <h2>Venezuela necesita manos, y nosotros tenemos una comunidad</h2>
+      <div class="why-body">
+        <p>El terremoto que sacudió a Venezuela dejó a miles de familias sin hogar y a equipos de rescate trabajando sin descanso entre los escombros. Frente a una tragedia así, muchos sentimos la misma pregunta: <strong>¿qué puedo hacer yo?</strong></p>
+        <p>“Fortalecidos Por la Adversidad” nació de esa pregunta. Reunimos a líderes, mentores y expertos de distintas áreas para compartir conocimiento valioso de forma gratuita, y convertir cada donación voluntaria en ayuda directa para quienes más lo necesitan hoy.</p>
+        <p>No es un evento de venta. Es un espacio para <strong>aprender, conectarnos y, sobre todo, aportar.</strong></p>
+      </div>
+    </div>
+
+    <figure class="video-frame reveal" data-d="1" style="margin:0">
+      <div class="video-shell">
+        <span class="bar" aria-hidden="true"></span>
+        <video controls preload="none" playsinline poster="../../assets/videos/video-preview.webp">
+          <source src="../../assets/videos/video.mp4" type="video/mp4" />
+          Tu navegador no admite el video. <a href="../../assets/videos/video.mp4">Ver el video</a>.
+        </video>
+      </div>
+      <figcaption class="video-caption">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
+        Material documental real de las labores de rescate. Cada registro y cada donación acercan más ayuda a quienes hoy la esperan.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== NÚMEROS ===================== -->
+<section class="section numbers">
+  <div class="container">
+    <span class="eyebrow reveal">
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>
+      El evento en números
+    </span>
+    <h2 class="reveal" data-d="1">Un día entero de aprendizaje con un solo propósito</h2>
+    <div class="stat-grid">
+      <div class="stat reveal" data-d="1"><div class="num">12<span class="u">h</span></div><div class="lbl">De transmisión continua, sin pausas</div></div>
+      <div class="stat reveal" data-d="2"><div class="num">24</div><div class="lbl">Conferencias de expertos invitados</div></div>
+      <div class="stat reveal" data-d="2"><div class="num"><span class="u">$</span>0</div><div class="lbl">Costo de inscripción al evento</div></div>
+      <div class="stat reveal" data-d="3"><div class="num">100<span class="u">%</span></div><div class="lbl">De las donaciones para la causa</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SPEAKERS ===================== -->
+<section class="section speakers" id="speakers">
+  <div class="container">
+    <div class="head">
+      <div class="htxt reveal">
+        <span class="eyebrow">
+          <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>
+          Quienes te acompañan
+        </span>
+        <h2>Mentores y expertos, un tema por conferencia</h2>
+        <p>Ocho grandes áreas de vida, trabajadas por distintos ponentes a lo largo de las 24 conferencias. Estamos confirmando la selección; estos son algunos de los espacios que vivirás.</p>
+      </div>
+      <a class="btn btn-ghost reveal" data-d="1" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">Reserva tu lugar gratis</a>
+    </div>
+
+    <div class="spk-grid" id="spk-grid"><!-- cards injected --></div>
+
+    <p class="more reveal">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>
+      Y muchos más durante las 24 conferencias.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== CIERRE ===================== -->
+<section class="section closing" id="registro">
+  <div class="container inner">
+    <span class="eyebrow reveal">
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>
+      No te quedes fuera
+    </span>
+    <h2 class="reveal" data-d="1">Tu registro es gratis. Tu ayuda puede ser enorme.</h2>
+    <p class="sub reveal" data-d="1">Aprender gratis. Donar si quieres. Ayudar siempre.</p>
+    <p class="reveal" data-d="2">Únete el sábado a 12 horas de aprendizaje con un propósito: apoyar a las familias de Venezuela y a los equipos de rescate.</p>
+    <div class="hero-actions reveal" data-d="2">
+      <a class="btn btn-primary btn-lg" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">
+        Quiero registrarme gratis
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <p class="hero-micro reveal" data-d="3">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>
+      Solo usamos tu nombre y tu correo para enviarte el acceso. Sin ventas, sin spam, sin sorpresas.
+    </p>
+  </div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="../../assets/logos/LOGO-V-1.png" alt="Operación Esperanza" />
+    <p>Evento digital solidario “Fortalecidos Por la Adversidad”, organizado por Operación Esperanza. Todo lo recaudado se destina a la ayuda humanitaria para Venezuela.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Header shadow on scroll */
+  var header = document.querySelector(".site-header");
+  var onScroll = function(){ header.dataset.scrolled = (window.scrollY > 8) ? "true" : "false"; };
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+
+  /* Speaker cards — dignified placeholders (a subset of the 8 areas) */
+  var speakers = [
+    {n:"01", topic:"Resiliencia frente a la adversidad", role:"Cómo sostener una actitud fuerte cuando la vida golpea fuerte."},
+    {n:"02", topic:"Conexión espiritual", role:"Herramientas para expandir y fortalecer tu vida espiritual."},
+    {n:"03", topic:"Comunicación persuasiva", role:"Cómo negociar y comunicar tus ideas con más impacto."},
+    {n:"04", topic:"Finanzas personales", role:"Administra, genera y ahorra dinero de forma inteligente."},
+    {n:"05", topic:"Inteligencia artificial aplicada", role:"Optimiza tu tiempo y tu dinero usando IA en tu día a día."},
+    {n:"08", topic:"Marca personal", role:"Crea una marca que crezca y tenga impacto masivo."}
+  ];
+  var star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.7 6.2 6.8.5-5.2 4.4 1.7 6.6L12 16.9 6 19.7l1.7-6.6L2.5 8.7l6.8-.5z"/></svg>';
+  var grid = document.getElementById("spk-grid");
+  var html = "";
+  speakers.forEach(function(s, i){
+    var delay = (i % 3) + 1;
+    html +=
+      '<article class="spk-card reveal" data-d="'+delay+'">'+
+        '<div class="spk-photo">'+
+          '<span class="num">'+s.n+'</span>'+
+          '<div class="medallion" role="img" aria-label="Ponente por confirmar">'+star+'</div>'+
+          '<span class="pending"><span class="dot"></span>Foto por confirmar</span>'+
+        '</div>'+
+        '<div class="spk-body">'+
+          '<span class="spk-topic">'+s.topic+'</span>'+
+          '<h3 class="spk-name">Ponente por confirmar</h3>'+
+          '<p class="spk-role">'+s.role+'</p>'+
+          '<div class="spk-bio"><span class="k">Su trasfondo</span><p class="v">Bio breve por confirmar: experiencia y trayectoria del ponente en esta área.</p></div>'+
+        '</div>'+
+      '</article>';
+  });
+  grid.innerHTML = html;
+
+  /* Reveal on scroll */
+  var items = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)){
+    items.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("is-in"); io.unobserve(e.target); } });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.08});
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  /* Countdown (referential placeholder → next Saturday 09:00 local) */
+  var cd = document.getElementById("countdown");
+  function nextSaturday9(){
+    var now = new Date();
+    var d = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 0, 0, 0);
+    var add = (6 - d.getDay() + 7) % 7;
+    if (add === 0 && now.getTime() > d.getTime()) add = 7;
+    d.setDate(d.getDate() + add);
+    return d;
+  }
+  var target = nextSaturday9();
+  var cells = {
+    d: cd.querySelector('[data-c="d"]'), h: cd.querySelector('[data-c="h"]'),
+    m: cd.querySelector('[data-c="m"]'), s: cd.querySelector('[data-c="s"]')
+  };
+  function pad(n){ return (n<10?"0":"")+n; }
+  function tick(){
+    var diff = Math.max(0, target - new Date());
+    var s = Math.floor(diff/1000);
+    cells.d.textContent = pad(Math.floor(s/86400));
+    cells.h.textContent = pad(Math.floor(s%86400/3600));
+    cells.m.textContent = pad(Math.floor(s%3600/60));
+    cells.s.textContent = pad(s%60);
+  }
+  tick();
+  if(!reduce){ setInterval(tick, 1000); }
+})();
+</script>
+</body>
+</html>
