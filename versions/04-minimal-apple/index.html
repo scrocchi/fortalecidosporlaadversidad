@@ -522,6 +522,21 @@
     overflow: hidden;
   }
   .sp-photo img { width: 100%; height: 100%; object-fit: cover; }
+  /* Chip de categoría (tema del ponente) sobre la foto; el punto usa el color del speaker */
+  .sp-cat {
+    position: absolute; top: 0.6rem; left: 0.6rem; z-index: 1;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.25rem 0.6rem; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--line);
+    font-family: var(--font-mono); font-size: 0.7rem;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
+    max-width: calc(100% - 1.2rem); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .sp-cat::before {
+    content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%;
+    background: hsl(var(--h, 220) 75% 48%);
+  }
   /* Monograma de respaldo cuando aún no hay foto */
   .sp-mono, .tk-mono {
     width: 100%; height: 100%; display: grid; place-items: center;
@@ -831,10 +846,17 @@
       LIST.forEach(function (sp, i) {
         var card = document.createElement("article");
         card.className = "sp-card reveal";
+        card.style.setProperty("--h", sp.color);
 
         var photo = document.createElement("div");
         photo.className = "sp-photo";
         photo.appendChild(photoNode(sp, "sp-mono"));
+        if (sp.tema) {
+          var cat = document.createElement("span");
+          cat.className = "sp-cat";
+          cat.textContent = sp.tema;
+          photo.appendChild(cat);
+        }
         card.appendChild(photo);
 
         var num = document.createElement("span");
@@ -847,10 +869,14 @@
         role.textContent = sp.nombre;
         card.appendChild(role);
 
-        var area = document.createElement("p");
-        area.className = "sp-area";
-        area.textContent = (sp.charla && sp.charla.titulo) || sp.tema || "";
-        card.appendChild(area);
+        // El tema ya va en el chip; aquí solo el título de la charla si existe.
+        var talkTitle = sp.charla && sp.charla.titulo;
+        if (talkTitle) {
+          var area = document.createElement("p");
+          area.className = "sp-area";
+          area.textContent = talkTitle;
+          card.appendChild(area);
+        }
 
         var topic = document.createElement("p");
         topic.className = "sp-topic";
