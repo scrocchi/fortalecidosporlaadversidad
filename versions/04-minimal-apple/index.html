@@ -430,7 +430,7 @@
   .tk-desc {
     margin: 0.6rem 0 0; font-size: var(--text-sm);
     color: var(--ink-2); line-height: 1.5;
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
   }
 
   @media (max-width: 640px) {
@@ -523,18 +523,18 @@
   }
   .sp-photo img { width: 100%; height: 100%; object-fit: cover; }
   /* Chip de categoría (tema del ponente) sobre la foto; el punto usa el color del speaker */
-  .sp-cat {
-    position: absolute; top: 0.6rem; left: 0.6rem; z-index: 1;
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    padding: 0.25rem 0.6rem; border-radius: 999px;
-    background: rgba(255, 255, 255, 0.92);
+  .sp-cat, .tk-cat {
+    position: absolute; top: 0.7rem; left: 0.7rem; z-index: 1;
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    padding: 0.3rem 0.7rem; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid var(--line);
-    font-family: var(--font-mono); font-size: 0.7rem;
-    letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink);
-    max-width: calc(100% - 1.2rem); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-family: var(--font); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0; text-transform: none; color: var(--ink-2);
+    max-width: calc(100% - 1.4rem); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .sp-cat::before {
-    content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%;
+  .sp-cat::before, .tk-cat::before {
+    content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%;
     background: hsl(var(--h, 220) 75% 48%);
   }
   /* Monograma de respaldo cuando aún no hay foto */
@@ -906,18 +906,27 @@
       var ph = document.createElement("div");
       ph.className = "tk-photo";
       ph.appendChild(photoNode(sp, "tk-mono"));
+      if (sp.tema) {
+        var cat = document.createElement("span");
+        cat.className = "tk-cat";
+        cat.textContent = sp.tema;
+        ph.appendChild(cat);
+      }
       li.appendChild(ph);
 
       var body = document.createElement("div");
       body.className = "tk-body";
       var pA = document.createElement("p");
       pA.className = "tk-area";
-      pA.textContent = sp.tema || (sp.charla && sp.charla.titulo) || "";
-      var pB = document.createElement("p");
-      pB.className = "tk-by";
-      pB.textContent = "por " + sp.nombre;
+      pA.textContent = sp.nombre;
       body.appendChild(pA);
-      body.appendChild(pB);
+      var talk = sp.charla && sp.charla.titulo;
+      if (talk) {
+        var pB = document.createElement("p");
+        pB.className = "tk-by";
+        pB.textContent = talk;
+        body.appendChild(pB);
+      }
       var descTxt = (sp.charla && sp.charla.descripcion) || sp.bio || "";
       if (descTxt) {
         var pD = document.createElement("p");
