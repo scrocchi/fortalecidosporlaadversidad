@@ -1,6 +1,7 @@
 [
   {
     "id": "elbio-prida",
+    "color": 0,
     "nombre": "Elbio Prida",
     "tema": "Negocios",
     "status": "confirmado",
@@ -20,6 +21,7 @@
   },
   {
     "id": "ivan-molano",
+    "color": 28,
     "nombre": "Ivan Molano",
     "tema": "Negocios",
     "status": "confirmado",
@@ -37,6 +39,7 @@
   },
   {
     "id": "tian-rodriguez",
+    "color": 55,
     "nombre": "Tian Rodríguez",
     "tema": "Finanzas e inversión",
     "status": "confirmado",
@@ -56,6 +59,7 @@
   },
   {
     "id": "ricardo-salguero",
+    "color": 83,
     "nombre": "Ricardo Salguero",
     "tema": "Ventas y networking",
     "status": "confirmado",
@@ -73,6 +77,7 @@
   },
   {
     "id": "victor-real",
+    "color": 111,
     "nombre": "Victor Real",
     "tema": "Ventas y networking",
     "status": "confirmado",
@@ -90,6 +95,7 @@
   },
   {
     "id": "daniel-marcovich",
+    "color": 138,
     "nombre": "Daniel Marcovich",
     "tema": "Inteligencia artificial",
     "status": "confirmado",
@@ -111,6 +117,7 @@
   },
   {
     "id": "jhonson-vivas",
+    "color": 166,
     "nombre": "Jhonson Vivas",
     "tema": "Inteligencia artificial",
     "status": "confirmado",
@@ -132,6 +139,7 @@
   },
   {
     "id": "erika-nova",
+    "color": 194,
     "nombre": "Erika Nova",
     "tema": "Copywriting y persuasión",
     "status": "confirmado",
@@ -151,6 +159,7 @@
   },
   {
     "id": "jan-schroeder",
+    "color": 221,
     "nombre": "Jan Schröder",
     "tema": "Copywriting y persuasión",
     "status": "confirmado",
@@ -170,6 +179,7 @@
   },
   {
     "id": "fernando-munoz",
+    "color": 249,
     "nombre": "Fernando Muñoz",
     "tema": "Transformación personal",
     "status": "confirmado",
@@ -187,6 +197,7 @@
   },
   {
     "id": "maria-antonieta-hernandez",
+    "color": 277,
     "nombre": "María Antonieta Hernández",
     "tema": "Resiliencia",
     "status": "confirmado",
@@ -206,6 +217,7 @@
   },
   {
     "id": "paola-sanchez",
+    "color": 304,
     "nombre": "Paola Sánchez",
     "tema": "Salud y bienestar",
     "status": "confirmado",
@@ -223,6 +235,7 @@
   },
   {
     "id": "arcenio-jimenez",
+    "color": 332,
     "nombre": "Arcenio Jiménez",
     "tema": "Salud y bienestar",
     "status": "confirmado",
@@ -243,6 +256,7 @@
   },
   {
     "id": "camila-paola",
+    "color": 15,
     "nombre": "Camila Paola",
     "tema": "Finanzas e inversión",
     "status": "por-confirmar",
@@ -260,6 +274,7 @@
   },
   {
     "id": "jennifer-arteaga",
+    "color": 45,
     "nombre": "Jennifer Arteaga",
     "tema": "Transformación personal",
     "status": "por-confirmar",
@@ -277,6 +292,7 @@
   },
   {
     "id": "andres-ricci",
+    "color": 75,
     "nombre": "Andres Ricci",
     "tema": "Viralización en redes",
     "status": "por-confirmar",
@@ -294,6 +310,7 @@
   },
   {
     "id": "monica-montanez",
+    "color": 200,
     "nombre": "Monica Montañez",
     "tema": "Viralización en redes",
     "status": "por-confirmar",
@@ -311,6 +328,7 @@
   },
   {
     "id": "david-firman",
+    "color": 260,
     "nombre": "David Firman",
     "tema": "Espiritualidad",
     "status": "por-confirmar",
@@ -328,6 +346,7 @@
   },
   {
     "id": "jose-rivero",
+    "color": 290,
     "nombre": "Jose Rivero",
     "tema": "Espiritualidad",
     "status": "por-confirmar",
@@ -345,6 +364,7 @@
   },
   {
     "id": "jesus-giangregorio",
+    "color": 320,
     "nombre": "Jesús Giangregorio",
     "tema": "Marca personal",
     "status": "por-confirmar",
@@ -362,6 +382,7 @@
   },
   {
     "id": "mariale-y-ale",
+    "color": 350,
     "nombre": "Mariale y Ale",
     "tema": "",
     "status": "grabado",

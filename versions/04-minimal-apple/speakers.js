@@ -23,6 +23,7 @@ var SPEAKERS = [
   // ---------- Confirmados (visibles en la web) ----------
   {
     id: "elbio-prida",
+    color: 0, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Elbio Prida",
     tema: "Negocios",
     status: "confirmado",
@@ -37,6 +38,7 @@ var SPEAKERS = [
   },
   {
     id: "ivan-molano",
+    color: 28, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Ivan Molano",
     tema: "Negocios",
     status: "confirmado",
@@ -51,6 +53,7 @@ var SPEAKERS = [
   },
   {
     id: "tian-rodriguez",
+    color: 55, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Tian Rodríguez",
     tema: "Finanzas e inversión",
     status: "confirmado",
@@ -65,6 +68,7 @@ var SPEAKERS = [
   },
   {
     id: "ricardo-salguero",
+    color: 83, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Ricardo Salguero",
     tema: "Ventas y networking",
     status: "confirmado",
@@ -79,6 +83,7 @@ var SPEAKERS = [
   },
   {
     id: "victor-real",
+    color: 111, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Victor Real",
     tema: "Ventas y networking",
     status: "confirmado",
@@ -93,6 +98,7 @@ var SPEAKERS = [
   },
   {
     id: "daniel-marcovich",
+    color: 138, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Daniel Marcovich",
     tema: "Inteligencia artificial",
     status: "confirmado",
@@ -114,6 +120,7 @@ var SPEAKERS = [
   },
   {
     id: "jhonson-vivas",
+    color: 166, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Jhonson Vivas",
     tema: "Inteligencia artificial",
     status: "confirmado",
@@ -135,6 +142,7 @@ var SPEAKERS = [
   },
   {
     id: "erika-nova",
+    color: 194, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Erika Nova",
     tema: "Copywriting y persuasión",
     status: "confirmado",
@@ -149,6 +157,7 @@ var SPEAKERS = [
   },
   {
     id: "jan-schroeder",
+    color: 221, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Jan Schröder",
     tema: "Copywriting y persuasión",
     status: "confirmado",
@@ -163,6 +172,7 @@ var SPEAKERS = [
   },
   {
     id: "fernando-munoz",
+    color: 249, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Fernando Muñoz",
     tema: "Transformación personal",
     status: "confirmado",
@@ -177,6 +187,7 @@ var SPEAKERS = [
   },
   {
     id: "maria-antonieta-hernandez",
+    color: 277, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "María Antonieta Hernández",
     tema: "Resiliencia",
     status: "confirmado",
@@ -194,6 +205,7 @@ var SPEAKERS = [
   },
   {
     id: "paola-sanchez",
+    color: 304, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Paola Sánchez",
     tema: "Salud y bienestar",
     status: "confirmado",
@@ -208,6 +220,7 @@ var SPEAKERS = [
   },
   {
     id: "arcenio-jimenez",
+    color: 332, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Arcenio Jiménez",
     tema: "Salud y bienestar",
     status: "confirmado",
@@ -230,6 +243,7 @@ var SPEAKERS = [
   // ---------- No confirmados (ocultos: visible=false) ----------
   {
     id: "camila-paola",
+    color: 15, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Camila Paola",
     tema: "Finanzas e inversión",
     status: "por-confirmar",
@@ -241,6 +255,7 @@ var SPEAKERS = [
   },
   {
     id: "jennifer-arteaga",
+    color: 45, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Jennifer Arteaga",
     tema: "Transformación personal",
     status: "por-confirmar",
@@ -252,6 +267,7 @@ var SPEAKERS = [
   },
   {
     id: "andres-ricci",
+    color: 75, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Andres Ricci",
     tema: "Viralización en redes",
     status: "por-confirmar",
@@ -263,6 +279,7 @@ var SPEAKERS = [
   },
   {
     id: "monica-montanez",
+    color: 200, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Monica Montañez",
     tema: "Viralización en redes",
     status: "por-confirmar",
@@ -274,6 +291,7 @@ var SPEAKERS = [
   },
   {
     id: "david-firman",
+    color: 260, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "David Firman",
     tema: "Espiritualidad",
     status: "por-confirmar",
@@ -285,6 +303,7 @@ var SPEAKERS = [
   },
   {
     id: "jose-rivero",
+    color: 290, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Jose Rivero",
     tema: "Espiritualidad",
     status: "por-confirmar",
@@ -296,6 +315,7 @@ var SPEAKERS = [
   },
   {
     id: "jesus-giangregorio",
+    color: 320, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Jesús Giangregorio",
     tema: "Marca personal",
     status: "por-confirmar",
@@ -309,6 +329,7 @@ var SPEAKERS = [
   // ---------- Charla grabada ----------
   {
     id: "mariale-y-ale",
+    color: 350, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Mariale y Ale",
     tema: "",
     status: "grabado",

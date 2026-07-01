@@ -367,108 +367,74 @@
     }
   }
 
-  /* ---------- Ticker de ponentes/temas (arriba del video) ---------- */
+  /* ---------- Ticker de ponentes (fila única: auto-scroll + arrastre) ---------- */
   .hero-ticker {
     margin-top: clamp(5rem, 11vw, 9rem);
-    overflow: hidden;
     display: flex; flex-direction: column;
-    gap: clamp(0.75rem, 1.4vw, 1.15rem);
-    /* Desvanecido en los bordes para que las tarjetas "entren/salgan" limpio */
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    gap: clamp(0.5rem, 1vw, 0.9rem);
   }
-  .tk-row { display: flex; width: max-content; will-change: transform; }
+  .tk-head { margin: 0; }
+  .tk-hint {
+    margin: 0 0 0.4rem; font-family: var(--font-mono);
+    font-size: var(--text-xs); letter-spacing: 0.04em; color: var(--ink-3);
+  }
+
+  .tk-viewport {
+    overflow: hidden;
+    cursor: grab;
+    padding: 1.25rem 0 2rem;            /* aire para la sombra de color */
+    touch-action: pan-y;                /* deja pasar el scroll vertical de la página */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  }
+  .tk-viewport.is-dragging { cursor: grabbing; }
+
   .tk-track {
-    display: flex; flex: none;
-    margin: 0; list-style: none;
-    gap: clamp(0.75rem, 1.4vw, 1.15rem);
-    padding-block: 0.35rem;
-    padding-inline: clamp(0.375rem, 0.7vw, 0.575rem);
+    display: flex; flex-wrap: nowrap;
+    gap: clamp(1rem, 1.6vw, 1.5rem);
+    margin: 0; padding: 0; list-style: none;
+    width: max-content;
+    will-change: transform;
+    user-select: none; -webkit-user-select: none;
   }
+  .tk-track img { -webkit-user-drag: none; user-select: none; pointer-events: none; }
 
-  .tk-head { margin: 0 0 0.4rem; }
-  .tk-nav { display: none; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .tk-row[data-dir="left"]  { animation: tkLeft  60s linear infinite; }
-    .tk-row[data-dir="right"] { animation: tkRight 60s linear infinite; }
-  }
-  @keyframes tkLeft  { from { transform: translateX(0); }      to { transform: translateX(-50%); } }
-  @keyframes tkRight { from { transform: translateX(-50%); }   to { transform: translateX(0); } }
-
-  /* Tarjeta — desktop: foto a la izquierda, texto a la derecha */
   .tk-card {
-    flex: none; width: clamp(320px, 25vw, 370px);
-    display: flex; align-items: stretch; gap: 1rem;
-    padding: 0.9rem 1.1rem 0.9rem 0.9rem;
-    text-align: left;
+    flex: none;
+    width: clamp(264px, 24vw, 340px);
+    display: flex; flex-direction: column;
     background: var(--bg);
     border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    /* Color del speaker (hue) al 15% como sombra */
+    box-shadow: 0 14px 36px 2px hsla(var(--h, 220), 100%, 50%, 0.15);
   }
   .tk-photo {
-    flex: none; width: 92px; aspect-ratio: 1; align-self: center;
-    display: grid; place-items: center; overflow: hidden;
+    position: relative; width: 100%; aspect-ratio: 3 / 2;
     background: var(--bg-soft);
-    color: var(--line-2);
-    border: 1px solid var(--line);
+    display: grid; place-items: center; overflow: hidden;
   }
   .tk-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .tk-photo .silh { width: 40px; height: 40px; }
-  .tk-text { min-width: 0; display: flex; flex-direction: column; gap: 0.15rem; text-align: left; }
+  .tk-photo .tk-mono { font-size: var(--text-3xl); }
+
+  .tk-body { padding: 1.05rem 1.25rem 1.3rem; text-align: left; }
   .tk-area {
-    margin: 0; font-size: 0.9375rem; font-weight: 700;
-    letter-spacing: -0.01em; color: var(--ink); line-height: 1.2;
+    margin: 0; font-size: var(--text-lg); font-weight: 700;
+    letter-spacing: -0.015em; color: var(--ink); line-height: 1.2;
   }
-  .tk-topic {
-    margin: 0.1rem 0 0; font-size: var(--text-sm);
-    color: var(--ink-2); line-height: 1.32;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  .tk-by {
+    margin: 0.2rem 0 0; font-style: italic;
+    font-size: var(--text-sm); color: var(--ink-3);
   }
-  .tk-name {
-    margin: auto 0 0; padding-top: 0.35rem;
-    font-style: italic; font-size: var(--text-xs);
-    letter-spacing: 0.01em; color: var(--ink-3);
+  .tk-desc {
+    margin: 0.6rem 0 0; font-size: var(--text-sm);
+    color: var(--ink-2); line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
   }
 
-  /* Mobile: tarjetas verticales + carrusel deslizable (scroll-snap, sin marquee) */
   @media (max-width: 640px) {
-    .hero-ticker {
-      -webkit-mask-image: none; mask-image: none;
-      gap: 0;
-    }
-    .tk-row {
-      width: auto; animation: none !important;
-      overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      padding-bottom: 0.5rem;
-    }
-    .tk-row::-webkit-scrollbar { display: none; }
-    .tk-row[data-dir="right"] { display: none; } /* una sola fila deslizable en mobile */
-    .tk-track { flex: none; padding-inline: clamp(1rem, 5vw, 1.5rem); }
-    .tk-track[aria-hidden="true"] { display: none; } /* sin duplicado en el slider */
-    .tk-card {
-      width: 15rem; flex-direction: column; gap: 0;
-      scroll-snap-align: start;
-      padding: 0.85rem;
-    }
-    .tk-photo {
-      width: 100%; aspect-ratio: 1; align-self: auto;
-      margin-bottom: 0.85rem;
-    }
-    .tk-photo .silh { width: 48px; height: 48px; }
-    .tk-topic { -webkit-line-clamp: 3; }
-    .tk-name { padding-top: 0.5rem; }
-
-    /* Flechas para indicar que hay más tarjetas */
-    .tk-nav { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
-    .tk-arrow {
-      width: 46px; height: 46px; display: grid; place-items: center;
-      background: #fff; border: 1px solid var(--line-2); color: var(--ink);
-      cursor: pointer;
-    }
-    .tk-arrow svg { width: 20px; height: 20px; }
-    .tk-arrow:active { background: var(--bg-soft); }
+    .tk-card { width: clamp(240px, 80vw, 300px); }
   }
 
   /* ---------- La causa (centrada, limpia, con aire) ---------- */
@@ -686,12 +652,9 @@
     <!-- Ticker: vistazo rápido a ponentes y temas -->
     <div class="hero-ticker" role="region" aria-label="Algunos de los temas y ponentes del evento">
       <p class="tk-head label">Ponentes del día</p>
-      <!-- Filas del ticker: se rellenan desde speakers.js (ver script al final) -->
-      <div class="tk-row" data-dir="left" id="tk-left"></div>
-      <div class="tk-row" data-dir="right" id="tk-right"></div>
-      <div class="tk-nav" aria-hidden="true">
-        <button type="button" class="tk-arrow" data-tk="prev" aria-label="Ver ponentes anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <button type="button" class="tk-arrow" data-tk="next" aria-label="Ver más ponentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="tk-hint" aria-hidden="true">Arrastra para explorar →</p>
+      <div class="tk-viewport" id="tk-viewport">
+        <ul class="tk-track" id="tk-track"></ul>
       </div>
     </div>
 
@@ -907,47 +870,125 @@
       });
     }
 
-    // ---- Ticker: dos filas, cada una con track duplicado (marquesina continua) ----
+    // ---- Ticker: fila única, auto-scroll + arrastre (drag) ----
     function tickerCard(sp) {
       var li = document.createElement("li");
       li.className = "tk-card";
+      li.style.setProperty("--h", sp.color);
 
       var ph = document.createElement("div");
       ph.className = "tk-photo";
       ph.appendChild(photoNode(sp, "tk-mono"));
       li.appendChild(ph);
 
-      var tx = document.createElement("div");
-      tx.className = "tk-text";
+      var body = document.createElement("div");
+      body.className = "tk-body";
       var pA = document.createElement("p");
       pA.className = "tk-area";
       pA.textContent = sp.tema || (sp.charla && sp.charla.titulo) || "";
-      var pT = document.createElement("p");
-      pT.className = "tk-topic";
-      pT.textContent = (sp.charla && (sp.charla.titulo || sp.charla.descripcion)) || sp.bio || "";
-      var pN = document.createElement("p");
-      pN.className = "tk-name";
-      pN.textContent = sp.nombre;
-      tx.appendChild(pA); tx.appendChild(pT); tx.appendChild(pN);
-      li.appendChild(tx);
+      var pB = document.createElement("p");
+      pB.className = "tk-by";
+      pB.textContent = "por " + sp.nombre;
+      body.appendChild(pA);
+      body.appendChild(pB);
+      var descTxt = (sp.charla && sp.charla.descripcion) || sp.bio || "";
+      if (descTxt) {
+        var pD = document.createElement("p");
+        pD.className = "tk-desc";
+        pD.textContent = descTxt;
+        body.appendChild(pD);
+      }
+      li.appendChild(body);
       return li;
     }
 
-    function fillRow(rowId, items) {
-      var row = document.getElementById(rowId);
-      if (!row || !items.length) return;
-      for (var t = 0; t < 2; t++) {
-        var ul = document.createElement("ul");
-        ul.className = "tk-track";
-        if (t === 1) ul.setAttribute("aria-hidden", "true");
-        items.forEach(function (sp) { ul.appendChild(tickerCard(sp)); });
-        row.appendChild(ul);
+    // Marquesina arrastrable: avanza sola y se puede mover con mouse/touch.
+    function setupMarquee(track, vp, count) {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var period = 0;
+      function measure() {
+        var kids = track.children;
+        // distancia entre la 1ª card de la 1ª pasada y la 1ª de la 2ª pasada
+        period = (kids.length > count)
+          ? (kids[count].offsetLeft - kids[0].offsetLeft)
+          : (track.scrollWidth / 2);
       }
+      measure();
+      window.addEventListener("resize", measure);
+
+      var offset = 0;
+      var SPEED = 0.045;            // px por ms (~45px/s)
+      var last = null;
+      var hovering = false;
+
+      // Estado de arrastre
+      var down = false, decided = false, dragging = false;
+      var sx = 0, sy = 0, startOffset = 0, pid = null;
+
+      function wrap(x) {
+        if (period <= 0) return x;
+        x = x % period;
+        if (x < 0) x += period;
+        return x;
+      }
+      function apply() { track.style.transform = "translateX(" + (-offset) + "px)"; }
+
+      function frame(ts) {
+        if (last === null) last = ts;
+        var dt = ts - last; last = ts;
+        if (!dragging && !hovering && !reduce) {
+          offset = wrap(offset + SPEED * dt);
+          apply();
+        }
+        requestAnimationFrame(frame);
+      }
+      apply();
+      requestAnimationFrame(frame);
+
+      // Pausa al pasar el mouse (puntero fino), para poder leer
+      vp.addEventListener("mouseenter", function () { hovering = true; });
+      vp.addEventListener("mouseleave", function () { hovering = false; });
+
+      vp.addEventListener("pointerdown", function (e) {
+        down = true; decided = false; dragging = false;
+        sx = e.clientX; sy = e.clientY; startOffset = offset; pid = e.pointerId;
+      });
+      vp.addEventListener("pointermove", function (e) {
+        if (!down) return;
+        var dx = e.clientX - sx, dy = e.clientY - sy;
+        if (!decided) {
+          if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+          decided = true;
+          if (Math.abs(dx) > Math.abs(dy)) {
+            dragging = true; vp.classList.add("is-dragging");
+            try { vp.setPointerCapture(pid); } catch (_) {}
+          } else {
+            down = false; return;    // gesto vertical → lo maneja el scroll de la página
+          }
+        }
+        if (dragging) { offset = wrap(startOffset - dx); apply(); }
+      });
+      function endDrag() {
+        down = false;
+        if (dragging) {
+          dragging = false; vp.classList.remove("is-dragging");
+          try { vp.releasePointerCapture(pid); } catch (_) {}
+        }
+      }
+      vp.addEventListener("pointerup", endDrag);
+      vp.addEventListener("pointercancel", endDrag);
     }
 
-    var half = Math.ceil(LIST.length / 2);
-    fillRow("tk-left", LIST.slice(0, half));
-    fillRow("tk-right", LIST.slice(half));
+    var track = document.getElementById("tk-track");
+    var viewport = document.getElementById("tk-viewport");
+    if (track && viewport && LIST.length) {
+      // Dos pasadas idénticas para el loop continuo (cada card se construye de
+      // nuevo — no se clona — para conservar el listener de fallback de foto).
+      for (var pass = 0; pass < 2; pass++) {
+        LIST.forEach(function (sp) { track.appendChild(tickerCard(sp)); });
+      }
+      setupMarquee(track, viewport, LIST.length);
+    }
   })();
 </script>
 
@@ -1035,19 +1076,6 @@
       out.s.textContent = pad(s % 60);
     }
     if (TARGET) { tick(); setInterval(tick, 1000); }
-  })();
-
-  // ---------- Flechas del slider de ponentes (mobile) ----------
-  (function () {
-    var slider = document.querySelector('.tk-row[data-dir="left"]');
-    var arrows = document.querySelectorAll('.tk-arrow');
-    if (!slider || !arrows.length) return;
-    arrows.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var amount = Math.max(220, slider.clientWidth * 0.8);
-        slider.scrollBy({ left: btn.dataset.tk === 'next' ? amount : -amount, behavior: 'smooth' });
-      });
-    });
   })();
 </script>
 </body>
