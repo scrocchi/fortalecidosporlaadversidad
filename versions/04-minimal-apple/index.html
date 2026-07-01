@@ -1085,16 +1085,17 @@
       var dist = rect.height - window.innerHeight;
       if (dist <= 0) return;
       var p = clamp(-rect.top / dist);
-      // Título: fade in rápido al fijarse (primer tramo del progreso).
+      // Título: fade in rápido y temprano al fijarse.
       if (title) {
-        var tp = clamp(p / 0.06);
+        var tp = clamp(p / 0.04);
         title.style.opacity = tp.toFixed(3);
         title.style.transform = 'translateY(' + ((1 - tp) * 14).toFixed(1) + 'px)';
       }
       var n = lines.length;
-      var span = 1 / n;                     // franja de scroll por párrafo
+      var lead = 0.08;                      // hueco tras el título antes del 1er párrafo
+      var span = (1 - lead) / n;            // franja de scroll por párrafo en el resto
       for (var i = 0; i < n; i++) {
-        var start = (i + 0.1) * span * 0.9; // pequeño desfase al arrancar
+        var start = lead + i * span * 0.9;  // solapan un poco entre sí
         var lp = clamp((p - start) / (span * 0.6));
         lines[i].style.opacity = lp.toFixed(3);
         lines[i].style.transform = 'translateY(' + ((1 - lp) * 16).toFixed(1) + 'px)';
