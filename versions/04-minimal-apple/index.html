@@ -598,6 +598,19 @@
      El título hace un fade in rápido al fijarse y luego se mantiene. */
   .causa.cz-anim .cz-title,
   .causa.cz-anim .cz-line { opacity: 0; will-change: opacity, transform; }
+
+  /* ---- Variante mobile: título fijo bajo el header + párrafos que aparecen
+     al entrar en pantalla (fluyen normalmente, sin pinar todo el bloque) ---- */
+  .causa.cz-anim-m .cz-title {
+    position: sticky; top: clamp(4.4rem, 14vw, 5.25rem); z-index: 2;
+    background: var(--bg); padding-block: 0.5rem 0.9rem; margin-bottom: var(--space-4);
+  }
+  .causa.cz-anim-m .cz-line {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity 620ms var(--ease), transform 620ms var(--ease);
+    will-change: opacity, transform;
+  }
+  .causa.cz-anim-m .cz-line.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .textlink::after, .skip { transition: none; }
@@ -1057,9 +1070,12 @@
   })();
 
   // ---------- "¿Qué pasó en Venezuela?": relato con heading fijo ----------
-  // El heading queda sticky y los párrafos van apareciendo, scrubbeados con el
-  // scroll (progreso de la sección). Progressive enhancement: si no se activa,
-  // el CSS base deja todo visible en flujo normal.
+  // Dos modos según el viewport:
+  //  - desktop (ancho/alto suficientes): pin de todo el bloque; el título y los
+  //    párrafos aparecen scrubbeados con el progreso de scroll de la sección.
+  //  - mobile (pantallas chicas): el título queda sticky bajo el header y los
+  //    párrafos aparecen al entrar en pantalla (fluyen normalmente).
+  //  - off (reduced-motion / sin rAF): todo visible en flujo normal.
   (function () {
     var section = document.getElementById('causa');
     if (!section) return;
@@ -1069,33 +1085,33 @@
     if (!scroll || !lines.length) return;
 
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // El pin necesita alto y ancho suficientes; en móvil/ventanas bajas o con
-    // "reducir movimiento" dejamos el fallback estático (todo visible).
-    function eligible() {
-      return !reduce && window.innerWidth >= 768 && window.innerHeight >= 680;
+    function desiredMode() {
+      if (reduce || !('requestAnimationFrame' in window)) return 'off';
+      if (window.innerWidth >= 768 && window.innerHeight >= 680) return 'desktop';
+      return 'mobile';
     }
 
-    var enabled = false, ticking = false;
+    var current = 'off', ticking = false, io = null;
     function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
 
+    // --- desktop: pin + scrub ---
     function render() {
       ticking = false;
-      if (!enabled) return;
+      if (current !== 'desktop') return;
       var rect = scroll.getBoundingClientRect();
       var dist = rect.height - window.innerHeight;
       if (dist <= 0) return;
       var p = clamp(-rect.top / dist);
-      // Título: fade in rápido y temprano al fijarse.
       if (title) {
-        var tp = clamp(p / 0.04);
+        var tp = clamp(p / 0.04);           // título: fade in temprano
         title.style.opacity = tp.toFixed(3);
         title.style.transform = 'translateY(' + ((1 - tp) * 14).toFixed(1) + 'px)';
       }
       var n = lines.length;
-      var lead = 0.08;                      // hueco tras el título antes del 1er párrafo
-      var span = (1 - lead) / n;            // franja de scroll por párrafo en el resto
+      var lead = 0.08;                       // hueco tras el título
+      var span = (1 - lead) / n;
       for (var i = 0; i < n; i++) {
-        var start = lead + i * span * 0.9;  // solapan un poco entre sí
+        var start = lead + i * span * 0.9;
         var lp = clamp((p - start) / (span * 0.6));
         lines[i].style.opacity = lp.toFixed(3);
         lines[i].style.transform = 'translateY(' + ((1 - lp) * 16).toFixed(1) + 'px)';
@@ -1105,27 +1121,47 @@
       if (!ticking) { ticking = true; requestAnimationFrame(render); }
     }
 
-    function enable() {
-      if (enabled) return;
-      enabled = true;
-      section.classList.add('cz-anim');
-      section.style.setProperty('--cz-steps', lines.length);
-      window.addEventListener('scroll', onScroll, { passive: true });
-      render();
-    }
-    function disable() {
-      if (!enabled) return;
-      enabled = false;
-      section.classList.remove('cz-anim');
-      window.removeEventListener('scroll', onScroll);
-      if (title) { title.style.opacity = ''; title.style.transform = ''; }
-      lines.forEach(function (l) { l.style.opacity = ''; l.style.transform = ''; });
+    // --- mobile: párrafos que aparecen al entrar (título sticky vía CSS) ---
+    function setupMobile() {
+      if (!('IntersectionObserver' in window)) {
+        lines.forEach(function (l) { l.classList.add('in'); });
+        return;
+      }
+      io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -12% 0px' });
+      lines.forEach(function (l) { io.observe(l); });
     }
 
-    if (eligible()) enable();
-    window.addEventListener('resize', function () {
-      if (eligible()) { enable(); render(); } else { disable(); }
-    }, { passive: true });
+    function clearInline() {
+      if (title) { title.style.opacity = ''; title.style.transform = ''; }
+      lines.forEach(function (l) { l.style.opacity = ''; l.style.transform = ''; l.classList.remove('in'); });
+    }
+
+    function apply(m) {
+      if (m === current) return;
+      // teardown del modo anterior
+      window.removeEventListener('scroll', onScroll);
+      if (io) { io.disconnect(); io = null; }
+      section.classList.remove('cz-anim', 'cz-anim-m');
+      clearInline();
+      current = m;
+      if (m === 'desktop') {
+        section.classList.add('cz-anim');
+        section.style.setProperty('--cz-steps', lines.length);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        render();
+      } else if (m === 'mobile') {
+        section.classList.add('cz-anim-m');
+        setupMobile();
+      }
+      // 'off' → sin clases: el CSS base deja todo visible
+    }
+
+    apply(desiredMode());
+    window.addEventListener('resize', function () { apply(desiredMode()); }, { passive: true });
   })();
 
   // ---------- Video del hero: loop silenciado (sin audio) ----------
