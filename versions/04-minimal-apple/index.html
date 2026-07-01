@@ -243,20 +243,29 @@
 
   /* ---------- Hero ---------- */
   .hero {
-    text-align: center;
+    text-align: left;
     padding-top: clamp(2.5rem, 6vw, 4.5rem);
     padding-bottom: clamp(3rem, 7vw, 6rem);
   }
-  .hero-top {
-    max-width: var(--maxw); margin-inline: auto;
+  /* Dos columnas: contenido a la izquierda, slider de ponentes a la derecha */
+  .hero-grid {
+    max-width: 1320px; margin-inline: auto;
     padding-inline: clamp(1.25rem, 5vw, 3rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(2rem, 4.5vw, 4.5rem);
+    align-items: center;
   }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: clamp(2.5rem, 6vw, 3.5rem); }
+  }
+  .hero-top { min-width: 0; }
   .hero .seam { margin-bottom: var(--space-5); }
   .hero .eyebrow { display: block; margin-bottom: var(--space-4); }
   .hero h1 {
-    margin: 0 auto;
-    max-width: 22ch;
-    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    margin: 0;
+    max-width: 18ch;
+    font-size: clamp(1.9rem, 3.4vw, 2.9rem);
     font-weight: 700;
     line-height: 1.08;
     letter-spacing: -0.03em;
@@ -264,8 +273,8 @@
   }
   .hero h1 em { font-style: italic; font-weight: 700; }
   .hero .sub {
-    margin: var(--space-5) auto 0;
-    max-width: 58ch;
+    margin: var(--space-5) 0 0;
+    max-width: 48ch;
     font-size: var(--text-lg);
     line-height: 1.5;
     color: var(--ink-2);
@@ -275,9 +284,9 @@
   .hero .cta-row {
     margin-top: var(--space-6);
     display: flex; flex-wrap: wrap; gap: var(--space-4);
-    align-items: center; justify-content: center;
+    align-items: center; justify-content: flex-start;
   }
-  .hero .hero-when { margin: var(--space-6) auto 0; }
+  .hero .hero-when { margin: var(--space-6) 0 0; }
   .hero .hw-date {
     margin: 0 0 var(--space-4);
     font-family: var(--font-mono); font-size: var(--text-xs);
@@ -286,25 +295,21 @@
   .hero .hw-date b { color: var(--ink); font-weight: 500; }
   .hw-zones {
     list-style: none; margin: 0; padding: 0;
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-    gap: 0.6rem clamp(1rem, 2.4vw, 1.9rem);
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start;
+    gap: 0.5rem clamp(0.7rem, 1.4vw, 1.1rem);
   }
-  .hw-zones li { display: inline-flex; align-items: center; gap: 0.5rem; }
+  .hw-zones li { display: inline-flex; align-items: center; gap: 0.4rem; }
   /* Divisor sutil entre husos (se oculta al envolver por el flex-wrap) */
   .hw-zones li + li::before {
     content: ""; align-self: center;
-    width: 1px; height: 14px; margin-right: clamp(1rem, 2.4vw, 1.9rem);
+    width: 1px; height: 13px; margin-right: clamp(0.7rem, 1.4vw, 1.1rem);
     background: var(--line-2);
   }
   .hw-flag {
-    width: 22px; height: auto; aspect-ratio: 3 / 2; flex: none;
+    width: 19px; height: auto; aspect-ratio: 3 / 2; flex: none;
     border: 1px solid var(--line-2);
   }
-  .hw-zones b { font-weight: 600; font-size: var(--text-sm); color: var(--ink); }
-  @media (max-width: 420px) {
-    .hw-zones { gap: 0.55rem 1rem; }
-    .hw-zones li + li::before { margin-right: 1rem; }
-  }
+  .hw-zones b { font-weight: 600; font-size: var(--text-xs); color: var(--ink); white-space: nowrap; }
 
   /* ---------- Hero: bloque de video 16:9 casi a pantalla completa ---------- */
   .hero-figure {
@@ -355,15 +360,12 @@
     }
   }
 
-  /* ---------- Ticker de ponentes/temas (arriba del video) ---------- */
+  /* ---------- Ticker de ponentes (columna derecha del hero) ---------- */
   .hero-ticker {
-    margin-top: clamp(3rem, 6vw, 5rem);
+    margin-top: 0;
     overflow: hidden;
     display: flex; flex-direction: column;
     gap: clamp(0.75rem, 1.4vw, 1.15rem);
-    /* Desvanecido en los bordes para que las tarjetas "entren/salgan" limpio */
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
   .tk-row { display: flex; width: max-content; will-change: transform; }
   .tk-track {
@@ -378,48 +380,49 @@
   .tk-nav { display: none; }
 
   @media (prefers-reduced-motion: no-preference) {
-    .tk-row[data-dir="left"]  { animation: tkLeft  60s linear infinite; }
-    .tk-row[data-dir="right"] { animation: tkRight 60s linear infinite; }
+    .tk-row[data-dir="left"]  { animation: tkLeft  85s linear infinite; }
+    .tk-row[data-dir="right"] { animation: tkRight 85s linear infinite; }
   }
   @keyframes tkLeft  { from { transform: translateX(0); }      to { transform: translateX(-50%); } }
   @keyframes tkRight { from { transform: translateX(-50%); }   to { transform: translateX(0); } }
 
-  /* Tarjeta — desktop: foto a la izquierda, texto a la derecha */
+  /* Tarjeta vertical: foto arriba (1:1), texto debajo */
   .tk-card {
-    flex: none; width: clamp(320px, 25vw, 370px);
-    display: flex; align-items: stretch; gap: 1rem;
-    padding: 0.9rem 1.1rem 0.9rem 0.9rem;
+    flex: none; width: clamp(188px, 15vw, 216px);
+    display: flex; flex-direction: column;
     text-align: left;
     background: var(--bg);
     border: 1px solid var(--line);
+    padding: 0.8rem;
   }
   .tk-photo {
-    flex: none; width: 92px; aspect-ratio: 1; align-self: center;
-    display: grid; place-items: center; overflow: hidden;
+    width: 100%; aspect-ratio: 1; overflow: hidden;
+    display: grid; place-items: center;
     background: var(--bg-soft);
     color: var(--line-2);
     border: 1px solid var(--line);
+    margin-bottom: 0.8rem;
   }
   .tk-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .tk-photo .silh { width: 40px; height: 40px; }
-  .tk-text { min-width: 0; display: flex; flex-direction: column; gap: 0.15rem; text-align: left; }
+  .tk-photo .silh { width: 44px; height: 44px; }
+  .tk-text { min-width: 0; display: flex; flex-direction: column; gap: 0.15rem; }
   .tk-area {
     margin: 0; font-size: 0.9375rem; font-weight: 700;
     letter-spacing: -0.01em; color: var(--ink); line-height: 1.2;
   }
   .tk-topic {
-    margin: 0.1rem 0 0; font-size: var(--text-sm);
+    margin: 0.15rem 0 0; font-size: var(--text-sm);
     color: var(--ink-2); line-height: 1.32;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   }
   .tk-name {
-    margin: auto 0 0; padding-top: 0.35rem;
+    margin: 0.55rem 0 0;
     font-style: italic; font-size: var(--text-xs);
     letter-spacing: 0.01em; color: var(--ink-3);
   }
 
-  /* Mobile: tarjetas verticales + carrusel deslizable (scroll-snap, sin marquee) */
-  @media (max-width: 640px) {
+  /* Mobile: mismo formato vertical, pero carrusel deslizable (scroll-snap, sin marquee) */
+  @media (max-width: 900px) {
     .hero-ticker {
       -webkit-mask-image: none; mask-image: none;
       gap: 0;
@@ -432,21 +435,11 @@
       padding-bottom: 0.5rem;
     }
     .tk-row::-webkit-scrollbar { display: none; }
-    .tk-row[data-dir="right"] { display: none; } /* una sola fila deslizable en mobile */
+    .hero-ticker .tk-row ~ .tk-row { display: none; } /* solo la 1ª fila como slider en mobile */
     .tk-track { flex: none; padding-inline: clamp(1rem, 5vw, 1.5rem); }
     .tk-track[aria-hidden="true"] { display: none; } /* sin duplicado en el slider */
-    .tk-card {
-      width: 15rem; flex-direction: column; gap: 0;
-      scroll-snap-align: start;
-      padding: 0.85rem;
-    }
-    .tk-photo {
-      width: 100%; aspect-ratio: 1; align-self: auto;
-      margin-bottom: 0.85rem;
-    }
-    .tk-photo .silh { width: 48px; height: 48px; }
+    .tk-card { width: 13.5rem; scroll-snap-align: start; }
     .tk-topic { -webkit-line-clamp: 3; }
-    .tk-name { padding-top: 0.5rem; }
 
     /* Flechas para indicar que hay más tarjetas */
     .tk-nav { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
@@ -593,8 +586,9 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
     <div class="hero-top">
-      <div class="seam seam--center" aria-hidden="true">
+      <div class="seam" aria-hidden="true">
         <span class="s-blue"></span><span class="s-yellow"></span><span class="s-red"></span>
       </div>
       <span class="label eyebrow">Fortalecidos por la Adversidad</span>
@@ -657,6 +651,18 @@
             <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=60" alt="" loading="lazy" /></div>
             <div class="tk-text"><p class="tk-area">Marca personal</p><p class="tk-topic">Crea una marca que crezca y tenga impacto masivo.</p><p class="tk-name">Sebastián Rojas</p></div>
           </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=8" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Mentalidad de crecimiento</p><p class="tk-topic">Rompe las creencias que frenan tu potencial.</p><p class="tk-name">Laura Beltrán</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=11" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Liderazgo con propósito</p><p class="tk-topic">Guía equipos y proyectos con dirección clara.</p><p class="tk-name">Tomás Herrera</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=5" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Productividad y hábitos</p><p class="tk-topic">Diseña rutinas que sostienen tus metas.</p><p class="tk-name">Paula Cordero</p></div>
+          </li>
         </ul>
         <ul class="tk-track" aria-hidden="true">
           <li class="tk-card">
@@ -683,24 +689,24 @@
             <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=60" alt="" loading="lazy" /></div>
             <div class="tk-text"><p class="tk-area">Marca personal</p><p class="tk-topic">Crea una marca que crezca y tenga impacto masivo.</p><p class="tk-name">Sebastián Rojas</p></div>
           </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=8" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Mentalidad de crecimiento</p><p class="tk-topic">Rompe las creencias que frenan tu potencial.</p><p class="tk-name">Laura Beltrán</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=11" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Liderazgo con propósito</p><p class="tk-topic">Guía equipos y proyectos con dirección clara.</p><p class="tk-name">Tomás Herrera</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=5" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Productividad y hábitos</p><p class="tk-topic">Diseña rutinas que sostienen tus metas.</p><p class="tk-name">Paula Cordero</p></div>
+          </li>
         </ul>
       </div>
       <!-- Fila 2 — se desplaza a la derecha -->
       <div class="tk-row" data-dir="right">
         <ul class="tk-track">
           <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=8" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Mentalidad de crecimiento</p><p class="tk-topic">Rompe las creencias que frenan tu potencial.</p><p class="tk-name">Laura Beltrán</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=11" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Liderazgo con propósito</p><p class="tk-topic">Guía equipos y proyectos con dirección clara.</p><p class="tk-name">Tomás Herrera</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=5" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Productividad y hábitos</p><p class="tk-topic">Diseña rutinas que sostienen tus metas.</p><p class="tk-name">Paula Cordero</p></div>
-          </li>
-          <li class="tk-card">
             <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=68" alt="" loading="lazy" /></div>
             <div class="tk-text"><p class="tk-area">Ventas con propósito</p><p class="tk-topic">Cierra sin presionar, partiendo del valor real.</p><p class="tk-name">Nicolás Vega</p></div>
           </li>
@@ -711,22 +717,34 @@
           <li class="tk-card">
             <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=47" alt="" loading="lazy" /></div>
             <div class="tk-text"><p class="tk-area">Bienestar emocional</p><p class="tk-topic">Cuida tu mente en medio de la adversidad.</p><p class="tk-name">Mateo Salazar</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=20" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Negociación efectiva</p><p class="tk-topic">Acuerdos donde todos ganan, sin ceder valor.</p><p class="tk-name">Ricardo Ávila</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=25" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Storytelling</p><p class="tk-topic">Cuenta historias que conectan y mueven a la acción.</p><p class="tk-name">Daniela Ortiz</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=14" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Inversiones inteligentes</p><p class="tk-topic">Haz crecer tu dinero con decisiones informadas.</p><p class="tk-name">Felipe Guerra</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=32" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Bienestar físico</p><p class="tk-topic">Energía y salud para sostener tu ritmo.</p><p class="tk-name">Antonia Ledesma</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=45" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Propósito de vida</p><p class="tk-topic">Encuentra el porqué que ordena tus metas.</p><p class="tk-name">Emilio Castro</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=9" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Creatividad aplicada</p><p class="tk-topic">Ideas que resuelven problemas reales.</p><p class="tk-name">Renata Silva</p></div>
           </li>
         </ul>
         <ul class="tk-track" aria-hidden="true">
           <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=8" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Mentalidad de crecimiento</p><p class="tk-topic">Rompe las creencias que frenan tu potencial.</p><p class="tk-name">Laura Beltrán</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=11" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Liderazgo con propósito</p><p class="tk-topic">Guía equipos y proyectos con dirección clara.</p><p class="tk-name">Tomás Herrera</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=5" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Productividad y hábitos</p><p class="tk-topic">Diseña rutinas que sostienen tus metas.</p><p class="tk-name">Paula Cordero</p></div>
-          </li>
-          <li class="tk-card">
             <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=68" alt="" loading="lazy" /></div>
             <div class="tk-text"><p class="tk-area">Ventas con propósito</p><p class="tk-topic">Cierra sin presionar, partiendo del valor real.</p><p class="tk-name">Nicolás Vega</p></div>
           </li>
@@ -737,6 +755,30 @@
           <li class="tk-card">
             <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=47" alt="" loading="lazy" /></div>
             <div class="tk-text"><p class="tk-area">Bienestar emocional</p><p class="tk-topic">Cuida tu mente en medio de la adversidad.</p><p class="tk-name">Mateo Salazar</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=20" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Negociación efectiva</p><p class="tk-topic">Acuerdos donde todos ganan, sin ceder valor.</p><p class="tk-name">Ricardo Ávila</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=25" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Storytelling</p><p class="tk-topic">Cuenta historias que conectan y mueven a la acción.</p><p class="tk-name">Daniela Ortiz</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=14" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Inversiones inteligentes</p><p class="tk-topic">Haz crecer tu dinero con decisiones informadas.</p><p class="tk-name">Felipe Guerra</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=32" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Bienestar físico</p><p class="tk-topic">Energía y salud para sostener tu ritmo.</p><p class="tk-name">Antonia Ledesma</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=45" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Propósito de vida</p><p class="tk-topic">Encuentra el porqué que ordena tus metas.</p><p class="tk-name">Emilio Castro</p></div>
+          </li>
+          <li class="tk-card">
+            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=9" alt="" loading="lazy" /></div>
+            <div class="tk-text"><p class="tk-area">Creatividad aplicada</p><p class="tk-topic">Ideas que resuelven problemas reales.</p><p class="tk-name">Renata Silva</p></div>
           </li>
         </ul>
       </div>
@@ -744,6 +786,7 @@
         <button type="button" class="tk-arrow" data-tk="prev" aria-label="Ver ponentes anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <button type="button" class="tk-arrow" data-tk="next" aria-label="Ver más ponentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
+    </div>
     </div>
 
     <!-- Bloque de video en loop (cierre del hero) -->
