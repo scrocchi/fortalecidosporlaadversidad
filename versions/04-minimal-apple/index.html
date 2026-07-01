@@ -439,7 +439,7 @@
 
   /* ---------- La causa (centrada, limpia, con aire) ---------- */
   .causa { text-align: center; }
-  .causa .cz { max-width: 64ch; margin-inline: auto; }
+  .causa .cz { max-width: 71ch; margin-inline: auto; }
   .causa h2 {
     font-size: var(--text-3xl); font-weight: 600; letter-spacing: -0.025em;
     margin: 0 0 var(--space-6); white-space: nowrap;
@@ -591,9 +591,12 @@
     position: sticky; top: 0;
     height: 100vh;
     display: flex; align-items: center; justify-content: center;
+    /* Empuja el contenido debajo del header sticky en viewports bajos */
+    padding-top: clamp(4.75rem, 8vh, 6.5rem);
   }
-  /* Los párrafos arrancan ocultos; el JS scrubbea su opacidad/desplazamiento.
-     El título (h2) queda siempre visible: aparece y se mantiene fijo. */
+  /* Título y párrafos arrancan ocultos; el JS scrubbea opacidad/desplazamiento.
+     El título hace un fade in rápido al fijarse y luego se mantiene. */
+  .causa.cz-anim .cz-title,
   .causa.cz-anim .cz-line { opacity: 0; will-change: opacity, transform; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
@@ -1061,6 +1064,7 @@
     var section = document.getElementById('causa');
     if (!section) return;
     var scroll = section.querySelector('.cz-scroll');
+    var title = section.querySelector('.cz-title');
     var lines = [].slice.call(section.querySelectorAll('.cz-line'));
     if (!scroll || !lines.length) return;
 
@@ -1081,6 +1085,12 @@
       var dist = rect.height - window.innerHeight;
       if (dist <= 0) return;
       var p = clamp(-rect.top / dist);
+      // Título: fade in rápido al fijarse (primer tramo del progreso).
+      if (title) {
+        var tp = clamp(p / 0.06);
+        title.style.opacity = tp.toFixed(3);
+        title.style.transform = 'translateY(' + ((1 - tp) * 14).toFixed(1) + 'px)';
+      }
       var n = lines.length;
       var span = 1 / n;                     // franja de scroll por párrafo
       for (var i = 0; i < n; i++) {
@@ -1107,6 +1117,7 @@
       enabled = false;
       section.classList.remove('cz-anim');
       window.removeEventListener('scroll', onScroll);
+      if (title) { title.style.opacity = ''; title.style.transform = ''; }
       lines.forEach(function (l) { l.style.opacity = ''; l.style.transform = ''; });
     }
 
