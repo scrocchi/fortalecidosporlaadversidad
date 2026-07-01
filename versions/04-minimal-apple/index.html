@@ -556,6 +556,16 @@
     overflow: hidden;
   }
   .sp-photo img { width: 100%; height: 100%; object-fit: cover; }
+  /* Monograma de respaldo cuando aún no hay foto */
+  .sp-mono, .tk-mono {
+    width: 100%; height: 100%; display: grid; place-items: center;
+    font-family: var(--font-mono); color: var(--ink-3); background: var(--bg-soft);
+    letter-spacing: 0.06em; text-transform: uppercase; user-select: none;
+  }
+  .sp-mono { font-size: var(--text-2xl); }
+  .tk-mono { font-size: var(--text-base); }
+  /* Estado vacío de charla (ponente sin descripción todavía) */
+  .sp-topic.is-empty { color: var(--ink-3); font-style: italic; }
   .sp-num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--blue); letter-spacing: 0.12em; }
   .sp-role { font-size: var(--text-lg); font-weight: 700; color: var(--ink); margin: 0.5rem 0 0.1rem; letter-spacing: -0.01em; }
   .sp-area { font-size: var(--text-sm); font-weight: 600; color: var(--blue); margin: 0 0 0.6rem; }
@@ -676,116 +686,9 @@
     <!-- Ticker: vistazo rápido a ponentes y temas -->
     <div class="hero-ticker" role="region" aria-label="Algunos de los temas y ponentes del evento">
       <p class="tk-head label">Ponentes del día</p>
-      <!-- Fila 1 — se desplaza a la izquierda -->
-      <div class="tk-row" data-dir="left">
-        <ul class="tk-track">
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=12" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Resiliencia</p><p class="tk-topic">Sostener una actitud fuerte cuando la vida golpea.</p><p class="tk-name">Marcela Ríos</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=13" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Finanzas personales</p><p class="tk-topic">Administra, genera y ahorra dinero de forma inteligente.</p><p class="tk-name">Diego Fuentes</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=33" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Comunicación persuasiva</p><p class="tk-topic">Negocia y comunica tus ideas con más impacto.</p><p class="tk-name">Valentina Serrano</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=51" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Inteligencia artificial</p><p class="tk-topic">Optimiza tu tiempo y tu dinero con IA en tu día a día.</p><p class="tk-name">Andrés Molina</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=16" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Conexión espiritual</p><p class="tk-topic">Herramientas para expandir y fortalecer tu vida espiritual.</p><p class="tk-name">Camila Duarte</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=60" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Marca personal</p><p class="tk-topic">Crea una marca que crezca y tenga impacto masivo.</p><p class="tk-name">Sebastián Rojas</p></div>
-          </li>
-        </ul>
-        <ul class="tk-track" aria-hidden="true">
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=12" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Resiliencia</p><p class="tk-topic">Sostener una actitud fuerte cuando la vida golpea.</p><p class="tk-name">Marcela Ríos</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=13" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Finanzas personales</p><p class="tk-topic">Administra, genera y ahorra dinero de forma inteligente.</p><p class="tk-name">Diego Fuentes</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=33" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Comunicación persuasiva</p><p class="tk-topic">Negocia y comunica tus ideas con más impacto.</p><p class="tk-name">Valentina Serrano</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=51" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Inteligencia artificial</p><p class="tk-topic">Optimiza tu tiempo y tu dinero con IA en tu día a día.</p><p class="tk-name">Andrés Molina</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=16" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Conexión espiritual</p><p class="tk-topic">Herramientas para expandir y fortalecer tu vida espiritual.</p><p class="tk-name">Camila Duarte</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=60" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Marca personal</p><p class="tk-topic">Crea una marca que crezca y tenga impacto masivo.</p><p class="tk-name">Sebastián Rojas</p></div>
-          </li>
-        </ul>
-      </div>
-      <!-- Fila 2 — se desplaza a la derecha -->
-      <div class="tk-row" data-dir="right">
-        <ul class="tk-track">
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=8" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Mentalidad de crecimiento</p><p class="tk-topic">Rompe las creencias que frenan tu potencial.</p><p class="tk-name">Laura Beltrán</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=11" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Liderazgo con propósito</p><p class="tk-topic">Guía equipos y proyectos con dirección clara.</p><p class="tk-name">Tomás Herrera</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=5" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Productividad y hábitos</p><p class="tk-topic">Diseña rutinas que sostienen tus metas.</p><p class="tk-name">Paula Cordero</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=68" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Ventas con propósito</p><p class="tk-topic">Cierra sin presionar, partiendo del valor real.</p><p class="tk-name">Nicolás Vega</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=3" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Emprendimiento</p><p class="tk-topic">Convierte una idea en un negocio que funciona.</p><p class="tk-name">Gabriela Ponce</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=47" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Bienestar emocional</p><p class="tk-topic">Cuida tu mente en medio de la adversidad.</p><p class="tk-name">Mateo Salazar</p></div>
-          </li>
-        </ul>
-        <ul class="tk-track" aria-hidden="true">
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=8" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Mentalidad de crecimiento</p><p class="tk-topic">Rompe las creencias que frenan tu potencial.</p><p class="tk-name">Laura Beltrán</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=11" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Liderazgo con propósito</p><p class="tk-topic">Guía equipos y proyectos con dirección clara.</p><p class="tk-name">Tomás Herrera</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=5" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Productividad y hábitos</p><p class="tk-topic">Diseña rutinas que sostienen tus metas.</p><p class="tk-name">Paula Cordero</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=68" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Ventas con propósito</p><p class="tk-topic">Cierra sin presionar, partiendo del valor real.</p><p class="tk-name">Nicolás Vega</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=3" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Emprendimiento</p><p class="tk-topic">Convierte una idea en un negocio que funciona.</p><p class="tk-name">Gabriela Ponce</p></div>
-          </li>
-          <li class="tk-card">
-            <div class="tk-photo"><img src="https://i.pravatar.cc/240?img=47" alt="" loading="lazy" /></div>
-            <div class="tk-text"><p class="tk-area">Bienestar emocional</p><p class="tk-topic">Cuida tu mente en medio de la adversidad.</p><p class="tk-name">Mateo Salazar</p></div>
-          </li>
-        </ul>
-      </div>
+      <!-- Filas del ticker: se rellenan desde speakers.js (ver script al final) -->
+      <div class="tk-row" data-dir="left" id="tk-left"></div>
+      <div class="tk-row" data-dir="right" id="tk-right"></div>
       <div class="tk-nav" aria-hidden="true">
         <button type="button" class="tk-arrow" data-tk="prev" aria-label="Ver ponentes anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <button type="button" class="tk-arrow" data-tk="next" aria-label="Ver más ponentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -858,98 +761,7 @@
       <h2 id="sp-title">Los expertos, en camino</h2>
       <p>Todavía estamos cerrando la lista completa. Mientras tanto, estos son algunos de los temas —y de las personas— que van a estar contigo ese día.</p>
     </div>
-    <div class="sp-grid">
-      <!-- Card 1 -->
-      <article class="sp-card reveal">
-        <div class="sp-photo">
-          <img src="https://i.pravatar.cc/400?img=12" alt="Retrato de Marcela Ríos" loading="lazy" />
-        </div>
-        <span class="sp-num">01</span>
-        <p class="sp-role">Marcela Ríos</p>
-        <p class="sp-area">Resiliencia frente a la adversidad</p>
-        <p class="sp-topic">Aprende a sostener una actitud fuerte cuando la vida golpea. Herramientas prácticas para transformar el dolor en impulso, recuperar el control y no rendirte en los momentos más difíciles.</p>
-        <div class="sp-social">
-          <a href="#" aria-label="Instagram de Marcela Ríos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
-          <a href="#" aria-label="LinkedIn de Marcela Ríos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
-          <a href="#" aria-label="X de Marcela Ríos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
-        </div>
-      </article>
-      <!-- Card 2 -->
-      <article class="sp-card reveal">
-        <div class="sp-photo">
-          <img src="https://i.pravatar.cc/400?img=13" alt="Retrato de Diego Fuentes" loading="lazy" />
-        </div>
-        <span class="sp-num">02</span>
-        <p class="sp-role">Diego Fuentes</p>
-        <p class="sp-area">Finanzas personales</p>
-        <p class="sp-topic">Toma el control de tu dinero: cómo administrarlo, generar más ingresos y ahorrar con inteligencia. Un método claro para construir estabilidad y dejar de vivir al límite cada mes.</p>
-        <div class="sp-social">
-          <a href="#" aria-label="Instagram de Diego Fuentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
-          <a href="#" aria-label="LinkedIn de Diego Fuentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
-          <a href="#" aria-label="X de Diego Fuentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
-        </div>
-      </article>
-      <!-- Card 3 -->
-      <article class="sp-card reveal">
-        <div class="sp-photo">
-          <img src="https://i.pravatar.cc/400?img=33" alt="Retrato de Valentina Serrano" loading="lazy" />
-        </div>
-        <span class="sp-num">03</span>
-        <p class="sp-role">Valentina Serrano</p>
-        <p class="sp-area">Comunicación persuasiva</p>
-        <p class="sp-topic">Comunica y negocia con más impacto. Cómo estructurar tus ideas, ganar seguridad al hablar y lograr que tu mensaje realmente mueva a las personas a la acción.</p>
-        <div class="sp-social">
-          <a href="#" aria-label="Instagram de Valentina Serrano"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
-          <a href="#" aria-label="LinkedIn de Valentina Serrano"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
-          <a href="#" aria-label="X de Valentina Serrano"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
-        </div>
-      </article>
-      <!-- Card 4 -->
-      <article class="sp-card reveal">
-        <div class="sp-photo">
-          <img src="https://i.pravatar.cc/400?img=51" alt="Retrato de Andrés Molina" loading="lazy" />
-        </div>
-        <span class="sp-num">04</span>
-        <p class="sp-role">Andrés Molina</p>
-        <p class="sp-area">Inteligencia artificial aplicada</p>
-        <p class="sp-topic">Pon la IA a trabajar para ti. Casos reales para automatizar tareas, ahorrar horas cada semana y multiplicar tus resultados con las herramientas de inteligencia artificial en tu día a día.</p>
-        <div class="sp-social">
-          <a href="#" aria-label="Instagram de Andrés Molina"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
-          <a href="#" aria-label="LinkedIn de Andrés Molina"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
-          <a href="#" aria-label="X de Andrés Molina"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
-        </div>
-      </article>
-      <!-- Card 5 -->
-      <article class="sp-card reveal">
-        <div class="sp-photo">
-          <img src="https://i.pravatar.cc/400?img=16" alt="Retrato de Camila Duarte" loading="lazy" />
-        </div>
-        <span class="sp-num">05</span>
-        <p class="sp-role">Camila Duarte</p>
-        <p class="sp-area">Conexión espiritual</p>
-        <p class="sp-topic">Reconecta contigo mismo. Prácticas para fortalecer tu vida espiritual, encontrar calma en medio del caos y sostener un propósito que le dé sentido a todo lo que haces.</p>
-        <div class="sp-social">
-          <a href="#" aria-label="Instagram de Camila Duarte"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
-          <a href="#" aria-label="LinkedIn de Camila Duarte"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
-          <a href="#" aria-label="X de Camila Duarte"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
-        </div>
-      </article>
-      <!-- Card 6 -->
-      <article class="sp-card reveal">
-        <div class="sp-photo">
-          <img src="https://i.pravatar.cc/400?img=60" alt="Retrato de Sebastián Rojas" loading="lazy" />
-        </div>
-        <span class="sp-num">06</span>
-        <p class="sp-role">Sebastián Rojas</p>
-        <p class="sp-area">Marca personal</p>
-        <p class="sp-topic">Construye una marca personal que te haga crecer. Cómo destacar, ganar autoridad en tu nicho y convertir tu presencia en oportunidades reales de impacto masivo.</p>
-        <div class="sp-social">
-          <a href="#" aria-label="Instagram de Sebastián Rojas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
-          <a href="#" aria-label="LinkedIn de Sebastián Rojas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
-          <a href="#" aria-label="X de Sebastián Rojas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
-        </div>
-      </article>
-    </div>
+    <div class="sp-grid" id="sp-grid"></div>
   </section>
 
 </main>
@@ -987,6 +799,157 @@
     </svg>
   </div>
 </div>
+
+<!-- Íconos sociales (definidos una vez; las cards los referencian con <use>) -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <symbol id="ic-instagram" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></symbol>
+    <symbol id="ic-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></symbol>
+    <symbol id="ic-youtube" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- Datos de ponentes (fuente única de verdad) -->
+<script src="speakers.js"></script>
+
+<script>
+  // ---------- Render de ponentes (grilla + ticker) desde window.SPEAKERS ----------
+  // Corre ANTES del observer de .reveal para que las cards nuevas queden observadas.
+  (function () {
+    var LIST = (window.SPEAKERS || []).filter(function (s) { return s && s.visible; });
+    var PHOTO_BASE = "../../assets/speakers/";
+    var SOCIAL_ORDER = ["instagram", "linkedin", "youtube"];
+    var SOCIAL_LABEL = { instagram: "Instagram", linkedin: "LinkedIn", youtube: "YouTube" };
+
+    function initials(name) {
+      var parts = (name || "").trim().split(/\s+/).filter(Boolean);
+      if (!parts.length) return "?";
+      var a = parts[0].charAt(0);
+      var b = parts.length > 1 ? parts[parts.length - 1].charAt(0) : "";
+      return (a + b).toUpperCase();
+    }
+
+    // <img> con respaldo a monograma de iniciales si la foto no carga.
+    function photoNode(sp, monoClass) {
+      var img = document.createElement("img");
+      img.src = PHOTO_BASE + sp.foto;
+      img.alt = "Retrato de " + sp.nombre;
+      img.loading = "lazy";
+      img.addEventListener("error", function () {
+        var mono = document.createElement("div");
+        mono.className = monoClass;
+        mono.setAttribute("aria-hidden", "true");
+        mono.textContent = initials(sp.nombre);
+        if (img.parentNode) img.parentNode.replaceChild(mono, img);
+      });
+      return img;
+    }
+
+    function socialNode(sp) {
+      var box = document.createElement("div");
+      box.className = "sp-social";
+      var count = 0;
+      SOCIAL_ORDER.forEach(function (k) {
+        var url = sp.redes && sp.redes[k];
+        if (!url) return;
+        count++;
+        var a = document.createElement("a");
+        a.href = url; a.target = "_blank"; a.rel = "noopener";
+        a.setAttribute("aria-label", SOCIAL_LABEL[k] + " de " + sp.nombre);
+        a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-' + k + '"></use></svg>';
+        box.appendChild(a);
+      });
+      return count ? box : null;
+    }
+
+    // ---- Grilla de cards ----
+    var grid = document.getElementById("sp-grid");
+    if (grid) {
+      LIST.forEach(function (sp, i) {
+        var card = document.createElement("article");
+        card.className = "sp-card reveal";
+
+        var photo = document.createElement("div");
+        photo.className = "sp-photo";
+        photo.appendChild(photoNode(sp, "sp-mono"));
+        card.appendChild(photo);
+
+        var num = document.createElement("span");
+        num.className = "sp-num";
+        num.textContent = (i + 1 < 10 ? "0" : "") + (i + 1);
+        card.appendChild(num);
+
+        var role = document.createElement("p");
+        role.className = "sp-role";
+        role.textContent = sp.nombre;
+        card.appendChild(role);
+
+        var area = document.createElement("p");
+        area.className = "sp-area";
+        area.textContent = (sp.charla && sp.charla.titulo) || sp.tema || "";
+        card.appendChild(area);
+
+        var topic = document.createElement("p");
+        topic.className = "sp-topic";
+        var desc = (sp.charla && sp.charla.descripcion) || sp.bio || "";
+        if (desc) {
+          topic.textContent = desc;
+        } else {
+          topic.textContent = "Charla por anunciar.";
+          topic.className = "sp-topic is-empty";
+        }
+        card.appendChild(topic);
+
+        var soc = socialNode(sp);
+        if (soc) card.appendChild(soc);
+
+        grid.appendChild(card);
+      });
+    }
+
+    // ---- Ticker: dos filas, cada una con track duplicado (marquesina continua) ----
+    function tickerCard(sp) {
+      var li = document.createElement("li");
+      li.className = "tk-card";
+
+      var ph = document.createElement("div");
+      ph.className = "tk-photo";
+      ph.appendChild(photoNode(sp, "tk-mono"));
+      li.appendChild(ph);
+
+      var tx = document.createElement("div");
+      tx.className = "tk-text";
+      var pA = document.createElement("p");
+      pA.className = "tk-area";
+      pA.textContent = sp.tema || (sp.charla && sp.charla.titulo) || "";
+      var pT = document.createElement("p");
+      pT.className = "tk-topic";
+      pT.textContent = (sp.charla && (sp.charla.titulo || sp.charla.descripcion)) || sp.bio || "";
+      var pN = document.createElement("p");
+      pN.className = "tk-name";
+      pN.textContent = sp.nombre;
+      tx.appendChild(pA); tx.appendChild(pT); tx.appendChild(pN);
+      li.appendChild(tx);
+      return li;
+    }
+
+    function fillRow(rowId, items) {
+      var row = document.getElementById(rowId);
+      if (!row || !items.length) return;
+      for (var t = 0; t < 2; t++) {
+        var ul = document.createElement("ul");
+        ul.className = "tk-track";
+        if (t === 1) ul.setAttribute("aria-hidden", "true");
+        items.forEach(function (sp) { ul.appendChild(tickerCard(sp)); });
+        row.appendChild(ul);
+      }
+    }
+
+    var half = Math.ceil(LIST.length / 2);
+    fillRow("tk-left", LIST.slice(0, half));
+    fillRow("tk-right", LIST.slice(half));
+  })();
+</script>
 
 <script>
   // ---------- Reveal sutil (transform + opacity) ----------

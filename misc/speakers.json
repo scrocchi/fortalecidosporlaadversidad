@@ -1,0 +1,380 @@
+[
+  {
+    "id": "elbio-prida",
+    "nombre": "Elbio Prida",
+    "tema": "Negocios",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "elbio-prida.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "Empresario argentino, consultor empresarial y mentor de empresarios del rubro carnicerías, con más de 20 años de experiencia impulsando negocios, formando equipos y acompañando a emprendedores a profesionalizar su gestión.",
+    "empresa": "Rey Academy",
+    "donacion": "",
+    "redes": {
+      "instagram": "https://www.instagram.com/reyacademyoficial/"
+    },
+    "_confianza": "alta"
+  },
+  {
+    "id": "ivan-molano",
+    "nombre": "Ivan Molano",
+    "tema": "Negocios",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "ivan-molano.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "tian-rodriguez",
+    "nombre": "Tian Rodríguez",
+    "tema": "Finanzas e inversión",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "tian-rodriguez.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "Ingeniero industrial y educador financiero. Fundador de Tian Rodríguez LF, una marca dedicada a la educación en finanzas personales e inversión para ayudar a las personas a construir su libertad financiera.",
+    "empresa": "Tian Rodríguez LF",
+    "donacion": "",
+    "redes": {
+      "instagram": "https://www.instagram.com/tianrodriguezlf/"
+    },
+    "_confianza": "media"
+  },
+  {
+    "id": "ricardo-salguero",
+    "nombre": "Ricardo Salguero",
+    "tema": "Ventas y networking",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "ricardo-salguero.jpg",
+    "charla": {
+      "titulo": "Networking",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "victor-real",
+    "nombre": "Victor Real",
+    "tema": "Ventas y networking",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "victor-real.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "daniel-marcovich",
+    "nombre": "Daniel Marcovich",
+    "tema": "Inteligencia artificial",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "daniel-marcovich.jpg",
+    "charla": {
+      "titulo": "Vender por WhatsApp con IA: los 2 sistemas (Lanzamiento y Evergreen) por dentro",
+      "descripcion": "Existen dos sistemas de venta por WhatsApp que sí funcionan hoy: Lanzamiento y Evergreen. En esta charla te los muestro por dentro, con casos y números reales, para que veas cómo se dirige una conversación que vende. Sales sabiendo cuál te conviene y cómo dirigirlo, no solo qué herramienta usar."
+    },
+    "bio": "Co-creador de El Club IMPACTO y de El Método IMPACTO, donde enseña a dueños de negocio a construir con arquitectura. Con más de 20 años emprendiendo, ha operado chat marketing y automatización de mensajería a escala: más de 70 lanzamientos digitales y más de 600.000 leads gestionados en conversaciones 1 a 1 y grupos de WhatsApp. Marcovich Solutions fue reconocida por Hotmart como una de las Top 15 agencias de Latinoamérica en 2025.",
+    "empresa": "Marcovich Solutions",
+    "donacion": "",
+    "redes": {
+      "instagram": "https://www.instagram.com/danielmarcovich",
+      "linkedin": "https://www.linkedin.com/in/danielmarcovich/",
+      "youtube": "https://www.youtube.com/@danielmarcovich"
+    },
+    "_confianza": "alta"
+  },
+  {
+    "id": "jhonson-vivas",
+    "nombre": "Jhonson Vivas",
+    "tema": "Inteligencia artificial",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "jhonson-vivas.jpg",
+    "charla": {
+      "titulo": "Herramientas digitales y de IA para emprendedores y trabajadores remotos",
+      "descripcion": "Aprende los fundamentos y las herramientas que más resultados generan para modernizar tu negocio. Un enfoque práctico para potenciar tu productividad y llevar tu emprendimiento o trabajo remoto al siguiente nivel."
+    },
+    "bio": "Fundador de Remotos Academy, con más de 8 años de experiencia en el mundo digital. Ha formado a más de 2.000 estudiantes y ayudado a cientos de personas a desarrollar habilidades digitales para el trabajo remoto.",
+    "empresa": "Remotos Academy",
+    "donacion": "",
+    "redes": {
+      "instagram": "https://www.instagram.com/johnsonvivas",
+      "linkedin": "https://www.linkedin.com/in/johnson-vivas",
+      "youtube": "https://youtube.com/@remotosacademy"
+    },
+    "_confianza": "alta"
+  },
+  {
+    "id": "erika-nova",
+    "nombre": "Erika Nova",
+    "tema": "Copywriting y persuasión",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "erika-nova.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "Copywriter especializada en conversaciones que venden y co-creadora de El Método IMPACTO, donde ayuda a los negocios a comunicar y convertir con textos persuasivos.",
+    "empresa": "El Método IMPACTO",
+    "donacion": "",
+    "redes": {
+      "instagram": "https://www.instagram.com/erikalacopy/"
+    },
+    "_confianza": "media"
+  },
+  {
+    "id": "jan-schroeder",
+    "nombre": "Jan Schröder",
+    "tema": "Copywriting y persuasión",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "jan-schroeder.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "Creador del Sistema de Frases Cortas, un método de copywriting y persuasión basado en frases cortas para captar la atención y vender. Conocido como “el de las frases cortas”.",
+    "empresa": "Frases Cortas",
+    "donacion": "Frases Cortas",
+    "redes": {
+      "instagram": "https://www.instagram.com/janfrasescortas/"
+    },
+    "_confianza": "alta"
+  },
+  {
+    "id": "fernando-munoz",
+    "nombre": "Fernando Muñoz",
+    "tema": "Transformación personal",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "fernando-munoz.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "maria-antonieta-hernandez",
+    "nombre": "María Antonieta Hernández",
+    "tema": "Resiliencia",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "maria-antonieta-hernandez.jpg",
+    "charla": {
+      "titulo": "El poder de la resiliencia: cómo levantarte, soltar y reinventarte después de la adversidad",
+      "descripcion": ""
+    },
+    "bio": "CEO y fundadora de Community Networker, plataforma que conecta a emprendedores hispanos del sur de Florida a través de eventos, expos y formación. Más de dos décadas impulsando el desarrollo de negocios latinos.",
+    "empresa": "Community Networker",
+    "donacion": "",
+    "redes": {
+      "linkedin": "https://www.linkedin.com/in/maria-antonieta-hern%C3%A1ndez-4b10bb33/"
+    },
+    "_confianza": "media"
+  },
+  {
+    "id": "paola-sanchez",
+    "nombre": "Paola Sánchez",
+    "tema": "Salud y bienestar",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "paola-sanchez.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "arcenio-jimenez",
+    "nombre": "Arcenio Jiménez",
+    "tema": "Salud y bienestar",
+    "status": "confirmado",
+    "visible": true,
+    "foto": "arcenio-jimenez.jpg",
+    "charla": {
+      "titulo": "Rutina de movilidad para la salud y la pérdida de peso",
+      "descripcion": "Rutina de movilidad con participación de todos los asistentes. Si el cuerpo no se mueve, no hay salud ni bienestar: hay que entrenar la mente y la espiritualidad para ser el mejor, pero nunca descuidar tu movilidad y tu cuerpo."
+    },
+    "bio": "Personal trainer colombiano con 800.000 seguidores en Facebook, especialista en rutinas de ejercicio para perder peso desde casa, con un nicho enfocado en mujeres que quieren sentirse bien consigo mismas.",
+    "empresa": "Baja de peso con Arsenio",
+    "donacion": "",
+    "redes": {
+      "instagram": "https://www.instagram.com/bajadepesoconarsenio/",
+      "youtube": "https://www.youtube.com/@BAJADEPESOCONARSENIO"
+    },
+    "_confianza": "alta"
+  },
+  {
+    "id": "camila-paola",
+    "nombre": "Camila Paola",
+    "tema": "Finanzas e inversión",
+    "status": "por-confirmar",
+    "visible": false,
+    "foto": "camila-paola.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "jennifer-arteaga",
+    "nombre": "Jennifer Arteaga",
+    "tema": "Transformación personal",
+    "status": "por-confirmar",
+    "visible": false,
+    "foto": "jennifer-arteaga.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "andres-ricci",
+    "nombre": "Andres Ricci",
+    "tema": "Viralización en redes",
+    "status": "por-confirmar",
+    "visible": false,
+    "foto": "andres-ricci.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "monica-montanez",
+    "nombre": "Monica Montañez",
+    "tema": "Viralización en redes",
+    "status": "por-confirmar",
+    "visible": false,
+    "foto": "monica-montanez.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "david-firman",
+    "nombre": "David Firman",
+    "tema": "Espiritualidad",
+    "status": "por-confirmar",
+    "visible": false,
+    "foto": "david-firman.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "jose-rivero",
+    "nombre": "Jose Rivero",
+    "tema": "Espiritualidad",
+    "status": "por-confirmar",
+    "visible": false,
+    "foto": "jose-rivero.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "jesus-giangregorio",
+    "nombre": "Jesús Giangregorio",
+    "tema": "Marca personal",
+    "status": "por-confirmar",
+    "visible": false,
+    "foto": "jesus-giangregorio.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "mariale-y-ale",
+    "nombre": "Mariale y Ale",
+    "tema": "",
+    "status": "grabado",
+    "visible": false,
+    "foto": "mariale-y-ale.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  }
+]
