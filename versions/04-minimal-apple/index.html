@@ -810,7 +810,8 @@
     // <img> con respaldo a monograma de iniciales si la foto no carga.
     function photoNode(sp, monoClass) {
       var img = document.createElement("img");
-      img.src = PHOTO_BASE + sp.foto;
+      // Carpeta por ponente: assets/speakers/<id>/profile.jpg
+      img.src = PHOTO_BASE + sp.id + "/" + (sp.foto || "profile.jpg");
       img.alt = "Retrato de " + sp.nombre;
       img.loading = "lazy";
       img.addEventListener("error", function () {

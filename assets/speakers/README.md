@@ -1,36 +1,43 @@
 # Fotos de ponentes
 
-Colocá cada foto acá con EXACTAMENTE este nombre de archivo (formato .jpg).
-Si el archivo no existe, la card muestra un monograma con las iniciales.
-Recomendado: imagen vertical/cuadrada, cara centrada, min. 600px de ancho.
+Estructura: una carpeta por ponente, y adentro la imagen como **profile.jpg**.
+
+```
+assets/speakers/<id-del-ponente>/profile.jpg
+```
+
+- Solo tenés que soltar `profile.jpg` dentro de la carpeta que corresponde.
+- Formato JPG. Cara centrada con aire (se recorta a 4:5 en la grilla y a 3:2 en el ticker).
+- Vertical o cuadrada, mínimo ~800px en el lado corto (ideal 1000×1200). Menos de ~300 KB.
+- Si falta profile.jpg, la card muestra un monograma con las iniciales.
 
 ## Confirmados (visibles en la web)
 
-| Archivo | Ponente | ¿Estaba en Drive? |
+| Carpeta | Ponente | ¿Foto en Drive? |
 |---|---|---|
-| `elbio-prida.jpg` | Elbio Prida | sí — bajala de Drive |
-| `ivan-molano.jpg` | Ivan Molano | no — conseguir |
-| `tian-rodriguez.jpg` | Tian Rodríguez | no — conseguir |
-| `ricardo-salguero.jpg` | Ricardo Salguero | no — conseguir |
-| `victor-real.jpg` | Victor Real | no — conseguir |
-| `daniel-marcovich.jpg` | Daniel Marcovich | sí — bajala de Drive |
-| `jhonson-vivas.jpg` | Jhonson Vivas | sí — bajala de Drive |
-| `erika-nova.jpg` | Erika Nova | sí — bajala de Drive |
-| `jan-schroeder.jpg` | Jan Schröder | no — conseguir |
-| `fernando-munoz.jpg` | Fernando Muñoz | no — conseguir |
-| `maria-antonieta-hernandez.jpg` | María Antonieta Hernández | no — conseguir |
-| `paola-sanchez.jpg` | Paola Sánchez | no — conseguir |
-| `arcenio-jimenez.jpg` | Arcenio Jiménez | sí — bajala de Drive |
+| `assets/speakers/elbio-prida/profile.jpg` | Elbio Prida | sí — bajala de Drive |
+| `assets/speakers/ivan-molano/profile.jpg` | Ivan Molano | no — conseguir |
+| `assets/speakers/tian-rodriguez/profile.jpg` | Tian Rodríguez | no — conseguir |
+| `assets/speakers/ricardo-salguero/profile.jpg` | Ricardo Salguero | no — conseguir |
+| `assets/speakers/victor-real/profile.jpg` | Victor Real | no — conseguir |
+| `assets/speakers/daniel-marcovich/profile.jpg` | Daniel Marcovich | sí — bajala de Drive |
+| `assets/speakers/jhonson-vivas/profile.jpg` | Jhonson Vivas | sí — bajala de Drive |
+| `assets/speakers/erika-nova/profile.jpg` | Erika Nova | sí — bajala de Drive |
+| `assets/speakers/jan-schroeder/profile.jpg` | Jan Schröder | no — conseguir |
+| `assets/speakers/fernando-munoz/profile.jpg` | Fernando Muñoz | no — conseguir |
+| `assets/speakers/maria-antonieta-hernandez/profile.jpg` | María Antonieta Hernández | no — conseguir |
+| `assets/speakers/paola-sanchez/profile.jpg` | Paola Sánchez | no — conseguir |
+| `assets/speakers/arcenio-jimenez/profile.jpg` | Arcenio Jiménez | sí — bajala de Drive |
 
 ## Ocultos (por-confirmar / grabado)
 
-Solo si los activás (visible: true) en speakers.js:
+La carpeta ya existe por si los activás más adelante (visible: true en speakers.js):
 
-- `camila-paola.jpg` — Camila Paola
-- `jennifer-arteaga.jpg` — Jennifer Arteaga
-- `andres-ricci.jpg` — Andres Ricci
-- `monica-montanez.jpg` — Monica Montañez
-- `david-firman.jpg` — David Firman
-- `jose-rivero.jpg` — Jose Rivero
-- `jesus-giangregorio.jpg` — Jesús Giangregorio
-- `mariale-y-ale.jpg` — Mariale y Ale
+- `assets/speakers/camila-paola/profile.jpg` — Camila Paola
+- `assets/speakers/jennifer-arteaga/profile.jpg` — Jennifer Arteaga
+- `assets/speakers/andres-ricci/profile.jpg` — Andres Ricci
+- `assets/speakers/monica-montanez/profile.jpg` — Monica Montañez
+- `assets/speakers/david-firman/profile.jpg` — David Firman
+- `assets/speakers/jose-rivero/profile.jpg` — Jose Rivero
+- `assets/speakers/jesus-giangregorio/profile.jpg` — Jesús Giangregorio
+- `assets/speakers/mariale-y-ale/profile.jpg` — Mariale y Ale

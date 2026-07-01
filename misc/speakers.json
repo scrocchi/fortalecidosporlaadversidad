@@ -6,7 +6,7 @@
     "tema": "Negocios",
     "status": "confirmado",
     "visible": true,
-    "foto": "elbio-prida.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -26,7 +26,7 @@
     "tema": "Negocios",
     "status": "confirmado",
     "visible": true,
-    "foto": "ivan-molano.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -44,7 +44,7 @@
     "tema": "Finanzas e inversión",
     "status": "confirmado",
     "visible": true,
-    "foto": "tian-rodriguez.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -64,7 +64,7 @@
     "tema": "Ventas y networking",
     "status": "confirmado",
     "visible": true,
-    "foto": "ricardo-salguero.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "Networking",
       "descripcion": ""
@@ -82,7 +82,7 @@
     "tema": "Ventas y networking",
     "status": "confirmado",
     "visible": true,
-    "foto": "victor-real.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -100,7 +100,7 @@
     "tema": "Inteligencia artificial",
     "status": "confirmado",
     "visible": true,
-    "foto": "daniel-marcovich.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "Vender por WhatsApp con IA: los 2 sistemas (Lanzamiento y Evergreen) por dentro",
       "descripcion": "Existen dos sistemas de venta por WhatsApp que sí funcionan hoy: Lanzamiento y Evergreen. En esta charla te los muestro por dentro, con casos y números reales, para que veas cómo se dirige una conversación que vende. Sales sabiendo cuál te conviene y cómo dirigirlo, no solo qué herramienta usar."
@@ -122,7 +122,7 @@
     "tema": "Inteligencia artificial",
     "status": "confirmado",
     "visible": true,
-    "foto": "jhonson-vivas.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "Herramientas digitales y de IA para emprendedores y trabajadores remotos",
       "descripcion": "Aprende los fundamentos y las herramientas que más resultados generan para modernizar tu negocio. Un enfoque práctico para potenciar tu productividad y llevar tu emprendimiento o trabajo remoto al siguiente nivel."
@@ -144,7 +144,7 @@
     "tema": "Copywriting y persuasión",
     "status": "confirmado",
     "visible": true,
-    "foto": "erika-nova.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -164,7 +164,7 @@
     "tema": "Copywriting y persuasión",
     "status": "confirmado",
     "visible": true,
-    "foto": "jan-schroeder.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -184,7 +184,7 @@
     "tema": "Transformación personal",
     "status": "confirmado",
     "visible": true,
-    "foto": "fernando-munoz.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -202,7 +202,7 @@
     "tema": "Resiliencia",
     "status": "confirmado",
     "visible": true,
-    "foto": "maria-antonieta-hernandez.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "El poder de la resiliencia: cómo levantarte, soltar y reinventarte después de la adversidad",
       "descripcion": ""
@@ -222,7 +222,7 @@
     "tema": "Salud y bienestar",
     "status": "confirmado",
     "visible": true,
-    "foto": "paola-sanchez.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -240,7 +240,7 @@
     "tema": "Salud y bienestar",
     "status": "confirmado",
     "visible": true,
-    "foto": "arcenio-jimenez.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "Rutina de movilidad para la salud y la pérdida de peso",
       "descripcion": "Rutina de movilidad con participación de todos los asistentes. Si el cuerpo no se mueve, no hay salud ni bienestar: hay que entrenar la mente y la espiritualidad para ser el mejor, pero nunca descuidar tu movilidad y tu cuerpo."
@@ -261,7 +261,7 @@
     "tema": "Finanzas e inversión",
     "status": "por-confirmar",
     "visible": false,
-    "foto": "camila-paola.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -279,7 +279,7 @@
     "tema": "Transformación personal",
     "status": "por-confirmar",
     "visible": false,
-    "foto": "jennifer-arteaga.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -297,7 +297,7 @@
     "tema": "Viralización en redes",
     "status": "por-confirmar",
     "visible": false,
-    "foto": "andres-ricci.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -315,7 +315,7 @@
     "tema": "Viralización en redes",
     "status": "por-confirmar",
     "visible": false,
-    "foto": "monica-montanez.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -333,7 +333,7 @@
     "tema": "Espiritualidad",
     "status": "por-confirmar",
     "visible": false,
-    "foto": "david-firman.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -351,7 +351,7 @@
     "tema": "Espiritualidad",
     "status": "por-confirmar",
     "visible": false,
-    "foto": "jose-rivero.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -369,7 +369,7 @@
     "tema": "Marca personal",
     "status": "por-confirmar",
     "visible": false,
-    "foto": "jesus-giangregorio.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""
@@ -387,7 +387,7 @@
     "tema": "",
     "status": "grabado",
     "visible": false,
-    "foto": "mariale-y-ale.jpg",
+    "foto": "profile.jpg",
     "charla": {
       "titulo": "",
       "descripcion": ""

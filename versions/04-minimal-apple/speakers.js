@@ -7,9 +7,10 @@
  * Cómo editar:
  *  - Para mostrar/ocultar a alguien en la web: cambiá `visible` (true/false).
  *  - `status`: "confirmado" | "por-confirmar" | "grabado" (informativo).
- *  - `foto`: nombre de archivo dentro de assets/speakers/ (ej. "elbio-prida.jpg").
- *    Si el archivo no existe todavía, la card muestra un monograma con las
- *    iniciales. Dejá el mismo nombre y soltá la foto ahí para que aparezca.
+ *  - `foto`: nombre del archivo dentro de la carpeta del ponente. La ruta
+ *    final es assets/speakers/<id>/<foto> (por defecto <id>/profile.jpg).
+ *    Si no existe, la card muestra un monograma con las iniciales; solo
+ *    dejá la imagen como profile.jpg dentro de la carpeta del ponente.
  *  - `redes`: solo las que existan (instagram / linkedin / youtube). Las
  *    vacías no se dibujan.
  *  - `_confianza`: "alta" (dato provisto por el organizador o verificado),
@@ -28,7 +29,7 @@ var SPEAKERS = [
     tema: "Negocios",
     status: "confirmado",
     visible: true,
-    foto: "elbio-prida.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "Empresario argentino, consultor empresarial y mentor de empresarios del rubro carnicerías, con más de 20 años de experiencia impulsando negocios, formando equipos y acompañando a emprendedores a profesionalizar su gestión.",
     empresa: "Rey Academy",
@@ -43,7 +44,7 @@ var SPEAKERS = [
     tema: "Negocios",
     status: "confirmado",
     visible: true,
-    foto: "ivan-molano.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "",
     empresa: "",
@@ -58,7 +59,7 @@ var SPEAKERS = [
     tema: "Finanzas e inversión",
     status: "confirmado",
     visible: true,
-    foto: "tian-rodriguez.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "Ingeniero industrial y educador financiero. Fundador de Tian Rodríguez LF, una marca dedicada a la educación en finanzas personales e inversión para ayudar a las personas a construir su libertad financiera.",
     empresa: "Tian Rodríguez LF",
@@ -73,7 +74,7 @@ var SPEAKERS = [
     tema: "Ventas y networking",
     status: "confirmado",
     visible: true,
-    foto: "ricardo-salguero.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "Networking", descripcion: "" },
     bio: "",
     empresa: "",
@@ -88,7 +89,7 @@ var SPEAKERS = [
     tema: "Ventas y networking",
     status: "confirmado",
     visible: true,
-    foto: "victor-real.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "",
     empresa: "",
@@ -103,7 +104,7 @@ var SPEAKERS = [
     tema: "Inteligencia artificial",
     status: "confirmado",
     visible: true,
-    foto: "daniel-marcovich.jpg",
+    foto: "profile.jpg",
     charla: {
       titulo: "Vender por WhatsApp con IA: los 2 sistemas (Lanzamiento y Evergreen) por dentro",
       descripcion: "Existen dos sistemas de venta por WhatsApp que sí funcionan hoy: Lanzamiento y Evergreen. En esta charla te los muestro por dentro, con casos y números reales, para que veas cómo se dirige una conversación que vende. Sales sabiendo cuál te conviene y cómo dirigirlo, no solo qué herramienta usar."
@@ -125,7 +126,7 @@ var SPEAKERS = [
     tema: "Inteligencia artificial",
     status: "confirmado",
     visible: true,
-    foto: "jhonson-vivas.jpg",
+    foto: "profile.jpg",
     charla: {
       titulo: "Herramientas digitales y de IA para emprendedores y trabajadores remotos",
       descripcion: "Aprende los fundamentos y las herramientas que más resultados generan para modernizar tu negocio. Un enfoque práctico para potenciar tu productividad y llevar tu emprendimiento o trabajo remoto al siguiente nivel."
@@ -147,7 +148,7 @@ var SPEAKERS = [
     tema: "Copywriting y persuasión",
     status: "confirmado",
     visible: true,
-    foto: "erika-nova.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "Copywriter especializada en conversaciones que venden y co-creadora de El Método IMPACTO, donde ayuda a los negocios a comunicar y convertir con textos persuasivos.",
     empresa: "El Método IMPACTO",
@@ -162,7 +163,7 @@ var SPEAKERS = [
     tema: "Copywriting y persuasión",
     status: "confirmado",
     visible: true,
-    foto: "jan-schroeder.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "Creador del Sistema de Frases Cortas, un método de copywriting y persuasión basado en frases cortas para captar la atención y vender. Conocido como “el de las frases cortas”.",
     empresa: "Frases Cortas",
@@ -177,7 +178,7 @@ var SPEAKERS = [
     tema: "Transformación personal",
     status: "confirmado",
     visible: true,
-    foto: "fernando-munoz.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "",
     empresa: "",
@@ -192,7 +193,7 @@ var SPEAKERS = [
     tema: "Resiliencia",
     status: "confirmado",
     visible: true,
-    foto: "maria-antonieta-hernandez.jpg",
+    foto: "profile.jpg",
     charla: {
       titulo: "El poder de la resiliencia: cómo levantarte, soltar y reinventarte después de la adversidad",
       descripcion: ""
@@ -210,7 +211,7 @@ var SPEAKERS = [
     tema: "Salud y bienestar",
     status: "confirmado",
     visible: true,
-    foto: "paola-sanchez.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "",
     empresa: "",
@@ -225,7 +226,7 @@ var SPEAKERS = [
     tema: "Salud y bienestar",
     status: "confirmado",
     visible: true,
-    foto: "arcenio-jimenez.jpg",
+    foto: "profile.jpg",
     charla: {
       titulo: "Rutina de movilidad para la salud y la pérdida de peso",
       descripcion: "Rutina de movilidad con participación de todos los asistentes. Si el cuerpo no se mueve, no hay salud ni bienestar: hay que entrenar la mente y la espiritualidad para ser el mejor, pero nunca descuidar tu movilidad y tu cuerpo."
@@ -248,7 +249,7 @@ var SPEAKERS = [
     tema: "Finanzas e inversión",
     status: "por-confirmar",
     visible: false,
-    foto: "camila-paola.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
@@ -260,7 +261,7 @@ var SPEAKERS = [
     tema: "Transformación personal",
     status: "por-confirmar",
     visible: false,
-    foto: "jennifer-arteaga.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
@@ -272,7 +273,7 @@ var SPEAKERS = [
     tema: "Viralización en redes",
     status: "por-confirmar",
     visible: false,
-    foto: "andres-ricci.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
@@ -284,7 +285,7 @@ var SPEAKERS = [
     tema: "Viralización en redes",
     status: "por-confirmar",
     visible: false,
-    foto: "monica-montanez.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja" // el Excel registraba el nombre con signo de interrogación
@@ -296,7 +297,7 @@ var SPEAKERS = [
     tema: "Espiritualidad",
     status: "por-confirmar",
     visible: false,
-    foto: "david-firman.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
@@ -308,7 +309,7 @@ var SPEAKERS = [
     tema: "Espiritualidad",
     status: "por-confirmar",
     visible: false,
-    foto: "jose-rivero.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
@@ -320,7 +321,7 @@ var SPEAKERS = [
     tema: "Marca personal",
     status: "por-confirmar",
     visible: false,
-    foto: "jesus-giangregorio.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
@@ -334,7 +335,7 @@ var SPEAKERS = [
     tema: "",
     status: "grabado",
     visible: false,
-    foto: "mariale-y-ale.jpg",
+    foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
