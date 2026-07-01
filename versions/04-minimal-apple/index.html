@@ -577,25 +577,24 @@
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity 260ms var(--ease), transform 260ms var(--ease); }
   .reveal.in { opacity: 1; transform: none; }
 
-  /* Aparición ligada al scroll — párrafos de "¿Qué pasó en Venezuela?"
-     El fade de opacidad se mantiene aun con "reducir movimiento" (un fade no
-     es movimiento); solo el desplazamiento vertical se gatea tras no-preference. */
-  .cz-step { opacity: 0; }
-  @media (prefers-reduced-motion: no-preference) { .cz-step { transform: translateY(20px); } }
+  /* ---------- "¿Qué pasó en Venezuela?": relato con heading fijo (sticky) ----------
+     Base (sin JS / reduced-motion / pantallas chicas): todo visible en flujo
+     normal. El efecto lo activa el JS agregando .cz-anim a la sección. */
+  .cz-scroll { position: relative; }
+  .cz-pin { }
+  .cz-line { }
 
-  @supports (animation-timeline: view()) {
-    .cz-step {
-      animation: czReveal linear both;
-      animation-timeline: view();
-      animation-range: entry 5% entry 55%;
-    }
-    @keyframes czReveal { from { opacity: 0; } to { opacity: 1; transform: none; } }
+  .causa.cz-anim .cz-scroll {
+    height: calc(100vh + var(--cz-steps, 7) * 34vh);
   }
-  /* Respaldo sin scroll-driven animations: IntersectionObserver agrega .in */
-  @supports not (animation-timeline: view()) {
-    .cz-step { transition: opacity 800ms var(--ease), transform 800ms var(--ease); }
-    .cz-step.in { opacity: 1; transform: none; }
+  .causa.cz-anim .cz-pin {
+    position: sticky; top: 0;
+    height: 100vh;
+    display: flex; align-items: center; justify-content: center;
   }
+  /* Los párrafos arrancan ocultos; el JS scrubbea su opacidad/desplazamiento.
+     El título (h2) queda siempre visible: aparece y se mantiene fijo. */
+  .causa.cz-anim .cz-line { opacity: 0; will-change: opacity, transform; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .textlink::after, .skip { transition: none; }
@@ -685,16 +684,20 @@
   </section>
 
   <!-- ============ LA CAUSA ============ -->
-  <section class="section causa wrap" id="causa" aria-labelledby="causa-title">
-    <div class="cz cz-steps">
-      <h2 id="causa-title" class="cz-step">¿Qué pasó en Venezuela?</h2>
-      <p class="cz-step">Dos terremotos sacudieron la costa de Venezuela, y de un momento a otro miles de familias se quedaron sin casa.</p>
-      <p class="cz-step">Mientras lees esto, todavía hay equipos removiendo escombros con las manos, buscando a alguien más con vida.</p>
-      <p class="cz-lead cz-step">Y viéndolo de lejos, casi todos sentimos lo mismo:</p>
-      <p class="cz-pivot cz-step">¿Qué puedo hacer yo?</p>
-      <p class="cz-step">De esa pregunta nació <strong>Fortalecidos por la Adversidad</strong>.</p>
-      <p class="cz-step">Reunimos a mentores y expertos dispuestos a regalar lo que saben, y convertimos cada donación en ayuda que llega directo a Venezuela.</p>
-      <p class="cz-step">Hoy ponemos nuestro trabajo y aprendizaje sobre la mesa para que, juntos, podamos <strong>tenderle la mano a quienes más nos necesitan</strong>.</p>
+  <section class="section causa" id="causa" aria-labelledby="causa-title">
+    <div class="cz-scroll">
+      <div class="cz-pin">
+        <div class="cz wrap">
+          <h2 id="causa-title" class="cz-title">¿Qué pasó en Venezuela?</h2>
+          <p class="cz-line">Dos terremotos sacudieron la costa de Venezuela, y de un momento a otro miles de familias se quedaron sin casa.</p>
+          <p class="cz-line">Mientras lees esto, todavía hay equipos removiendo escombros con las manos, buscando a alguien más con vida.</p>
+          <p class="cz-lead cz-line">Y viéndolo de lejos, casi todos sentimos lo mismo:</p>
+          <p class="cz-pivot cz-line">¿Qué puedo hacer yo?</p>
+          <p class="cz-line">De esa pregunta nació <strong>Fortalecidos por la Adversidad</strong>.</p>
+          <p class="cz-line">Reunimos a mentores y expertos dispuestos a regalar lo que saben, y convertimos cada donación en ayuda que llega directo a Venezuela.</p>
+          <p class="cz-line">Hoy ponemos nuestro trabajo y aprendizaje sobre la mesa para que, juntos, podamos <strong>tenderle la mano a quienes más nos necesitan</strong>.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1050,27 +1053,67 @@
     }
   })();
 
-  // ---------- "¿Qué pasó en Venezuela?": aparición por scroll ----------
-  // El efecto lo maneja CSS (animation-timeline: view()). Este bloque es solo
-  // respaldo para navegadores sin scroll-driven animations.
+  // ---------- "¿Qué pasó en Venezuela?": relato con heading fijo ----------
+  // El heading queda sticky y los párrafos van apareciendo, scrubbeados con el
+  // scroll (progreso de la sección). Progressive enhancement: si no se activa,
+  // el CSS base deja todo visible en flujo normal.
   (function () {
-    var steps = document.querySelectorAll('.cz-step');
-    if (!steps.length) return;
-    var supportsSDA = window.CSS && CSS.supports && CSS.supports('animation-timeline: view()');
-    if (supportsSDA) return; // el CSS (scroll-driven) se encarga en todos los casos
-    if (!('IntersectionObserver' in window)) {
-      steps.forEach(function (s) { s.classList.add('in'); });
-      return;
+    var section = document.getElementById('causa');
+    if (!section) return;
+    var scroll = section.querySelector('.cz-scroll');
+    var lines = [].slice.call(section.querySelectorAll('.cz-line'));
+    if (!scroll || !lines.length) return;
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // El pin necesita alto y ancho suficientes; en móvil/ventanas bajas o con
+    // "reducir movimiento" dejamos el fallback estático (todo visible).
+    function eligible() {
+      return !reduce && window.innerWidth >= 768 && window.innerHeight >= 680;
     }
-    // Sin scroll-driven (Safari/Firefox): revelamos por scroll con IO.
-    // Bajo "reducir movimiento" el CSS ya deja el transform en none, así que
-    // este mismo camino solo produce el fade de opacidad, sin desplazamiento.
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
-    steps.forEach(function (s) { io.observe(s); });
+
+    var enabled = false, ticking = false;
+    function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+
+    function render() {
+      ticking = false;
+      if (!enabled) return;
+      var rect = scroll.getBoundingClientRect();
+      var dist = rect.height - window.innerHeight;
+      if (dist <= 0) return;
+      var p = clamp(-rect.top / dist);
+      var n = lines.length;
+      var span = 1 / n;                     // franja de scroll por párrafo
+      for (var i = 0; i < n; i++) {
+        var start = (i + 0.1) * span * 0.9; // pequeño desfase al arrancar
+        var lp = clamp((p - start) / (span * 0.6));
+        lines[i].style.opacity = lp.toFixed(3);
+        lines[i].style.transform = 'translateY(' + ((1 - lp) * 16).toFixed(1) + 'px)';
+      }
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(render); }
+    }
+
+    function enable() {
+      if (enabled) return;
+      enabled = true;
+      section.classList.add('cz-anim');
+      section.style.setProperty('--cz-steps', lines.length);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      render();
+    }
+    function disable() {
+      if (!enabled) return;
+      enabled = false;
+      section.classList.remove('cz-anim');
+      window.removeEventListener('scroll', onScroll);
+      lines.forEach(function (l) { l.style.opacity = ''; l.style.transform = ''; });
+    }
+
+    if (eligible()) enable();
+    window.addEventListener('resize', function () {
+      if (eligible()) { enable(); render(); } else { disable(); }
+    }, { passive: true });
   })();
 
   // ---------- Video del hero: loop silenciado (sin audio) ----------
