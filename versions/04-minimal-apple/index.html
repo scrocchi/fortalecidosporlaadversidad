@@ -244,8 +244,8 @@
   /* ---------- Hero ---------- */
   .hero {
     text-align: center;
-    padding-top: clamp(2.5rem, 6vw, 4.5rem);
-    padding-bottom: clamp(3rem, 7vw, 6rem);
+    padding-top: clamp(3.75rem, 8.5vw, 6.5rem);
+    padding-bottom: clamp(4.5rem, 9.5vw, 7.5rem);
   }
   .hero-top {
     max-width: var(--maxw); margin-inline: auto;
@@ -263,15 +263,16 @@
     text-wrap: balance;
   }
   .hero h1 em { font-style: italic; font-weight: 700; }
-  .hero .sub {
-    margin: var(--space-5) auto 0;
-    max-width: 58ch;
+  .hero .sub { margin: var(--space-5) auto 0; max-width: 56ch; }
+  .hero .sub p {
+    margin: 0 auto;
     font-size: var(--text-lg);
     line-height: 1.5;
     color: var(--ink-2);
     font-weight: 400;
     text-wrap: pretty;
   }
+  .hero .sub p + p { margin-top: 0.9rem; }
   .hero .cta-row {
     margin-top: var(--space-6);
     display: flex; flex-wrap: wrap; gap: var(--space-4);
@@ -357,7 +358,7 @@
 
   /* ---------- Ticker de ponentes/temas (arriba del video) ---------- */
   .hero-ticker {
-    margin-top: clamp(3rem, 6vw, 5rem);
+    margin-top: clamp(5rem, 11vw, 9rem);
     overflow: hidden;
     display: flex; flex-direction: column;
     gap: clamp(0.75rem, 1.4vw, 1.15rem);
@@ -487,28 +488,31 @@
   }
 
   /* ---------- Números ---------- */
-  .numbers { text-align: center; }
-  .numbers .head { margin-bottom: var(--space-10); }
-  .numbers h2 { font-size: var(--text-3xl); font-weight: 600; letter-spacing: -0.025em; margin: 0.75rem 0 0; }
-  .stats {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+  /* ---------- Cómo funciona (lista limpia) ---------- */
+  .howto .head { text-align: center; margin-bottom: var(--space-10); }
+  .howto h2 { font-size: var(--text-3xl); font-weight: 600; letter-spacing: -0.025em; margin: 0.75rem 0 0; }
+  .howto-list {
+    list-style: none; margin: 0 auto; padding: 0;
+    max-width: 760px;
     border-top: 1px solid var(--line);
   }
-  .stat {
-    padding: clamp(2rem, 5vw, 3.25rem) 1rem;
+  .howto-item {
+    padding: clamp(1.5rem, 3.5vw, 2.5rem) 0;
     border-bottom: 1px solid var(--line);
-    display: flex; flex-direction: column; gap: 0.5rem; align-items: center;
   }
-  .stat:not(:last-child) { border-right: 1px solid var(--line); }
-  .stat .n {
-    font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700;
-    letter-spacing: -0.04em; line-height: 0.95; color: var(--ink);
-    font-variant-numeric: tabular-nums;
+  .howto-item h3 {
+    margin: 0 0 0.5rem; font-size: var(--text-xl); font-weight: 600;
+    letter-spacing: -0.02em; color: var(--ink);
   }
-  .stat .k { font-size: var(--text-sm); color: var(--ink-2); max-width: 22ch; }
-  @media (max-width: 760px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(2n) { border-right: 0; }
+  .howto-item p { margin: 0; color: var(--ink-2); font-size: var(--text-base); line-height: 1.6; }
+  .howto-close { text-align: center; margin-top: var(--space-10); }
+  .howto-close .howto-lead { margin: 0 0 var(--space-2); color: var(--ink-3); font-size: var(--text-base); }
+  .howto-close .howto-pivot {
+    font-family: var(--font-serif); font-optical-sizing: auto;
+    font-style: italic; font-weight: 400;
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    line-height: 1.1; letter-spacing: -0.02em; color: var(--ink);
+    margin: 0 auto var(--space-8); max-width: 20ch;
   }
 
   /* ---------- Speakers ---------- */
@@ -523,38 +527,58 @@
   @media (max-width: 900px) { .sp-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .sp-grid { grid-template-columns: 1fr; } }
   .sp-card { background: var(--bg); padding: var(--space-5); display: flex; flex-direction: column; }
+  .sp-social {
+    display: flex; gap: 0.5rem;
+    margin-top: auto; padding-top: var(--space-4);
+  }
+  .sp-social a {
+    width: 34px; height: 34px; display: grid; place-items: center;
+    border: 1px solid var(--line-2); color: var(--ink-2);
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+  }
+  .sp-social a:hover { color: var(--ink); border-color: var(--ink-3); background: var(--bg-soft); }
+  .sp-social svg { width: 16px; height: 16px; fill: currentColor; }
   .sp-photo {
     position: relative; aspect-ratio: 4 / 5; background: var(--bg-soft);
     border: 1px solid var(--line); margin-bottom: var(--space-4);
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
   }
-  /* Silueta digna: busto genérico en trazo, sin stock */
-  .sp-photo svg.silh { width: 46%; height: auto; opacity: 0.5; color: var(--ink-3); }
-  .sp-photo .ph-cap {
-    position: absolute; bottom: 8px; left: 0; right: 0; text-align: center;
-    font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--ink-3);
-  }
+  .sp-photo img { width: 100%; height: 100%; object-fit: cover; }
   .sp-num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--blue); letter-spacing: 0.12em; }
-  .sp-role { font-size: var(--text-sm); font-weight: 600; color: var(--ink); margin: 0.5rem 0 0.25rem; }
-  .sp-topic { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.45; }
+  .sp-role { font-size: var(--text-lg); font-weight: 700; color: var(--ink); margin: 0.5rem 0 0.1rem; letter-spacing: -0.01em; }
+  .sp-area { font-size: var(--text-sm); font-weight: 600; color: var(--blue); margin: 0 0 0.6rem; }
+  .sp-topic { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.55; margin: 0 0 var(--space-4); }
 
-  /* ---------- CTA final ---------- */
-  .final { text-align: center; }
-  .final .seam { margin-bottom: var(--space-6); }
-  .final h2 {
-    font-size: var(--text-4xl); font-weight: 700; letter-spacing: -0.035em;
-    line-height: var(--leading-snug); margin: 0 auto; max-width: 18ch;
+  /* ---------- Banda decorativa: bandera de Venezuela ---------- */
+  /* Visible por defecto; si el navegador lo soporta, se "abre" desde el centro al hacer scroll */
+  .flag-band { overflow: hidden; }
+  .flag-vz {
+    height: clamp(96px, 13vw, 160px);
+    background: linear-gradient(180deg,
+      #FCD116 0 33.333%, #00247D 33.333% 66.666%, #CF142B 66.666% 100%);
+    display: grid; place-items: center;
   }
-  .final p { margin: var(--space-5) auto 0; max-width: 44ch; color: var(--ink-2); font-size: var(--text-lg); }
-  .final .cta-row { margin-top: var(--space-8); display: flex; justify-content: center; }
+  .flag-stars { width: min(260px, 52%); height: auto; fill: #fff; }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .flag-band {
+        animation: flagOpen linear both;
+        animation-timeline: view();
+        animation-range: entry 8% entry 72%;
+      }
+      @keyframes flagOpen {
+        from { clip-path: inset(50% 0 50% 0); }
+        to   { clip-path: inset(0 0 0 0); }
+      }
+    }
+  }
 
   /* ---------- Footer ---------- */
   footer.site { border-top: 1px solid var(--line); padding-block: var(--space-8); }
   .foot-inner { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; }
   .foot-inner .fb { display: flex; align-items: center; gap: 0.6rem; }
-  .foot-inner img { height: 26px; width: auto; }
+  .foot-inner img { height: 34px; width: auto; }
   .foot-inner p { font-size: var(--text-xs); color: var(--ink-3); max-width: 52ch; margin: 0; line-height: 1.6; }
 
   /* ---------- Reveal (motion sutil) ---------- */
@@ -573,8 +597,8 @@
 <!-- ============ HEADER ============ -->
 <header class="site">
   <div class="wrap site-inner">
-    <a class="brand" href="#top" aria-label="Operación Esperanza — inicio">
-      <img src="../../assets/logos/LOGO-V-1.png" alt="Operación Esperanza" />
+    <a class="brand" href="#top" aria-label="Fortalecidos por la Adversidad — inicio">
+      <img src="../../assets/logos/logo.svg" alt="Fortalecidos por la Adversidad" />
     </a>
     <div class="head-count" id="headCount" role="timer" aria-label="Cuenta regresiva para el evento">
       <span class="hc-cell"><b data-cd="d">--</b><span class="hc-l">Días</span></span>
@@ -599,7 +623,10 @@
       </div>
       <span class="label eyebrow">Fortalecidos por la Adversidad</span>
       <h1 id="hero-title">Aprende de <em>24 expertos</em> en un solo día y ayuda a Venezuela</h1>
-      <p class="sub">Una jornada de clases en vivo —finanzas, mentalidad, inteligencia artificial, espiritualidad y más— para recaudar fondos para las familias afectadas por el terremoto en Venezuela. El registro es gratis; durante el evento donas lo que quieras y el 100% llega a la causa.</p>
+      <div class="sub">
+        <p>Un día entero de clases en vivo —finanzas, mentalidad, fe, tecnología y mucho más—, hechas para acompañar a las familias que lo perdieron todo en el terremoto.</p>
+        <p>Entrar es gratis. Si algo te mueve, donas lo que quieras: cada aporte llega completo a Venezuela.</p>
+      </div>
       <div class="cta-row">
         <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">Quiero registrarme gratis</a>
         <a class="btn btn--ghost" href="#causa">Conoce la causa</a>
@@ -768,24 +795,40 @@
   <section class="section causa wrap" id="causa" aria-labelledby="causa-title">
     <div class="cz reveal">
       <h2 id="causa-title">Qué pasó en Venezuela</h2>
-      <p>Un fuerte terremoto sacudió la región de La Guaira, en la costa de Venezuela, y dejó a miles de familias sin hogar. Los equipos de rescate siguen trabajando sin descanso entre los escombros para encontrar sobrevivientes.</p>
-      <p class="cz-lead">Frente a una tragedia así, muchos sentimos la misma pregunta:</p>
+      <p>Un terremoto sacudió La Guaira, en la costa de Venezuela, y de un momento a otro miles de familias se quedaron sin casa.</p>
+      <p>Mientras lees esto, todavía hay equipos removiendo escombros con las manos, buscando a alguien más con vida.</p>
+      <p class="cz-lead">Y viéndolo de lejos, casi todos sentimos lo mismo:</p>
       <p class="cz-pivot">¿Qué puedo hacer yo?</p>
-      <p>De ahí nació <strong>Fortalecidos por la Adversidad</strong>, una iniciativa de <strong>Operación Esperanza</strong>: reunimos a mentores y expertos para compartir conocimiento valioso de forma gratuita y convertir cada donación voluntaria en ayuda directa para quienes más lo necesitan hoy. No es un evento de venta: es un espacio para <strong>aprender, acompañar y aportar</strong>.</p>
+      <p>De esa pregunta nació <strong>Fortalecidos por la Adversidad</strong>, una iniciativa de <strong>Operación Esperanza</strong>.</p>
+      <p>Reunimos a mentores y expertos dispuestos a regalar lo que saben, y convertimos cada donación en ayuda que llega directo a Venezuela.</p>
+      <p>No venimos a venderte nada. Venimos a <strong>aprender, acompañar y tender la mano</strong>.</p>
     </div>
   </section>
 
   <!-- ============ NÚMEROS ============ -->
-  <section class="section numbers wrap" aria-labelledby="num-title">
+  <section class="section howto wrap" aria-labelledby="num-title">
     <div class="head">
-      <span class="label">El evento en números</span>
+      <span class="label">Cómo funciona</span>
       <h2 id="num-title">Un día completo, una sola causa</h2>
     </div>
-    <div class="stats">
-      <div class="stat reveal"><span class="n">12<span style="font-size:0.5em; font-weight:500;">h</span></span><span class="k">Transmisión continua, sin pausas</span></div>
-      <div class="stat reveal"><span class="n">24</span><span class="k">Conferencias de expertos invitados</span></div>
-      <div class="stat reveal"><span class="n">$0</span><span class="k">Costo de inscripción</span></div>
-      <div class="stat reveal"><span class="n">100<span style="font-size:0.5em; font-weight:500;">%</span></span><span class="k">De las donaciones para la causa</span></div>
+    <ul class="howto-list">
+      <li class="howto-item reveal">
+        <h3>Una clase en vivo, de la mañana a la noche</h3>
+        <p>Veinticuatro charlas, una tras otra, durante doce horas seguidas. Te conectas cuando puedas y te quedas el tiempo que quieras: cada una vale por sí sola.</p>
+      </li>
+      <li class="howto-item reveal">
+        <h3>Entrar no te cuesta nada</h3>
+        <p>Te registras por WhatsApp, recibes el enlace y ya estás dentro. Sin inscripción y sin letra chica, porque el conocimiento debería llegarle a todos.</p>
+      </li>
+      <li class="howto-item reveal">
+        <h3>Cada donación llega directo a La Guaira</h3>
+        <p>Tú decides si quieres aportar y cuánto. No hay monto mínimo, y hasta el último bolívar va a las familias afectadas. Nada se queda en el camino.</p>
+      </li>
+    </ul>
+    <div class="howto-close reveal">
+      <p class="howto-lead">Al final, todo se reduce a algo muy simple:</p>
+      <p class="howto-pivot">estar cuando más nos necesitan.</p>
+      <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">Quiero registrarme gratis</a>
     </div>
   </section>
 
@@ -794,103 +837,130 @@
     <div class="head">
       <span class="label">Ponentes</span>
       <h2 id="sp-title">Los expertos, en camino</h2>
-      <p>Estamos confirmando a los mentores de cada área. Estos son algunos de los temas que vas a encontrar durante las 24 conferencias.</p>
+      <p>Todavía estamos cerrando la lista completa. Mientras tanto, estos son algunos de los temas —y de las personas— que van a estar contigo ese día.</p>
     </div>
     <div class="sp-grid">
       <!-- Card 1 -->
       <article class="sp-card reveal">
         <div class="sp-photo">
-          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
-            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
-          </svg>
-          <span class="ph-cap">Foto por confirmar</span>
+          <img src="https://i.pravatar.cc/400?img=12" alt="Retrato de Marcela Ríos" loading="lazy" />
         </div>
         <span class="sp-num">01</span>
-        <p class="sp-role">Ponente por confirmar</p>
-        <p class="sp-topic"><b>Resiliencia frente a la adversidad</b> — sostener una actitud fuerte cuando la vida golpea.</p>
+        <p class="sp-role">Marcela Ríos</p>
+        <p class="sp-area">Resiliencia frente a la adversidad</p>
+        <p class="sp-topic">Aprende a sostener una actitud fuerte cuando la vida golpea. Herramientas prácticas para transformar el dolor en impulso, recuperar el control y no rendirte en los momentos más difíciles.</p>
+        <div class="sp-social">
+          <a href="#" aria-label="Instagram de Marcela Ríos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn de Marcela Ríos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
+          <a href="#" aria-label="X de Marcela Ríos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
+        </div>
       </article>
       <!-- Card 2 -->
       <article class="sp-card reveal">
         <div class="sp-photo">
-          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
-            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
-          </svg>
-          <span class="ph-cap">Foto por confirmar</span>
+          <img src="https://i.pravatar.cc/400?img=13" alt="Retrato de Diego Fuentes" loading="lazy" />
         </div>
         <span class="sp-num">02</span>
-        <p class="sp-role">Ponente por confirmar</p>
-        <p class="sp-topic"><b>Finanzas personales</b> — administra, genera y ahorra dinero de forma inteligente.</p>
+        <p class="sp-role">Diego Fuentes</p>
+        <p class="sp-area">Finanzas personales</p>
+        <p class="sp-topic">Toma el control de tu dinero: cómo administrarlo, generar más ingresos y ahorrar con inteligencia. Un método claro para construir estabilidad y dejar de vivir al límite cada mes.</p>
+        <div class="sp-social">
+          <a href="#" aria-label="Instagram de Diego Fuentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn de Diego Fuentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
+          <a href="#" aria-label="X de Diego Fuentes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
+        </div>
       </article>
       <!-- Card 3 -->
       <article class="sp-card reveal">
         <div class="sp-photo">
-          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
-            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
-          </svg>
-          <span class="ph-cap">Foto por confirmar</span>
+          <img src="https://i.pravatar.cc/400?img=33" alt="Retrato de Valentina Serrano" loading="lazy" />
         </div>
         <span class="sp-num">03</span>
-        <p class="sp-role">Ponente por confirmar</p>
-        <p class="sp-topic"><b>Comunicación persuasiva</b> — negocia y comunica tus ideas con más impacto.</p>
+        <p class="sp-role">Valentina Serrano</p>
+        <p class="sp-area">Comunicación persuasiva</p>
+        <p class="sp-topic">Comunica y negocia con más impacto. Cómo estructurar tus ideas, ganar seguridad al hablar y lograr que tu mensaje realmente mueva a las personas a la acción.</p>
+        <div class="sp-social">
+          <a href="#" aria-label="Instagram de Valentina Serrano"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn de Valentina Serrano"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
+          <a href="#" aria-label="X de Valentina Serrano"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
+        </div>
       </article>
       <!-- Card 4 -->
       <article class="sp-card reveal">
         <div class="sp-photo">
-          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
-            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
-          </svg>
-          <span class="ph-cap">Foto por confirmar</span>
+          <img src="https://i.pravatar.cc/400?img=51" alt="Retrato de Andrés Molina" loading="lazy" />
         </div>
         <span class="sp-num">04</span>
-        <p class="sp-role">Ponente por confirmar</p>
-        <p class="sp-topic"><b>Inteligencia artificial aplicada</b> — optimiza tu tiempo y tu dinero con IA en tu día a día.</p>
+        <p class="sp-role">Andrés Molina</p>
+        <p class="sp-area">Inteligencia artificial aplicada</p>
+        <p class="sp-topic">Pon la IA a trabajar para ti. Casos reales para automatizar tareas, ahorrar horas cada semana y multiplicar tus resultados con las herramientas de inteligencia artificial en tu día a día.</p>
+        <div class="sp-social">
+          <a href="#" aria-label="Instagram de Andrés Molina"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn de Andrés Molina"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
+          <a href="#" aria-label="X de Andrés Molina"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
+        </div>
       </article>
       <!-- Card 5 -->
       <article class="sp-card reveal">
         <div class="sp-photo">
-          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
-            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
-          </svg>
-          <span class="ph-cap">Foto por confirmar</span>
+          <img src="https://i.pravatar.cc/400?img=16" alt="Retrato de Camila Duarte" loading="lazy" />
         </div>
         <span class="sp-num">05</span>
-        <p class="sp-role">Ponente por confirmar</p>
-        <p class="sp-topic"><b>Conexión espiritual</b> — herramientas para expandir y fortalecer tu vida espiritual.</p>
+        <p class="sp-role">Camila Duarte</p>
+        <p class="sp-area">Conexión espiritual</p>
+        <p class="sp-topic">Reconecta contigo mismo. Prácticas para fortalecer tu vida espiritual, encontrar calma en medio del caos y sostener un propósito que le dé sentido a todo lo que haces.</p>
+        <div class="sp-social">
+          <a href="#" aria-label="Instagram de Camila Duarte"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn de Camila Duarte"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
+          <a href="#" aria-label="X de Camila Duarte"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
+        </div>
       </article>
       <!-- Card 6 -->
       <article class="sp-card reveal">
         <div class="sp-photo">
-          <svg class="silh" viewBox="0 0 64 64" role="img" aria-label="Silueta de ponente por confirmar">
-            <path fill="currentColor" d="M32 34a12 12 0 1 0-12-12 12 12 0 0 0 12 12Zm0 5c-11 0-22 5.6-22 14v3a2 2 0 0 0 2 2h40a2 2 0 0 0 2-2v-3c0-8.4-11-14-22-14Z"/>
-          </svg>
-          <span class="ph-cap">Foto por confirmar</span>
+          <img src="https://i.pravatar.cc/400?img=60" alt="Retrato de Sebastián Rojas" loading="lazy" />
         </div>
         <span class="sp-num">06</span>
-        <p class="sp-role">Ponente por confirmar</p>
-        <p class="sp-topic"><b>Marca personal</b> — crea una marca que crezca y tenga impacto masivo.</p>
+        <p class="sp-role">Sebastián Rojas</p>
+        <p class="sp-area">Marca personal</p>
+        <p class="sp-topic">Construye una marca personal que te haga crecer. Cómo destacar, ganar autoridad en tu nicho y convertir tu presencia en oportunidades reales de impacto masivo.</p>
+        <div class="sp-social">
+          <a href="#" aria-label="Instagram de Sebastián Rojas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71C3.4 8.48 3.4 8.85 3.4 12s0 3.52.06 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52 0 4.76-.06c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s0-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32C15.52 4 15.15 4 12 4Zm0 3.05A4.95 4.95 0 1 1 7.05 12 4.95 4.95 0 0 1 12 7.05Zm0 1.8A3.15 3.15 0 1 0 15.15 12 3.15 3.15 0 0 0 12 8.85Zm5.15-3.19a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn de Sebastián Rojas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9V9Z"/></svg></a>
+          <a href="#" aria-label="X de Sebastián Rojas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.06l-6.69 7.65L21.75 21h-6.16l-4.83-6.31L5.24 21H2.18l7.15-8.18L2.25 3h6.32l4.36 5.77L17.53 3Zm-1.07 16.2h1.7L7.62 4.71H5.8L16.46 19.2Z"/></svg></a>
+        </div>
       </article>
     </div>
   </section>
 
-  <!-- ============ CTA FINAL ============ -->
-  <section class="section final wrap" aria-labelledby="final-title">
-    <div class="seam seam--center" aria-hidden="true">
-      <span class="s-blue"></span><span class="s-yellow"></span><span class="s-red"></span>
-    </div>
-    <h2 id="final-title">Tu registro es gratis. Tu ayuda puede ser enorme.</h2>
-    <p>Únete el sábado a 12 horas de aprendizaje con un propósito: acompañar a Venezuela.</p>
-    <div class="cta-row">
-      <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">Quiero registrarme gratis</a>
-    </div>
-  </section>
 </main>
+
+<!-- ============ BANDA DECORATIVA: BANDERA DE VENEZUELA ============ -->
+<div class="flag-band" role="img" aria-label="Bandera de Venezuela">
+  <div class="flag-vz">
+    <svg class="flag-stars" viewBox="0 0 220 44" aria-hidden="true">
+      <defs>
+        <symbol id="vz-star" viewBox="0 0 24 24">
+          <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88-5-4.87 7.1-1.01L12 2z"/>
+        </symbol>
+      </defs>
+      <use href="#vz-star" x="8"   y="7"  width="14" height="14"/>
+      <use href="#vz-star" x="35"  y="13" width="14" height="14"/>
+      <use href="#vz-star" x="61"  y="18" width="14" height="14"/>
+      <use href="#vz-star" x="88"  y="21" width="14" height="14"/>
+      <use href="#vz-star" x="118" y="21" width="14" height="14"/>
+      <use href="#vz-star" x="145" y="18" width="14" height="14"/>
+      <use href="#vz-star" x="171" y="13" width="14" height="14"/>
+      <use href="#vz-star" x="198" y="7"  width="14" height="14"/>
+    </svg>
+  </div>
+</div>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site">
   <div class="wrap foot-inner">
     <div class="fb">
-      <img src="../../assets/logos/LOGO-V-1-N.png" alt="Operación Esperanza" />
-      <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88-5-4.87 7.1-1.01L12 2z"/></svg>
+      <img src="../../assets/logos/logo.svg" alt="Fortalecidos por la Adversidad" />
     </div>
     <p>Evento digital solidario “Fortalecidos Por la Adversidad” · Operación Esperanza. Todo lo recaudado se destina a la ayuda humanitaria para las familias afectadas por el terremoto en Venezuela.</p>
   </div>
