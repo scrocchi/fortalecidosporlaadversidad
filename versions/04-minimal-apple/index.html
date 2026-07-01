@@ -301,14 +301,9 @@
     border: 1px solid var(--line-2);
   }
   .hw-zones b { font-weight: 600; font-size: var(--text-sm); color: var(--ink); }
-  .hw-zones .c {
-    font-family: var(--font-mono); font-size: 0.6875rem;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
-  }
   @media (max-width: 420px) {
     .hw-zones { gap: 0.55rem 1rem; }
     .hw-zones li + li::before { margin-right: 1rem; }
-    .hw-zones .c { display: none; } /* en pantallas muy chicas dejamos bandera + hora */
   }
 
   /* ---------- Hero: bloque de video 16:9 casi a pantalla completa ---------- */
@@ -614,19 +609,19 @@
         <ul class="hw-zones" aria-label="Horario del evento por país">
           <li>
             <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="México"><rect width="10" height="20" fill="#006847"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#CE1126"/></svg>
-            <b>7:00 a.m.</b><span class="c">México</span>
+            <b>7:00 a.m.</b>
           </li>
           <li>
             <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="Colombia"><rect width="30" height="20" fill="#FCD116"/><rect y="10" width="30" height="5" fill="#003893"/><rect y="15" width="30" height="5" fill="#CE1126"/></svg>
-            <b>8:00 a.m.</b><span class="c">Colombia</span>
+            <b>8:00 a.m.</b>
           </li>
           <li>
             <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="Venezuela"><rect width="30" height="20" fill="#FCD116"/><rect y="6.667" width="30" height="6.667" fill="#00247D"/><rect y="13.333" width="30" height="6.667" fill="#CF142B"/></svg>
-            <b>9:00 a.m.</b><span class="c">Venezuela</span>
+            <b>9:00 a.m.</b>
           </li>
           <li>
             <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="Argentina"><rect width="30" height="20" fill="#74ACDF"/><rect y="6.667" width="30" height="6.667" fill="#fff"/><rect y="13.333" width="30" height="6.667" fill="#74ACDF"/></svg>
-            <b>10:00 a.m.</b><span class="c">Argentina</span>
+            <b>10:00 a.m.</b>
           </li>
         </ul>
       </div>
