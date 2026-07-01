@@ -255,7 +255,7 @@
   .hero .eyebrow { display: block; margin-bottom: var(--space-4); }
   .hero h1 {
     margin: 0 auto;
-    max-width: 22ch;
+    max-width: 28ch;
     font-size: clamp(1.9rem, 5vw, 2.8rem);
     font-weight: 700;
     line-height: 1.08;
@@ -263,16 +263,18 @@
     text-wrap: balance;
   }
   .hero h1 em { font-style: italic; font-weight: 700; }
-  .hero .sub { margin: var(--space-5) auto 0; max-width: 56ch; }
+  .hero .sub { margin: var(--space-5) auto 0; max-width: 78ch; }
   .hero .sub p {
     margin: 0 auto;
     font-size: var(--text-lg);
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--ink-2);
     font-weight: 400;
     text-wrap: pretty;
   }
   .hero .sub p + p { margin-top: 0.9rem; }
+  .hero .sub strong { color: var(--ink); font-weight: 600; }
+  .hero .sub em { font-style: italic; }
   .hero .cta-row {
     margin-top: var(--space-6);
     display: flex; flex-wrap: wrap; gap: var(--space-4);
@@ -554,12 +556,12 @@
   /* Visible por defecto; si el navegador lo soporta, se "abre" desde el centro al hacer scroll */
   .flag-band { overflow: hidden; }
   .flag-vz {
-    height: clamp(96px, 13vw, 160px);
+    height: clamp(48px, 6.5vw, 80px);
     background: linear-gradient(180deg,
       #FCD116 0 33.333%, #00247D 33.333% 66.666%, #CF142B 66.666% 100%);
     display: grid; place-items: center;
   }
-  .flag-stars { width: min(260px, 52%); height: auto; fill: #fff; }
+  .flag-stars { width: min(190px, 42%); height: auto; fill: #fff; }
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       .flag-band {
@@ -584,6 +586,16 @@
   /* ---------- Reveal (motion sutil) ---------- */
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity 260ms var(--ease), transform 260ms var(--ease); }
   .reveal.in { opacity: 1; transform: none; }
+
+  /* Fade lento y escalonado — párrafos de "Qué pasó en Venezuela" */
+  .cz-step {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 1100ms var(--ease), transform 1100ms var(--ease);
+  }
+  .cz-step.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .cz-step { opacity: 1; transform: none; transition: none; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .textlink::after, .skip { transition: none; }
@@ -624,8 +636,8 @@
       <span class="label eyebrow">Fortalecidos por la Adversidad</span>
       <h1 id="hero-title">Aprende de <em>24 expertos</em> en un solo día y ayuda a Venezuela</h1>
       <div class="sub">
-        <p>Un día entero de clases en vivo —finanzas, mentalidad, fe, tecnología y mucho más—, hechas para acompañar a las familias que lo perdieron todo en el terremoto.</p>
-        <p>Entrar es gratis. Si algo te mueve, donas lo que quieras: cada aporte llega completo a Venezuela.</p>
+        <p>Un día entero de <strong>clases en vivo</strong> —finanzas, mentalidad, fe, tecnología y mucho más— para acompañar a las familias que lo perdieron todo en el terremoto.</p>
+        <p><strong>Entrar es gratis.</strong> Si algo te mueve, donas lo que quieras: <strong>cada aporte llega completo a Venezuela.</strong></p>
       </div>
       <div class="cta-row">
         <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">Quiero registrarme gratis</a>
@@ -793,15 +805,15 @@
 
   <!-- ============ LA CAUSA ============ -->
   <section class="section causa wrap" id="causa" aria-labelledby="causa-title">
-    <div class="cz reveal">
-      <h2 id="causa-title">Qué pasó en Venezuela</h2>
-      <p>Un terremoto sacudió La Guaira, en la costa de Venezuela, y de un momento a otro miles de familias se quedaron sin casa.</p>
-      <p>Mientras lees esto, todavía hay equipos removiendo escombros con las manos, buscando a alguien más con vida.</p>
-      <p class="cz-lead">Y viéndolo de lejos, casi todos sentimos lo mismo:</p>
-      <p class="cz-pivot">¿Qué puedo hacer yo?</p>
-      <p>De esa pregunta nació <strong>Fortalecidos por la Adversidad</strong>, una iniciativa de <strong>Operación Esperanza</strong>.</p>
-      <p>Reunimos a mentores y expertos dispuestos a regalar lo que saben, y convertimos cada donación en ayuda que llega directo a Venezuela.</p>
-      <p>No venimos a venderte nada. Venimos a <strong>aprender, acompañar y tender la mano</strong>.</p>
+    <div class="cz cz-steps">
+      <h2 id="causa-title" class="cz-step">Qué pasó en Venezuela</h2>
+      <p class="cz-step">Un terremoto sacudió La Guaira, en la costa de Venezuela, y de un momento a otro miles de familias se quedaron sin casa.</p>
+      <p class="cz-step">Mientras lees esto, todavía hay equipos removiendo escombros con las manos, buscando a alguien más con vida.</p>
+      <p class="cz-lead cz-step">Y viéndolo de lejos, casi todos sentimos lo mismo:</p>
+      <p class="cz-pivot cz-step">¿Qué puedo hacer yo?</p>
+      <p class="cz-step">De esa pregunta nació <strong>Fortalecidos por la Adversidad</strong>, una iniciativa de <strong>Operación Esperanza</strong>.</p>
+      <p class="cz-step">Reunimos a mentores y expertos dispuestos a regalar lo que saben, y convertimos cada donación en ayuda que llega directo a Venezuela.</p>
+      <p class="cz-step">No venimos a venderte nada. Venimos a <strong>aprender, acompañar y tender la mano</strong>.</p>
     </div>
   </section>
 
@@ -935,7 +947,18 @@
 
 </main>
 
-<!-- ============ BANDA DECORATIVA: BANDERA DE VENEZUELA ============ -->
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap foot-inner">
+    <div class="fb">
+      <img src="../../assets/logos/logo.svg" alt="Fortalecidos por la Adversidad" />
+    </div>
+    <p>Evento digital solidario “Fortalecidos Por la Adversidad” · Operación Esperanza. Todo lo recaudado se destina a la ayuda humanitaria para las familias afectadas por el terremoto en Venezuela.</p>
+  </div>
+</footer>
+
+<!-- ============ BANDA DECORATIVA: BANDERA DE VENEZUELA (remate final) ============ -->
+<!-- Va después del footer: oculta por defecto, se revela al llegar al fondo -->
 <div class="flag-band" role="img" aria-label="Bandera de Venezuela">
   <div class="flag-vz">
     <svg class="flag-stars" viewBox="0 0 220 44" aria-hidden="true">
@@ -956,16 +979,6 @@
   </div>
 </div>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site">
-  <div class="wrap foot-inner">
-    <div class="fb">
-      <img src="../../assets/logos/logo.svg" alt="Fortalecidos por la Adversidad" />
-    </div>
-    <p>Evento digital solidario “Fortalecidos Por la Adversidad” · Operación Esperanza. Todo lo recaudado se destina a la ayuda humanitaria para las familias afectadas por el terremoto en Venezuela.</p>
-  </div>
-</footer>
-
 <script>
   // ---------- Reveal sutil (transform + opacity) ----------
   (function () {
@@ -981,6 +994,28 @@
       }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
       els.forEach(function (el) { io.observe(el); });
     }
+  })();
+
+  // ---------- Fade escalonado: "Qué pasó en Venezuela" (uno por uno, sin apuro) ----------
+  (function () {
+    var box = document.querySelector('.cz-steps');
+    if (!box) return;
+    var steps = box.querySelectorAll('.cz-step');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      steps.forEach(function (s) { s.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        steps.forEach(function (s, i) {
+          setTimeout(function () { s.classList.add('in'); }, i * 550);
+        });
+        io.disconnect();
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+    io.observe(box);
   })();
 
   // ---------- Video del hero: loop silenciado (sin audio) ----------
