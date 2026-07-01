@@ -407,8 +407,8 @@
     border: 1px solid var(--line);
     border-radius: 16px;
     overflow: hidden;
-    /* Color del speaker (hue) al 15% como sombra */
-    box-shadow: 0 14px 36px 2px hsla(var(--h, 220), 100%, 50%, 0.15);
+    /* Color del speaker (hue) al 15% como sombra dura (sin blur) */
+    box-shadow: 10px 10px 0 0 hsla(var(--h, 220), 100%, 50%, 0.15);
   }
   .tk-photo {
     position: relative; width: 100%; aspect-ratio: 3 / 2;
@@ -919,7 +919,6 @@
       var offset = 0;
       var SPEED = 0.045;            // px por ms (~45px/s)
       var last = null;
-      var hovering = false;
 
       // Estado de arrastre
       var down = false, decided = false, dragging = false;
@@ -936,7 +935,7 @@
       function frame(ts) {
         if (last === null) last = ts;
         var dt = ts - last; last = ts;
-        if (!dragging && !hovering && !reduce) {
+        if (!dragging && !reduce) {
           offset = wrap(offset + SPEED * dt);
           apply();
         }
@@ -944,10 +943,6 @@
       }
       apply();
       requestAnimationFrame(frame);
-
-      // Pausa al pasar el mouse (puntero fino), para poder leer
-      vp.addEventListener("mouseenter", function () { hovering = true; });
-      vp.addEventListener("mouseleave", function () { hovering = false; });
 
       vp.addEventListener("pointerdown", function (e) {
         down = true; decided = false; dragging = false;
