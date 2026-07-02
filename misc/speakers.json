@@ -45,7 +45,7 @@
     "nombre": "Tian Rodríguez",
     "tema": "Finanzas e inversión",
     "status": "confirmado",
-    "visible": false,
+    "visible": true,
     "foto": "profile.jpg",
     "charla": {
       "titulo": "",
@@ -165,7 +165,7 @@
     "nombre": "Jan Schröder",
     "tema": "Copywriting y persuasión",
     "status": "confirmado",
-    "visible": false,
+    "visible": true,
     "foto": "profile.jpg",
     "charla": {
       "titulo": "",
@@ -203,7 +203,7 @@
     "nombre": "María Antonieta Hernández",
     "tema": "Resiliencia",
     "status": "confirmado",
-    "visible": false,
+    "visible": true,
     "foto": "profile.jpg",
     "charla": {
       "titulo": "El poder de la resiliencia: cómo levantarte, soltar y reinventarte después de la adversidad",

@@ -58,8 +58,7 @@ var SPEAKERS = [
     nombre: "Tian Rodríguez",
     tema: "Finanzas e inversión",
     status: "confirmado",
-    // Oculto hasta subir su foto (assets/speakers/tian-rodriguez/profile.jpg).
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "Ingeniero industrial y educador financiero. Fundador de Tian Rodríguez LF, una marca dedicada a la educación en finanzas personales e inversión para ayudar a las personas a construir su libertad financiera.",
@@ -168,8 +167,7 @@ var SPEAKERS = [
     nombre: "Jan Schröder",
     tema: "Copywriting y persuasión",
     status: "confirmado",
-    // Oculto hasta subir su foto (assets/speakers/jan-schroeder/profile.jpg).
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "Creador del Sistema de Frases Cortas, un método de copywriting y persuasión basado en frases cortas para captar la atención y vender. Conocido como “el de las frases cortas”.",
@@ -201,8 +199,7 @@ var SPEAKERS = [
     nombre: "María Antonieta Hernández",
     tema: "Resiliencia",
     status: "confirmado",
-    // Oculto hasta subir su foto (assets/speakers/maria-antonieta-hernandez/profile.jpg).
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
     charla: {
       titulo: "El poder de la resiliencia: cómo levantarte, soltar y reinventarte después de la adversidad",
