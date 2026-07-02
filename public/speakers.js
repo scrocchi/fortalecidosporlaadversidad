@@ -46,10 +46,10 @@ var SPEAKERS = [
     visible: true,
     foto: "profile.jpg",
     charla: { titulo: "El Arte de Camellar", descripcion: "" },
-    bio: "",
-    empresa: "",
+    bio: "Empresario y showman colombiano radicado en Medellín, conocido como “El Capi”. Fundador de La Hora Loca (Hora Loca Premium), marca de entretenimiento y animación de eventos con más de 2.000 eventos realizados.",
+    empresa: "La Hora Loca",
     donacion: "",
-    redes: {},
+    redes: { instagram: "https://www.instagram.com/elcapimolano/" },
     _confianza: "alta"
   },
   {
@@ -91,7 +91,9 @@ var SPEAKERS = [
     nombre: "Victor Real",
     tema: "Ventas y networking",
     status: "confirmado",
-    visible: true,
+    // Oculto hasta tener un @ para verificar bio/foto (nombre común, sin perfil
+    // público confirmable). Poné visible:true cuando llegue el dato.
+    visible: false,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "",
@@ -180,7 +182,9 @@ var SPEAKERS = [
     nombre: "Fernando Muñoz",
     tema: "Transformación personal",
     status: "confirmado",
-    visible: true,
+    // Oculto hasta tener un @ para verificar bio (nombre común, sin perfil
+    // público confirmable). Poné visible:true cuando llegue el dato.
+    visible: false,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "",
