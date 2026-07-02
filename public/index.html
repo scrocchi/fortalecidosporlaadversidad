@@ -330,7 +330,7 @@
 
   /* ---------- Hero: bloque de video 16:9 casi a pantalla completa ---------- */
   .hero-figure {
-    margin: clamp(3.5rem, 8vw, 7rem) auto 0;
+    margin: clamp(1.75rem, 4vw, 3rem) auto 0;
     width: 100%; max-width: 1800px;
     padding-inline: clamp(1rem, 4vw, 2.5rem);
   }
@@ -603,13 +603,14 @@
   .causa.cz-anim .cz-pin {
     position: sticky; top: 0;
     height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-    /* Empuja el contenido debajo del header sticky; el heading queda arriba
-       (no centrado) para que aparezca apenas termina el ticker. */
-    padding-top: clamp(5.5rem, 12vh, 8.5rem);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    /* Debajo del header sticky; el contenido va centrado para repartir el aire
+       (no deja un hueco grande abajo antes del video). */
+    padding-top: clamp(4.5rem, 8vh, 6.5rem);
   }
-  /* El pin ya reserva el aire superior; evitamos el padding de sección duplicado. */
-  .causa.cz-anim { padding-top: 0; }
+  /* El pin ya reserva su aire; recortamos el padding de sección para pegar el
+     bloque al ticker (arriba) y al video (abajo). */
+  .causa.cz-anim { padding-block: 0; }
   /* Título y párrafos arrancan ocultos; el JS scrubbea opacidad/desplazamiento.
      El título hace un fade in rápido al fijarse y luego se mantiene. */
   .causa.cz-anim .cz-title,
@@ -659,7 +660,7 @@
     </div>
     <a class="btn btn--primary btn--sm" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">
       <svg class="btn-ico" viewBox="0 0 32 32" role="img" aria-label="WhatsApp"><path d="M16.004 0h-.008C7.174 0 .002 7.174.002 16c0 3.498 1.13 6.742 3.05 9.376L1.05 31.31l6.14-1.964A15.9 15.9 0 0 0 16.004 32C24.826 32 32 24.824 32 16S24.826 0 16.004 0zm9.31 22.598c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.7-1.948-7.726-6.724-7.962-7.034-.226-.31-1.9-2.53-1.9-4.826s1.166-3.42 1.636-3.9c.386-.394.98-.574 1.55-.574.184 0 .35.01.5.017.47.02.706.048 1.016.79.386.93 1.326 3.226 1.438 3.462.114.236.228.554.048.864-.168.32-.316.48-.552.762-.236.282-.46.498-.696.8-.216.264-.46.548-.188 1.02.272.462 1.21 1.994 2.598 3.23 1.79 1.594 3.24 2.088 3.76 2.304.386.16.846.122 1.128-.18.358-.386.8-1.028 1.25-1.66.32-.452.724-.508 1.15-.348.434.15 2.72 1.282 3.19 1.516.47.236.78.35.894.544.112.198.112 1.132-.274 2.222z"/></svg>
-      Registrarme gratis
+      Registrarme
     </a>
   </div>
 </header>
