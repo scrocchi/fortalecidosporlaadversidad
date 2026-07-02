@@ -265,7 +265,7 @@
     "nombre": "El Rapero Marketero",
     "tema": "Ventas y networking",
     "status": "confirmado",
-    "visible": false,
+    "visible": true,
     "foto": "profile.jpg",
     "charla": {
       "titulo": "Claude desde cero para impulsar tu negocio",

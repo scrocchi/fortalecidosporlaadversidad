@@ -265,10 +265,7 @@ var SPEAKERS = [
     nombre: "El Rapero Marketero",
     tema: "Ventas y networking",
     status: "confirmado",
-    // Info completa; oculto hasta bajar la foto oficial de Drive
-    // (id 1TCuxnrYfovG1HylH6fJBXbk-a3pVET3_). Poné visible:true al dejar
-    // profile.jpg en assets/speakers/el-rapero-marketero/.
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
     charla: {
       titulo: "Claude desde cero para impulsar tu negocio",
