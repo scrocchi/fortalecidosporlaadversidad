@@ -41,16 +41,16 @@ var SPEAKERS = [
     id: "ivan-molano",
     color: 28, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Ivan Molano",
-    tema: "Negocios",
+    tema: "Resiliencia",
     status: "confirmado",
     visible: true,
     foto: "profile.jpg",
-    charla: { titulo: "", descripcion: "" },
+    charla: { titulo: "El Arte de Camellar", descripcion: "" },
     bio: "",
     empresa: "",
     donacion: "",
     redes: {},
-    _confianza: "baja"
+    _confianza: "alta"
   },
   {
     id: "tian-rodriguez",
@@ -75,12 +75,15 @@ var SPEAKERS = [
     status: "confirmado",
     visible: true,
     foto: "profile.jpg",
-    charla: { titulo: "Networking", descripcion: "" },
-    bio: "",
-    empresa: "",
-    donacion: "",
+    charla: {
+      titulo: "Networking que convierte: cómo transformar cada contacto en un cliente",
+      descripcion: "La mayoría de los empresarios asiste a eventos, reparte tarjetas y nunca vuelve a saber de nadie. En esta charla aprenderás un método simple para hacer networking efectivo: cómo iniciar conversaciones de valor, cómo posicionarte para que te recuerden y cómo convertir cada contacto en una oportunidad de negocio real."
+    },
+    bio: "Fundador y presidente de AI Growth, agencia de automatización de marketing y ventas con IA para negocios de habla hispana, y CGO/Partner en Beemo. Reconocido por Forbes Ecuador 2025 y speaker de EXMA 2026. Ha escalado marcas de cero a exit y construido sistemas de crecimiento que convierten contactos en clientes para empresarios de toda Latinoamérica.",
+    empresa: "AI Growth",
+    donacion: "Tarjeta digital gratis — https://networking.vendemasconai.com/",
     redes: {},
-    _confianza: "baja"
+    _confianza: "alta"
   },
   {
     id: "victor-real",
@@ -213,11 +216,14 @@ var SPEAKERS = [
     visible: true,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
-    bio: "",
-    empresa: "",
+    bio: "Nutricionista funcional con más de 13 años de experiencia, especializada en salud hormonal y fertilidad. Acompaña a mujeres y parejas que desean lograr un embarazo, ayudándolas a identificar y tratar las causas de fondo mediante un enfoque integral basado en nutrición, hábitos y evidencia científica.",
+    empresa: "Centro de Nutrición PS LLC",
     donacion: "",
-    redes: {},
-    _confianza: "baja"
+    redes: {
+      instagram: "https://www.instagram.com/nutricionistapaolasanchez",
+      youtube: "https://www.youtube.com/@nutricionistapaolasanchez5482"
+    },
+    _confianza: "alta"
   },
   {
     id: "arcenio-jimenez",
