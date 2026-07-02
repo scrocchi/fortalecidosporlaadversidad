@@ -28,11 +28,11 @@
     "visible": true,
     "foto": "profile.jpg",
     "charla": {
-      "titulo": "El Arte de Camellar",
-      "descripcion": ""
+      "titulo": "El Arte de Camellar: disciplina, fe y reinvención",
+      "descripcion": "Una charla para quienes sienten que la vida se volvió un desierto: cansancio, incertidumbre, golpes, frustración… y aun así saben que rendirse no es opción. A través del humor y de historias reales muestra una idea central: la resiliencia nace del propósito. Cuando hay un gran propósito, si toca se aguanta hambre, se trasnocha, se atraviesan problemas y se vuelve a empezar sin perderse por dentro. El público se llevará un marco práctico para salir del modo víctima, recuperar la actitud, enfocarse en lo importante y dar el siguiente paso con disciplina, fe y resiliencia."
     },
-    "bio": "Empresario y showman colombiano radicado en Medellín, conocido como “El Capi”. Fundador de La Hora Loca (Hora Loca Premium), marca de entretenimiento y animación de eventos con más de 2.000 eventos realizados.",
-    "empresa": "La Hora Loca",
+    "bio": "Conocido como “El Capi”, es un empresario colombiano del entretenimiento y los eventos. Viene de abajo con orgullo y ha aprendido a los golpes: su camino empezó en la disciplina del baile y se transformó en una trayectoria de construcción empresarial basada en trabajo duro, enfoque y ejecución. Ha liderado la creación y consolidación de un ecosistema de marcas y equipos orientados a experiencias de alto impacto, combinando creatividad, operación y estándares altos.",
+    "empresa": "GRUPO IM",
     "donacion": "",
     "redes": {
       "instagram": "https://www.instagram.com/elcapimolano/"
@@ -148,16 +148,16 @@
     "visible": true,
     "foto": "profile.jpg",
     "charla": {
-      "titulo": "",
-      "descripcion": ""
+      "titulo": "El Arte de Vender Ayudando",
+      "descripcion": "¿Alguna vez sentiste que tu mensaje “suena a vendedor” y la gente te ignora? El problema no es tu producto, ni que te falten fórmulas de copywriting: es que estás escribiendo para convencer en lugar de para conectar. En esta charla vas a descubrir por qué persuadir no es manipular, sino ayudar. Te llevas 3 claves prácticas (Ayuda, Conecta, Vende) para que tus palabras le hablen a lo que tu cliente ya siente y lo muevan a la acción, sin presión y sin sonar a vendedor."
     },
-    "bio": "Copywriter especializada en conversaciones que venden y co-creadora de El Método IMPACTO, donde ayuda a los negocios a comunicar y convertir con textos persuasivos.",
-    "empresa": "El Método IMPACTO",
+    "bio": "Estratega de comunicación y co-creadora de El Club IMPACTO. Durante más de seis años ha trabajado en el ecosistema digital hispano como arquitecta de comunicación, con especialidad en chat marketing, en más de 70 lanzamientos del Método IMPACTO (varios de seis y siete cifras). Su tesis: la comunicación que de verdad vende es la que le habla a las necesidades emocionales del cliente, y la venta es consecuencia de una intención genuina de ayudar. Integra la IA como capa de amplificación estratégica sin perder el alma del mensaje.",
+    "empresa": "Marcovich Solutions",
     "donacion": "",
     "redes": {
       "instagram": "https://www.instagram.com/erikalacopy/"
     },
-    "_confianza": "media"
+    "_confianza": "alta"
   },
   {
     "id": "jan-schroeder",
@@ -226,8 +226,8 @@
     "visible": true,
     "foto": "profile.jpg",
     "charla": {
-      "titulo": "",
-      "descripcion": ""
+      "titulo": "Buenos hábitos para una microbiota sana, malos hábitos que la dañan",
+      "descripcion": "¿Sabías que tu microbiota influye mucho más de lo que imaginas? En esta charla te compartimos cuáles son los hábitos que fortalecen tu microbiota y cuáles pueden estar desequilibrándola sin que lo notes. Pequeños cambios en tu día a día pueden marcar una gran diferencia en tu salud digestiva, hormonal y metabólica."
     },
     "bio": "Nutricionista funcional con más de 13 años de experiencia, especializada en salud hormonal y fertilidad. Acompaña a mujeres y parejas que desean lograr un embarazo, ayudándolas a identificar y tratar las causas de fondo mediante un enfoque integral basado en nutrición, hábitos y evidencia científica.",
     "empresa": "Centro de Nutrición PS LLC",
