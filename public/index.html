@@ -587,6 +587,22 @@
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity 260ms var(--ease), transform 260ms var(--ease); }
   .reveal.in { opacity: 1; transform: none; }
 
+  /* ---------- Indicador de scroll (borde del hero, tras el ticker) ---------- */
+  .scroll-cue {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    width: max-content; margin: clamp(2.75rem, 6vw, 4.25rem) auto 0;
+    color: var(--ink-3); text-decoration: none;
+    font-family: var(--font-mono); font-size: var(--text-xs);
+    letter-spacing: 0.16em; text-transform: uppercase;
+    transition: color var(--dur) var(--ease);
+  }
+  .scroll-cue:hover { color: var(--ink); }
+  .scroll-cue-ico { width: 24px; height: 24px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-cue-ico { animation: cueBob 1.7s ease-in-out infinite; }
+    @keyframes cueBob { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(4px); } }
+  }
+
   /* ---------- "¿Qué pasó en Venezuela?": relato con heading fijo (sticky) ----------
      Base (sin JS / reduced-motion / pantallas chicas): todo visible en flujo
      normal. El efecto lo activa el JS agregando .cz-anim a la sección. */
@@ -595,7 +611,7 @@
   .cz-line { }
 
   .causa.cz-anim .cz-scroll {
-    height: calc(100vh + var(--cz-steps, 7) * 34vh);
+    height: calc(100vh + var(--cz-steps, 7) * 16vh);
   }
   .causa.cz-anim .cz-pin {
     position: sticky; top: 0;
@@ -709,6 +725,12 @@
         <ul class="tk-track" id="tk-track"></ul>
       </div>
     </div>
+
+    <!-- Indicador de scroll: evita el "falso fondo" tras el ticker -->
+    <a class="scroll-cue" href="#causa" aria-label="Seguir a la siguiente sección">
+      <span>Sigue bajando</span>
+      <svg class="scroll-cue-ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l7 7 7-7"/></svg>
+    </a>
   </section>
 
   <!-- ============ LA CAUSA ============ -->
@@ -1115,7 +1137,10 @@
       if (dist <= 0) return;
       var p = clamp(-rect.top / dist);
       if (title) {
-        var tp = clamp(p / 0.04);           // título: fade in temprano
+        // El título aparece MIENTRAS la sección entra en pantalla (antes de
+        // fijarse), no con el progreso del pin. Así, apenas pasas el ticker ya
+        // ves el heading y nunca queda un marco pineado en blanco (falso fondo).
+        var tp = clamp((window.innerHeight - rect.top) / (window.innerHeight * 0.55));
         title.style.opacity = tp.toFixed(3);
         title.style.transform = 'translateY(' + ((1 - tp) * 14).toFixed(1) + 'px)';
       }
