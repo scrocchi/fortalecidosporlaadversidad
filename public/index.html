@@ -352,17 +352,17 @@
   }
   .hero-media-cap .t { font-size: var(--text-sm); color: var(--ink-2); max-width: 64ch; margin: 0 auto; }
 
-  /* Transición al scroll: el video se mantiene completo y solo se encoge al salir */
+  /* Transición al scroll: el video entra encogido/tenue y crece a completo al aparecer */
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
       .hero-media {
         animation: heroMediaScroll linear both;
         animation-timeline: view();
-        animation-range: exit 5% exit 95%;
+        animation-range: entry 5% entry 95%;
       }
       @keyframes heroMediaScroll {
-        0%   { transform: scale(1);    opacity: 1; }
-        100% { transform: scale(0.85); opacity: 0.28; }
+        0%   { transform: scale(0.85); opacity: 0.28; }
+        100% { transform: scale(1);    opacity: 1; }
       }
     }
   }
@@ -633,7 +633,7 @@
 <header class="site">
   <div class="wrap site-inner">
     <a class="brand" href="#top" aria-label="Fortalecidos por la Adversidad — inicio">
-      <img src="../../assets/logos/logo.svg" alt="Fortalecidos por la Adversidad" />
+      <img src="assets/logos/logo.svg" alt="Fortalecidos por la Adversidad" />
     </a>
     <div class="head-count" id="headCount" role="timer" aria-label="Cuenta regresiva para el evento">
       <span class="hc-cell"><b data-cd="d">--</b><span class="hc-l">Días</span></span>
@@ -721,16 +721,16 @@
   <figure class="hero-figure" id="video">
     <div class="hero-media" id="heroMedia">
       <video id="heroVideo" muted loop playsinline preload="metadata"
-        poster="../../assets/videos/video-preview.webp"
+        poster="assets/videos/video-preview.webp"
         aria-label="Imágenes reales del trabajo de rescate tras el terremoto en Venezuela">
-        <source src="../../assets/videos/video.mp4" type="video/mp4" />
+        <source src="assets/videos/video.mp4" type="video/mp4" />
       </video>
       <button class="vplay" type="button" aria-label="Reproducir video">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
       </button>
     </div>
     <figcaption class="hero-media-cap">
-      <p class="t">Imágenes reales del trabajo de rescate en Venezuela. Cada registro suma; cada donación durante el evento llega directo a la causa.</p>
+      <p class="t">Imágenes reales del trabajo de rescate en Venezuela. Cada registro suma.</p>
     </figcaption>
   </figure>
 
@@ -777,7 +777,7 @@
 <footer class="site">
   <div class="wrap foot-inner">
     <div class="fb">
-      <img src="../../assets/logos/logo.svg" alt="Fortalecidos por la Adversidad" />
+      <img src="assets/logos/logo.svg" alt="Fortalecidos por la Adversidad" />
     </div>
     <p>Evento digital solidario “Fortalecidos Por la Adversidad” · Operación Esperanza. Todo lo recaudado se destina a la ayuda humanitaria para las familias afectadas por el terremoto en Venezuela.</p>
   </div>
@@ -824,7 +824,7 @@
   // Corre ANTES del observer de .reveal para que las cards nuevas queden observadas.
   (function () {
     var LIST = (window.SPEAKERS || []).filter(function (s) { return s && s.visible; });
-    var PHOTO_BASE = "../../assets/speakers/";
+    var PHOTO_BASE = "assets/speakers/";
     var SOCIAL_ORDER = ["instagram", "linkedin", "youtube"];
     var SOCIAL_LABEL = { instagram: "Instagram", linkedin: "LinkedIn", youtube: "YouTube" };
 

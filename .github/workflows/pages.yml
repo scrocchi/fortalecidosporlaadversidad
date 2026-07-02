@@ -31,10 +31,10 @@ jobs:
         with:
           enablement: true
 
-      - name: Subir artefacto (sitio estático = raíz del repo)
+      - name: Subir artefacto (sitio estático = carpeta public/)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ./public
 
       - name: Desplegar a Pages
         id: deployment

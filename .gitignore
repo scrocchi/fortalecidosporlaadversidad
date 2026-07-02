@@ -1,2 +1,5 @@
 .DS_Store
 **/.DS_Store
+
+# Artefactos de Playwright MCP (screenshots de prueba)
+.playwright-mcp/
