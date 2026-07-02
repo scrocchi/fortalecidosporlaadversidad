@@ -3,3 +3,6 @@
 
 # Artefactos de Playwright MCP (screenshots de prueba)
 .playwright-mcp/
+
+# Screenshots sueltos de pruebas en la raíz
+/*.png
