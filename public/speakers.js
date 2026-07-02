@@ -122,7 +122,7 @@ var SPEAKERS = [
   {
     id: "jhonson-vivas",
     color: 166, // hue (HSL S=100 L=50); sombra = mismo color al 15%
-    nombre: "Jhonson Vivas",
+    nombre: "Johnson Vivas",
     tema: "Inteligencia artificial",
     status: "confirmado",
     visible: true,
