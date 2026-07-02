@@ -158,7 +158,7 @@ var SPEAKERS = [
     visible: true,
     foto: "profile.jpg",
     charla: {
-      titulo: "El Arte de Vender Ayudando",
+      titulo: "El Arte de Vender sin Vender",
       descripcion: "¿Alguna vez sentiste que tu mensaje “suena a vendedor” y la gente te ignora? El problema no es tu producto, ni que te falten fórmulas de copywriting: es que estás escribiendo para convencer en lugar de para conectar. En esta charla vas a descubrir por qué persuadir no es manipular, sino ayudar. Te llevas 3 claves prácticas (Ayuda, Conecta, Vende) para que tus palabras le hablen a lo que tu cliente ya siente y lo muevan a la acción, sin presión y sin sonar a vendedor."
     },
     bio: "Estratega de comunicación y co-creadora de El Club IMPACTO. Durante más de seis años ha trabajado en el ecosistema digital hispano como arquitecta de comunicación, con especialidad en chat marketing, en más de 70 lanzamientos del Método IMPACTO (varios de seis y siete cifras). Su tesis: la comunicación que de verdad vende es la que le habla a las necesidades emocionales del cliente, y la venta es consecuencia de una intención genuina de ayudar. Integra la IA como capa de amplificación estratégica sin perder el alma del mensaje.",
@@ -259,6 +259,27 @@ var SPEAKERS = [
     },
     _confianza: "alta"
   },
+  {
+    id: "el-rapero-marketero",
+    color: 12, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    nombre: "El Rapero Marketero",
+    tema: "Ventas y networking",
+    status: "confirmado",
+    // Info completa; oculto hasta bajar la foto oficial de Drive
+    // (id 1TCuxnrYfovG1HylH6fJBXbk-a3pVET3_). Poné visible:true al dejar
+    // profile.jpg en assets/speakers/el-rapero-marketero/.
+    visible: false,
+    foto: "profile.jpg",
+    charla: {
+      titulo: "Claude desde cero para impulsar tu negocio",
+      descripcion: "Cómo usar esta herramienta de inteligencia artificial para mejorar tus ventas y ser más productivo en el día a día de tu negocio."
+    },
+    bio: "Mentor y speaker internacional. Enseña a usar la inteligencia artificial desde cero para ser más productivo y transformar tu negocio. Mentor en Convierte Más.",
+    empresa: "Convierte Más",
+    donacion: "",
+    redes: { instagram: "https://www.instagram.com/elraperomarketero" },
+    _confianza: "alta"
+  },
 
   // ---------- No confirmados (ocultos: visible=false) ----------
   {
@@ -338,7 +359,8 @@ var SPEAKERS = [
     color: 320, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Jesús Giangregorio",
     tema: "Marca personal",
-    status: "por-confirmar",
+    // Confirmado en speakers-4.xlsx pero sin bio/@/charla: oculto hasta tener info.
+    status: "confirmado",
     visible: false,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
