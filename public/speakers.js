@@ -94,16 +94,20 @@ var SPEAKERS = [
     nombre: "Victor Real",
     tema: "Ventas y networking",
     status: "confirmado",
-    // Oculto hasta tener un @ para verificar bio/foto (nombre común, sin perfil
-    // público confirmable). Poné visible:true cuando llegue el dato.
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
-    charla: { titulo: "", descripcion: "" },
-    bio: "",
-    empresa: "",
-    donacion: "",
-    redes: {},
-    _confianza: "baja"
+    charla: {
+      titulo: "Cómo vender cualquier producto",
+      descripcion: "Aprenderás a dominar una conversación de venta de principio a fin: desde la llamada en frío y la empatía inicial, hasta identificar necesidades y llevar al cliente hacia un cierre firme."
+    },
+    bio: "Cofundador de Tribike Academy. Durante más de 20 años ha estado en el mundo de las ventas, los negocios y la negociación real: vendiendo, creando empresas, cerrando acuerdos y aprendiendo en la práctica lo que funciona. Ha cerrado miles de ventas y comprobado que vender no se trata de presionar, sino de entender a las personas, comunicar con claridad, generar confianza y negociar con estrategia. Hoy enseña a otros a desarrollar desde cero una de las habilidades más importantes para cualquier emprendedor, técnico o profesional: vender mejor, negociar con seguridad y convertir conversaciones en oportunidades reales.",
+    empresa: "Tribike Academy",
+    donacion: "Curso: Cómo generar ingresos haciendo mecánica de bicicletas",
+    redes: {
+      instagram: "https://www.instagram.com/tribike.academy",
+      youtube: "https://www.youtube.com/@tribikeco"
+    },
+    _confianza: "alta"
   },
   {
     id: "daniel-marcovich",
