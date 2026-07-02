@@ -1,0 +1,51 @@
+name: Deploy a Cloudflare Pages
+
+# Deploy PRINCIPAL del sitio. En cada push a main sube la carpeta public/
+# al proyecto Pages "fortalecidos-landing" (cuenta Remotos Academy), que
+# sirve el dominio fortalecidosporlaadversidad.com.
+#
+# Requiere un secret en el repo (Settings > Secrets and variables > Actions):
+#   CLOUDFLARE_API_TOKEN  -> token con permisos:
+#                            Account · Cloudflare Pages: Edit
+#                            (opcional Zone · DNS: Edit si se gestiona DNS)
+# El Account ID no es secreto y va abajo en el env.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: a824ef6ae211cda6b383a16716f0b63e
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Mientras no exista el secret, el deploy hace no-op con aviso (push en verde).
+      - name: Verificar token
+        id: check
+        run: |
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
+            echo "::warning::Falta el secret CLOUDFLARE_API_TOKEN — deploy a Cloudflare omitido. Agregalo en Settings > Secrets and variables > Actions."
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy a Cloudflare Pages
+        if: steps.check.outputs.has_token == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=fortalecidos-landing --branch=main --commit-dirty=true

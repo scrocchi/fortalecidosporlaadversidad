@@ -1,8 +1,12 @@
-name: Deploy a GitHub Pages
+name: Deploy a GitHub Pages (fallback)
+
+# FALLBACK. El deploy principal es Cloudflare Pages (cloudflare-pages.yml);
+# el dominio fortalecidosporlaadversidad.com apunta a Cloudflare, no aquí.
+# Este workflow queda solo como respaldo manual: se ejecuta a mano desde
+# la pestaña Actions (Run workflow). No corre en cada push para no chocar
+# con el deploy de Cloudflare ni fallar durante incidentes de GitHub Pages.
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 # Permisos mínimos para publicar en Pages
