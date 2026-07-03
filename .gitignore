@@ -11,3 +11,6 @@
 
 # Estado local de Wrangler / Cloudflare
 .wrangler/
+
+# Backups de fotos originales sin comprimir (no se publican)
+misc/photo-originals/
