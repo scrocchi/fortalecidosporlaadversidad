@@ -397,6 +397,10 @@
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
             mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
   }
+  /* Dos filas apiladas: se recorta el padding entre ambas para que queden juntas
+     pero dejando aire abajo para la sombra dura de color. */
+  .tk-viewport--top { padding-bottom: 0.75rem; }
+  .tk-viewport--bottom { padding-top: 0.75rem; }
   .tk-viewport.is-dragging { cursor: grabbing; }
 
   .tk-track {
@@ -425,12 +429,17 @@
     background: var(--bg-soft);
     display: grid; place-items: center; overflow: hidden;
   }
-  .tk-photo img { width: 100%; height: 100%; object-fit: cover; }
+  /* absolute + inset para llenar el marco: evita el hueco superior en iOS
+     (bug de height:100% dentro de grid con aspect-ratio en WebKit). */
+  .tk-photo img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+  }
   .tk-photo .tk-mono { font-size: var(--text-3xl); }
 
   .tk-body {
     padding: 1.05rem 1.25rem 1.3rem; text-align: left;
-    flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center;
+    flex: 1 1 auto; display: flex; flex-direction: column; justify-content: flex-start;
   }
   .tk-area {
     margin: 0; font-size: var(--text-lg); font-weight: 700;
@@ -712,8 +721,11 @@
     <div class="hero-ticker" role="region" aria-label="Algunos de los temas y ponentes del evento">
       <p class="tk-head label">Ponentes del día</p>
       <p class="tk-hint" aria-hidden="true">Desliza para explorar →</p>
-      <div class="tk-viewport" id="tk-viewport">
-        <ul class="tk-track" id="tk-track"></ul>
+      <div class="tk-viewport tk-viewport--top" id="tk-viewport-1">
+        <ul class="tk-track" id="tk-track-1"></ul>
+      </div>
+      <div class="tk-viewport tk-viewport--bottom" id="tk-viewport-2">
+        <ul class="tk-track" id="tk-track-2"></ul>
       </div>
     </div>
   </section>
@@ -986,13 +998,18 @@
       return li;
     }
 
-    // Marquesina arrastrable: avanza sola y se puede mover con mouse/touch.
-    function setupMarquee(track, vp, count) {
+    function nowMs() {
+      return (window.performance && performance.now) ? performance.now() : Date.now();
+    }
+
+    // Marquesina arrastrable: avanza sola, se puede mover con mouse/touch y
+    // conserva impulso (momentum) al soltar. `dir` = +1 (izquierda) | -1 (derecha).
+    function setupMarquee(track, vp, count, dir) {
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       var period = 0;
       function measure() {
         var kids = track.children;
-        // distancia entre la 1ª card de la 1ª pasada y la 1ª de la 2ª pasada
+        // ancho de una pasada (de la 1ª card de la 1ª pasada a la de la 2ª)
         period = (kids.length > count)
           ? (kids[count].offsetLeft - kids[0].offsetLeft)
           : (track.scrollWidth / 2);
@@ -1001,12 +1018,19 @@
       window.addEventListener("resize", measure);
 
       var offset = 0;
-      var SPEED = 0.045;            // px por ms (~45px/s)
+      var SPEED = 0.045;            // px/ms (~45px/s) — velocidad base auto-scroll
+      var autoV = reduce ? 0 : dir * SPEED;
       var last = null;
 
-      // Estado de arrastre
+      // Inercia: px/ms extra que decae tras soltar hasta volver al auto-scroll.
+      var inertia = 0;
+      var FRICTION = 0.9975;        // decaimiento por ms (glide ~1.5s)
+      var MAX_FLING = 3.5;          // tope de velocidad al soltar (px/ms)
+
+      // Estado de arrastre + medición de velocidad
       var down = false, decided = false, dragging = false;
       var sx = 0, sy = 0, startOffset = 0, pid = null;
+      var velTs = 0, velOffset = 0, vel = 0;
 
       function wrap(x) {
         if (period <= 0) return x;
@@ -1019,9 +1043,14 @@
       function frame(ts) {
         if (last === null) last = ts;
         var dt = ts - last; last = ts;
-        if (!dragging && !reduce) {
-          offset = wrap(offset + SPEED * dt);
-          apply();
+        if (dt > 64) dt = 64;         // clamp (pestaña en 2º plano)
+        if (!dragging) {
+          var v = autoV + inertia;
+          if (v !== 0) { offset = wrap(offset + v * dt); apply(); }
+          if (inertia !== 0) {
+            inertia *= Math.pow(FRICTION, dt);
+            if (Math.abs(inertia) < 0.002) inertia = 0;
+          }
         }
         requestAnimationFrame(frame);
       }
@@ -1031,6 +1060,8 @@
       vp.addEventListener("pointerdown", function (e) {
         down = true; decided = false; dragging = false;
         sx = e.clientX; sy = e.clientY; startOffset = offset; pid = e.pointerId;
+        inertia = 0;                  // cancelar inercia al agarrar
+        velTs = nowMs(); velOffset = offset; vel = 0;
       });
       vp.addEventListener("pointermove", function (e) {
         if (!down) return;
@@ -1045,28 +1076,56 @@
             down = false; return;    // gesto vertical → lo maneja el scroll de la página
           }
         }
-        if (dragging) { offset = wrap(startOffset - dx); apply(); }
+        if (dragging) {
+          offset = wrap(startOffset - dx);
+          // velocidad instantánea de offset (px/ms) para el fling al soltar
+          var now = nowMs(), d = now - velTs;
+          if (d > 0) {
+            var iv = (offset - velOffset) / d;
+            if (Math.abs(iv) < 10) vel = iv;   // descarta saltos por wrap()
+            velTs = now; velOffset = offset;
+          }
+          apply();
+        }
       });
       function endDrag() {
         down = false;
         if (dragging) {
           dragging = false; vp.classList.remove("is-dragging");
           try { vp.releasePointerCapture(pid); } catch (_) {}
+          // inercia = velocidad al soltar − auto-scroll: el total arranca en la
+          // velocidad del gesto y decae hasta la marcha normal.
+          var fling = Math.max(-MAX_FLING, Math.min(MAX_FLING, vel));
+          inertia = fling - autoV;
+          last = null;                // evita un dt gigante en el próximo frame
         }
       }
       vp.addEventListener("pointerup", endDrag);
       vp.addEventListener("pointercancel", endDrag);
     }
 
-    var track = document.getElementById("tk-track");
-    var viewport = document.getElementById("tk-viewport");
-    if (track && viewport && LIST.length) {
-      // Dos pasadas idénticas para el loop continuo (cada card se construye de
-      // nuevo — no se clona — para conservar el listener de fallback de foto).
-      for (var pass = 0; pass < 2; pass++) {
-        LIST.forEach(function (sp) { track.appendChild(tickerCard(sp)); });
+    var t1 = document.getElementById("tk-track-1");
+    var v1 = document.getElementById("tk-viewport-1");
+    var t2 = document.getElementById("tk-track-2");
+    var v2 = document.getElementById("tk-viewport-2");
+    if (t1 && v1 && t2 && v2 && LIST.length) {
+      // Se divide la lista en dos filas; cada card se construye de nuevo (no se
+      // clona) para conservar el listener de fallback de foto.
+      var mid = Math.ceil(LIST.length / 2);
+      var rowA = LIST.slice(0, mid);
+      var rowB = LIST.slice(mid);
+      if (!rowB.length) rowB = rowA;
+      function fill(track, arr) {
+        // pasadas suficientes para llenar pantallas anchas y loopear sin cortes
+        var passes = Math.max(2, Math.ceil(6 / arr.length) + 1);
+        for (var p = 0; p < passes; p++) {
+          arr.forEach(function (sp) { track.appendChild(tickerCard(sp)); });
+        }
       }
-      setupMarquee(track, viewport, LIST.length);
+      fill(t1, rowA);
+      fill(t2, rowB);
+      setupMarquee(t1, v1, rowA.length, +1);   // fila de arriba → hacia la izquierda
+      setupMarquee(t2, v2, rowB.length, -1);   // fila de abajo → dirección opuesta
     }
   })();
 </script>
