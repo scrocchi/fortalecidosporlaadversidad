@@ -316,13 +316,20 @@ var SPEAKERS = [
     color: 75, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Andres Ricci",
     tema: "Finanzas e inversión",
-    // Confirmado en speakers-6.xlsx pero sin bio/@/charla/foto: oculto hasta tener info.
     status: "confirmado",
+    // Info completa en speakers-8.xlsx. Oculto solo hasta tener la foto (Drive).
+    // Poné visible:true al subirla a assets/speakers/andres-ricci/profile.jpg.
     visible: false,
     foto: "profile.jpg",
-    charla: { titulo: "", descripcion: "" },
-    bio: "", empresa: "", donacion: "", redes: {},
-    _confianza: "baja"
+    charla: {
+      titulo: "Programa tu mente para el crecimiento financiero",
+      descripcion: ""
+    },
+    bio: "Empresario, lanzador, inversionista cripto e instructor en dinámicas de alto impacto. Ha formado a más de mil estudiantes en múltiples metodologías de desarrollo personal y financiero. Creador del programa Crypto Expert, director de más de 80 lanzamientos digitales y líder del retiro Nirvana Experience.",
+    empresa: "",
+    donacion: "",
+    redes: { instagram: "https://www.instagram.com/andresricciv/" },
+    _confianza: "alta"
   },
   {
     id: "monica-montanez",
@@ -375,11 +382,19 @@ var SPEAKERS = [
     nombre: "Viczael Toro",
     tema: "Copywriting y persuasión",
     status: "confirmado",
+    // Info completa en speakers-8.xlsx. Oculto solo hasta tener la foto
+    // (en el Excel figura como "Viczael Toro .jpg"). Poné visible:true al subirla.
     visible: false,
     foto: "profile.jpg",
-    charla: { titulo: "", descripcion: "" },
-    bio: "", empresa: "", donacion: "", redes: {},
-    _confianza: "baja"
+    charla: {
+      titulo: "El poder de las palabras",
+      descripcion: "Descubre cómo construir mensajes que conecten con la mente de tu cliente, generen confianza y motiven la compra, aplicando principios de neuroventas, persuasión y psicología del consumidor."
+    },
+    bio: "Estratega de marketing y copywriter especializado en neuroventas y embudos de conversión. Ha desarrollado estrategias y mensajes para lanzamientos digitales, ayudando a marcas y emprendedores a comunicar mejor para vender más.",
+    empresa: "Boost Academy",
+    donacion: "",
+    redes: { instagram: "https://www.instagram.com/viczael/" },
+    _confianza: "alta"
   },
   {
     id: "juanjo-arenales",

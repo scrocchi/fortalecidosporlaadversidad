@@ -327,14 +327,16 @@
     "visible": false,
     "foto": "profile.jpg",
     "charla": {
-      "titulo": "",
+      "titulo": "Programa tu mente para el crecimiento financiero",
       "descripcion": ""
     },
-    "bio": "",
+    "bio": "Empresario, lanzador, inversionista cripto e instructor en dinámicas de alto impacto. Ha formado a más de mil estudiantes en múltiples metodologías de desarrollo personal y financiero. Creador del programa Crypto Expert, director de más de 80 lanzamientos digitales y líder del retiro Nirvana Experience.",
     "empresa": "",
     "donacion": "",
-    "redes": {},
-    "_confianza": "baja"
+    "redes": {
+      "instagram": "https://www.instagram.com/andresricciv/"
+    },
+    "_confianza": "alta"
   },
   {
     "id": "monica-montanez",
@@ -399,14 +401,16 @@
     "visible": false,
     "foto": "profile.jpg",
     "charla": {
-      "titulo": "",
-      "descripcion": ""
+      "titulo": "El poder de las palabras",
+      "descripcion": "Descubre cómo construir mensajes que conecten con la mente de tu cliente, generen confianza y motiven la compra, aplicando principios de neuroventas, persuasión y psicología del consumidor."
     },
-    "bio": "",
-    "empresa": "",
+    "bio": "Estratega de marketing y copywriter especializado en neuroventas y embudos de conversión. Ha desarrollado estrategias y mensajes para lanzamientos digitales, ayudando a marcas y emprendedores a comunicar mejor para vender más.",
+    "empresa": "Boost Academy",
     "donacion": "",
-    "redes": {},
-    "_confianza": "baja"
+    "redes": {
+      "instagram": "https://www.instagram.com/viczael/"
+    },
+    "_confianza": "alta"
   },
   {
     "id": "juanjo-arenales",
