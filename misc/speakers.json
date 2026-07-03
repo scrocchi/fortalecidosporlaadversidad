@@ -63,7 +63,7 @@
     "id": "ricardo-salguero",
     "color": 83,
     "nombre": "Ricardo Salguero",
-    "tema": "Ventas y networking",
+    "tema": "Negocios",
     "status": "confirmado",
     "visible": true,
     "foto": "profile.jpg",
@@ -171,11 +171,11 @@
     "visible": true,
     "foto": "profile.jpg",
     "charla": {
-      "titulo": "",
-      "descripcion": ""
+      "titulo": "Simplemente Dilo Mejor: Vende con Frases Cortas",
+      "descripcion": "Aprende a diferenciarte no cambiando lo que vendes, sino aprendiendo a decirlo mejor que tu competencia. Analizamos casos prácticos para que veas cómo tomar cualquier producto, servicio o idea de negocio y transformarlo en una propuesta que se sienta más clara, más atractiva y mucho más difícil de comparar."
     },
-    "bio": "Creador del Sistema de Frases Cortas, un método de copywriting y persuasión basado en frases cortas para captar la atención y vender. Conocido como “el de las frases cortas”.",
-    "empresa": "Frases Cortas",
+    "bio": "Comunicador y estratega digital detrás de campañas, embudos y narrativas comerciales para diversos referentes del mercado LATAM. Ha generado más de un millón de dólares en ventas entre Estados Unidos y Latinoamérica, ayudando a marcas de distintos nichos a convertir mejor sus ideas, productos y servicios en mensajes que venden. Hoy se enfoca en apoyar a emprendedores y dueños de negocio a crear mejores anuncios, videos de venta y propuestas comerciales para diferenciarse, comunicar con más claridad y generar mayor impacto.",
+    "empresa": "Frases Cortas LLC",
     "donacion": "Frases Cortas",
     "redes": {
       "instagram": "https://www.instagram.com/janfrasescortas/"
@@ -322,8 +322,8 @@
     "id": "andres-ricci",
     "color": 75,
     "nombre": "Andres Ricci",
-    "tema": "Viralización en redes",
-    "status": "por-confirmar",
+    "tema": "Finanzas e inversión",
+    "status": "confirmado",
     "visible": false,
     "foto": "profile.jpg",
     "charla": {
@@ -359,11 +359,11 @@
     "color": 260,
     "nombre": "David Firman",
     "tema": "Espiritualidad",
-    "status": "por-confirmar",
+    "status": "confirmado",
     "visible": false,
     "foto": "profile.jpg",
     "charla": {
-      "titulo": "",
+      "titulo": "Herramientas del duelo",
       "descripcion": ""
     },
     "bio": "",
@@ -377,7 +377,7 @@
     "color": 290,
     "nombre": "Jose Rivero",
     "tema": "Espiritualidad",
-    "status": "por-confirmar",
+    "status": "confirmado",
     "visible": false,
     "foto": "profile.jpg",
     "charla": {
@@ -391,11 +391,65 @@
     "_confianza": "baja"
   },
   {
-    "id": "jesus-giangregorio",
-    "color": 320,
-    "nombre": "Jesús Giangregorio",
-    "tema": "Marca personal",
+    "id": "viczael-toro",
+    "color": 235,
+    "nombre": "Viczael Toro",
+    "tema": "Copywriting y persuasión",
     "status": "confirmado",
+    "visible": false,
+    "foto": "profile.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "juanjo-arenales",
+    "color": 100,
+    "nombre": "Juanjo Arenales",
+    "tema": "Espiritualidad",
+    "status": "confirmado",
+    "visible": false,
+    "foto": "profile.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "marcos-amorrin",
+    "color": 178,
+    "nombre": "Marcos Amorrin",
+    "tema": "Negocios",
+    "status": "confirmado",
+    "visible": false,
+    "foto": "profile.jpg",
+    "charla": {
+      "titulo": "",
+      "descripcion": ""
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "baja"
+  },
+  {
+    "id": "miquel-baixas",
+    "color": 312,
+    "nombre": "Miquel Baixas",
+    "tema": "Marca personal",
+    "status": "por-confirmar",
     "visible": false,
     "foto": "profile.jpg",
     "charla": {

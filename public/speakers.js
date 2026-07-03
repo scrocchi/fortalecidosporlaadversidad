@@ -74,7 +74,7 @@ var SPEAKERS = [
     id: "ricardo-salguero",
     color: 83, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Ricardo Salguero",
-    tema: "Ventas y networking",
+    tema: "Negocios",
     status: "confirmado",
     visible: true,
     foto: "profile.jpg",
@@ -179,9 +179,12 @@ var SPEAKERS = [
     status: "confirmado",
     visible: true,
     foto: "profile.jpg",
-    charla: { titulo: "", descripcion: "" },
-    bio: "Creador del Sistema de Frases Cortas, un método de copywriting y persuasión basado en frases cortas para captar la atención y vender. Conocido como “el de las frases cortas”.",
-    empresa: "Frases Cortas",
+    charla: {
+      titulo: "Simplemente Dilo Mejor: Vende con Frases Cortas",
+      descripcion: "Aprende a diferenciarte no cambiando lo que vendes, sino aprendiendo a decirlo mejor que tu competencia. Analizamos casos prácticos para que veas cómo tomar cualquier producto, servicio o idea de negocio y transformarlo en una propuesta que se sienta más clara, más atractiva y mucho más difícil de comparar."
+    },
+    bio: "Comunicador y estratega digital detrás de campañas, embudos y narrativas comerciales para diversos referentes del mercado LATAM. Ha generado más de un millón de dólares en ventas entre Estados Unidos y Latinoamérica, ayudando a marcas de distintos nichos a convertir mejor sus ideas, productos y servicios en mensajes que venden. Hoy se enfoca en apoyar a emprendedores y dueños de negocio a crear mejores anuncios, videos de venta y propuestas comerciales para diferenciarse, comunicar con más claridad y generar mayor impacto.",
+    empresa: "Frases Cortas LLC",
     donacion: "Frases Cortas",
     redes: { instagram: "https://www.instagram.com/janfrasescortas/" },
     _confianza: "alta"
@@ -266,6 +269,7 @@ var SPEAKERS = [
   {
     id: "el-rapero-marketero",
     color: 12, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    // Nombre real: Jesús Giangregorio (speakers-6.xlsx los unificó en una sola fila).
     nombre: "El Rapero Marketero",
     tema: "Ventas y networking",
     status: "confirmado",
@@ -311,8 +315,9 @@ var SPEAKERS = [
     id: "andres-ricci",
     color: 75, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Andres Ricci",
-    tema: "Viralización en redes",
-    status: "por-confirmar",
+    tema: "Finanzas e inversión",
+    // Confirmado en speakers-6.xlsx pero sin bio/@/charla/foto: oculto hasta tener info.
+    status: "confirmado",
     visible: false,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
@@ -336,10 +341,12 @@ var SPEAKERS = [
     color: 260, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "David Firman",
     tema: "Espiritualidad",
-    status: "por-confirmar",
+    // Confirmado en speakers-6.xlsx; solo llegó el título de charla ("Herramientas
+    // del duelo"), sin descripción/bio/foto: oculto hasta tener info.
+    status: "confirmado",
     visible: false,
     foto: "profile.jpg",
-    charla: { titulo: "", descripcion: "" },
+    charla: { titulo: "Herramientas del duelo", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
   },
@@ -348,7 +355,26 @@ var SPEAKERS = [
     color: 290, // hue (HSL S=100 L=50); sombra = mismo color al 15%
     nombre: "Jose Rivero",
     tema: "Espiritualidad",
-    status: "por-confirmar",
+    // Confirmado en speakers-6.xlsx pero sin bio/@/charla/foto: oculto hasta tener info.
+    status: "confirmado",
+    visible: false,
+    foto: "profile.jpg",
+    charla: { titulo: "", descripcion: "" },
+    bio: "", empresa: "", donacion: "", redes: {},
+    _confianza: "baja"
+  },
+  // NOTA: "Jesús Giangregorio" resultó ser la misma persona que El Rapero Marketero
+  // (speakers-6.xlsx los unificó en una fila). Su entrada vive arriba como
+  // "el-rapero-marketero"; acá no se duplica.
+
+  // Nuevos en speakers-6.xlsx. Confirmados pero solo con nombre + tema (sin
+  // bio/@/charla/foto): ocultos hasta que llegue su info.
+  {
+    id: "viczael-toro",
+    color: 235, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    nombre: "Viczael Toro",
+    tema: "Copywriting y persuasión",
+    status: "confirmado",
     visible: false,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
@@ -356,12 +382,35 @@ var SPEAKERS = [
     _confianza: "baja"
   },
   {
-    id: "jesus-giangregorio",
-    color: 320, // hue (HSL S=100 L=50); sombra = mismo color al 15%
-    nombre: "Jesús Giangregorio",
-    tema: "Marca personal",
-    // Confirmado en speakers-4.xlsx pero sin bio/@/charla: oculto hasta tener info.
+    id: "juanjo-arenales",
+    color: 100, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    nombre: "Juanjo Arenales",
+    tema: "Espiritualidad",
     status: "confirmado",
+    visible: false,
+    foto: "profile.jpg",
+    charla: { titulo: "", descripcion: "" },
+    bio: "", empresa: "", donacion: "", redes: {},
+    _confianza: "baja"
+  },
+  {
+    id: "marcos-amorrin",
+    color: 178, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    nombre: "Marcos Amorrin",
+    tema: "Negocios",
+    status: "confirmado",
+    visible: false,
+    foto: "profile.jpg",
+    charla: { titulo: "", descripcion: "" },
+    bio: "", empresa: "", donacion: "", redes: {},
+    _confianza: "baja"
+  },
+  {
+    id: "miquel-baixas",
+    color: 312, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    nombre: "Miquel Baixas",
+    tema: "Marca personal",
+    status: "por-confirmar",
     visible: false,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
