@@ -317,9 +317,7 @@ var SPEAKERS = [
     nombre: "Andres Ricci",
     tema: "Finanzas e inversión",
     status: "confirmado",
-    // Info completa en speakers-8.xlsx. Oculto solo hasta tener la foto (Drive).
-    // Poné visible:true al subirla a assets/speakers/andres-ricci/profile.jpg.
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
     charla: {
       titulo: "Programa tu mente para el crecimiento financiero",
@@ -382,9 +380,7 @@ var SPEAKERS = [
     nombre: "Viczael Toro",
     tema: "Copywriting y persuasión",
     status: "confirmado",
-    // Info completa en speakers-8.xlsx. Oculto solo hasta tener la foto
-    // (en el Excel figura como "Viczael Toro .jpg"). Poné visible:true al subirla.
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
     charla: {
       titulo: "El poder de las palabras",
@@ -431,6 +427,20 @@ var SPEAKERS = [
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
+  },
+  {
+    id: "yale-rondon",
+    color: 20, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    // En speakers-8.xlsx figuraba como "Esposa de Johnson"; nombre real: Yale Rondón.
+    nombre: "Yale Rondón",
+    tema: "Marca personal",
+    // Confirmada y con foto, pero sin bio ni charla: oculta hasta tener esa info.
+    status: "confirmado",
+    visible: false,
+    foto: "profile.jpg",
+    charla: { titulo: "", descripcion: "" },
+    bio: "", empresa: "", donacion: "", redes: {},
+    _confianza: "media"
   },
 
   // ---------- Charla grabada ----------
