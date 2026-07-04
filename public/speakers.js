@@ -415,8 +415,7 @@ var SPEAKERS = [
     nombre: "Marcos Amorin",
     tema: "Ventas y networking",
     status: "confirmado",
-    // Info completa en speakers-9.xlsx. Oculto solo hasta subir la foto (Drive).
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
     charla: {
       titulo: "Pilares para aumentar tus ventas",
@@ -460,8 +459,7 @@ var SPEAKERS = [
     nombre: "Lidian Rodríguez",
     tema: "Gestión de talento",
     status: "confirmado",
-    // Info completa en speakers-9.xlsx. Oculta solo hasta subir la foto (Drive).
-    visible: false,
+    visible: true,
     foto: "profile.jpg",
     charla: {
       titulo: "Liderazgo de equipos",

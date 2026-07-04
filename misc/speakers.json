@@ -440,7 +440,7 @@
     "nombre": "Marcos Amorin",
     "tema": "Ventas y networking",
     "status": "confirmado",
-    "visible": false,
+    "visible": true,
     "foto": "profile.jpg",
     "charla": {
       "titulo": "Pilares para aumentar tus ventas",
@@ -496,7 +496,7 @@
     "nombre": "Lidian Rodríguez",
     "tema": "Gestión de talento",
     "status": "confirmado",
-    "visible": false,
+    "visible": true,
     "foto": "profile.jpg",
     "charla": {
       "titulo": "Liderazgo de equipos",
