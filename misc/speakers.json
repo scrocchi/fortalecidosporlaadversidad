@@ -74,7 +74,11 @@
     "bio": "Fundador y presidente de AI Growth, agencia de automatización de marketing y ventas con IA para negocios de habla hispana, y CGO/Partner en Beemo. Reconocido por Forbes Ecuador 2025 y speaker de EXMA 2026. Ha escalado marcas de cero a exit y construido sistemas de crecimiento que convierten contactos en clientes para empresarios de toda Latinoamérica.",
     "empresa": "AI Growth",
     "donacion": "Tarjeta digital gratis — https://networking.vendemasconai.com/",
-    "redes": {},
+    "redes": {
+      "instagram": "https://www.instagram.com/soyricardosalguero/",
+      "linkedin": "https://www.linkedin.com/in/ricardosalguero/",
+      "youtube": "https://www.youtube.com/@vendemasconia"
+    },
     "_confianza": "alta"
   },
   {
@@ -341,9 +345,9 @@
   {
     "id": "monica-montanez",
     "color": 200,
-    "nombre": "Monica Montañez",
+    "nombre": "Moni Montañez",
     "tema": "Viralización en redes",
-    "status": "por-confirmar",
+    "status": "confirmado",
     "visible": false,
     "foto": "profile.jpg",
     "charla": {
@@ -433,20 +437,22 @@
   {
     "id": "marcos-amorrin",
     "color": 178,
-    "nombre": "Marcos Amorrin",
-    "tema": "Negocios",
+    "nombre": "Marcos Amorin",
+    "tema": "Ventas y networking",
     "status": "confirmado",
     "visible": false,
     "foto": "profile.jpg",
     "charla": {
-      "titulo": "",
+      "titulo": "Pilares para aumentar tus ventas",
       "descripcion": ""
     },
-    "bio": "",
-    "empresa": "",
+    "bio": "Licenciado en Administración de Empresas especializado en el sector supermercadista, con 15 años de trayectoria. Escritor, consultor y director de la Escuela de Supermercados.",
+    "empresa": "Escuela de Supermercados",
     "donacion": "",
-    "redes": {},
-    "_confianza": "baja"
+    "redes": {
+      "instagram": "https://www.instagram.com/superinstructormarcos"
+    },
+    "_confianza": "alta"
   },
   {
     "id": "miquel-baixas",
@@ -485,11 +491,31 @@
     "_confianza": "media"
   },
   {
-    "id": "mariale-y-ale",
-    "color": 350,
-    "nombre": "Mariale y Ale",
-    "tema": "",
-    "status": "grabado",
+    "id": "lidian-rodriguez",
+    "color": 130,
+    "nombre": "Lidian Rodríguez",
+    "tema": "Gestión de talento",
+    "status": "confirmado",
+    "visible": false,
+    "foto": "profile.jpg",
+    "charla": {
+      "titulo": "Liderazgo de equipos",
+      "descripcion": ""
+    },
+    "bio": "Administradora de Empresas especializada en gestión de equipos y liderazgo. Ha liderado equipos de más de 300 empleados y es directora de Impulso Empresarial, dedicada a la maximización de resultados a través de la correcta gestión del talento.",
+    "empresa": "Impulso Empresarial",
+    "donacion": "",
+    "redes": {
+      "instagram": "https://www.instagram.com/lidian_rodriguezb"
+    },
+    "_confianza": "alta"
+  },
+  {
+    "id": "maria-alejandra",
+    "color": 340,
+    "nombre": "María Alejandra",
+    "tema": "Negocios",
+    "status": "confirmado",
     "visible": false,
     "foto": "profile.jpg",
     "charla": {
@@ -501,5 +527,23 @@
     "donacion": "",
     "redes": {},
     "_confianza": "baja"
+  },
+  {
+    "id": "mariale-y-ale",
+    "color": 350,
+    "nombre": "Mariale",
+    "tema": "Viralización en redes",
+    "status": "grabado",
+    "visible": false,
+    "foto": "profile.jpg",
+    "charla": {
+      "titulo": "Cinco pilares del contenido viral",
+      "descripcion": "Descubre los pilares que hacen que las personas hablen de una marca y la recomienden de forma natural. Aprenderás cómo diseñar contenido que genere conversaciones, en lugar de depender de la suerte o esperar que el boca a boca ocurra por casualidad."
+    },
+    "bio": "",
+    "empresa": "",
+    "donacion": "",
+    "redes": {},
+    "_confianza": "media"
   }
 ]

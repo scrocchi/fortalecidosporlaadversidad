@@ -85,7 +85,11 @@ var SPEAKERS = [
     bio: "Fundador y presidente de AI Growth, agencia de automatización de marketing y ventas con IA para negocios de habla hispana, y CGO/Partner en Beemo. Reconocido por Forbes Ecuador 2025 y speaker de EXMA 2026. Ha escalado marcas de cero a exit y construido sistemas de crecimiento que convierten contactos en clientes para empresarios de toda Latinoamérica.",
     empresa: "AI Growth",
     donacion: "Tarjeta digital gratis — https://networking.vendemasconai.com/",
-    redes: {},
+    redes: {
+      instagram: "https://www.instagram.com/soyricardosalguero/",
+      linkedin: "https://www.linkedin.com/in/ricardosalguero/",
+      youtube: "https://www.youtube.com/@vendemasconia"
+    },
     _confianza: "alta"
   },
   {
@@ -332,14 +336,15 @@ var SPEAKERS = [
   {
     id: "monica-montanez",
     color: 200, // hue (HSL S=100 L=50); sombra = mismo color al 15%
-    nombre: "Monica Montañez",
+    nombre: "Moni Montañez",
     tema: "Viralización en redes",
-    status: "por-confirmar",
+    // Confirmada en speakers-9.xlsx pero sin bio/@/charla/foto: oculta hasta tener info.
+    status: "confirmado",
     visible: false,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
-    _confianza: "baja" // el Excel registraba el nombre con signo de interrogación
+    _confianza: "baja"
   },
   {
     id: "david-firman",
@@ -407,14 +412,21 @@ var SPEAKERS = [
   {
     id: "marcos-amorrin",
     color: 178, // hue (HSL S=100 L=50); sombra = mismo color al 15%
-    nombre: "Marcos Amorrin",
-    tema: "Negocios",
+    nombre: "Marcos Amorin",
+    tema: "Ventas y networking",
     status: "confirmado",
+    // Info completa en speakers-9.xlsx. Oculto solo hasta subir la foto (Drive).
     visible: false,
     foto: "profile.jpg",
-    charla: { titulo: "", descripcion: "" },
-    bio: "", empresa: "", donacion: "", redes: {},
-    _confianza: "baja"
+    charla: {
+      titulo: "Pilares para aumentar tus ventas",
+      descripcion: ""
+    },
+    bio: "Licenciado en Administración de Empresas especializado en el sector supermercadista, con 15 años de trayectoria. Escritor, consultor y director de la Escuela de Supermercados.",
+    empresa: "Escuela de Supermercados",
+    donacion: "",
+    redes: { instagram: "https://www.instagram.com/superinstructormarcos" },
+    _confianza: "alta"
   },
   {
     id: "miquel-baixas",
@@ -442,19 +454,57 @@ var SPEAKERS = [
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "media"
   },
-
-  // ---------- Charla grabada ----------
   {
-    id: "mariale-y-ale",
-    color: 350, // hue (HSL S=100 L=50); sombra = mismo color al 15%
-    nombre: "Mariale y Ale",
-    tema: "",
-    status: "grabado",
+    id: "lidian-rodriguez",
+    color: 130, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    nombre: "Lidian Rodríguez",
+    tema: "Gestión de talento",
+    status: "confirmado",
+    // Info completa en speakers-9.xlsx. Oculta solo hasta subir la foto (Drive).
+    visible: false,
+    foto: "profile.jpg",
+    charla: {
+      titulo: "Liderazgo de equipos",
+      descripcion: ""
+    },
+    bio: "Administradora de Empresas especializada en gestión de equipos y liderazgo. Ha liderado equipos de más de 300 empleados y es directora de Impulso Empresarial, dedicada a la maximización de resultados a través de la correcta gestión del talento.",
+    empresa: "Impulso Empresarial",
+    donacion: "",
+    redes: { instagram: "https://www.instagram.com/lidian_rodriguezb" },
+    _confianza: "alta"
+  },
+  {
+    id: "maria-alejandra",
+    color: 340, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    // "María Alejandra de español con María" en el Excel (marca: Español con María).
+    nombre: "María Alejandra",
+    tema: "Negocios",
+    // Confirmada en speakers-9.xlsx pero sin bio/@/charla/foto: oculta hasta tener info.
+    status: "confirmado",
     visible: false,
     foto: "profile.jpg",
     charla: { titulo: "", descripcion: "" },
     bio: "", empresa: "", donacion: "", redes: {},
     _confianza: "baja"
+  },
+
+  // ---------- Charla grabada ----------
+  {
+    id: "mariale-y-ale",
+    color: 350, // hue (HSL S=100 L=50); sombra = mismo color al 15%
+    nombre: "Mariale",
+    tema: "Viralización en redes",
+    // Charla grabada. En speakers-9.xlsx llegó su título + descripción + foto.
+    // Sigue oculta: definir con el organizador si se muestran las grabadas.
+    status: "grabado",
+    visible: false,
+    foto: "profile.jpg",
+    charla: {
+      titulo: "Cinco pilares del contenido viral",
+      descripcion: "Descubre los pilares que hacen que las personas hablen de una marca y la recomienden de forma natural. Aprenderás cómo diseñar contenido que genere conversaciones, en lugar de depender de la suerte o esperar que el boca a boca ocurra por casualidad."
+    },
+    bio: "", empresa: "", donacion: "", redes: {},
+    _confianza: "media"
   }
 ];
 
