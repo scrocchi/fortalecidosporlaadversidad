@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Fortalecidos por la Adversidad — Evento solidario en vivo</title>
-<meta name="description" content="24 conferencias en 12 horas, en vivo y 100% gratis. Regístrate y ayuda a las familias afectadas por el terremoto en Venezuela. El 100% de las donaciones va a la causa." />
+<meta name="description" content="24 conferencias en 12 horas, en vivo ahora y 100% gratis. Entra por WhatsApp y ayuda a las familias afectadas por el terremoto en Venezuela. El 100% de las donaciones va a la causa." />
 
 <!-- Tipografía: Hanken Grotesk (neo-grotesca, face principal) + IBM Plex Mono (labels/números) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -215,6 +215,24 @@
     font-weight: 500; letter-spacing: 0.01em; text-wrap: balance;
   }
   @media (max-width: 560px) { .promobar p { font-size: var(--text-xs); } }
+
+  /* Variante EN VIVO: roja y clickable (lleva a la comunidad de WhatsApp). */
+  a.promobar--live { display: block; text-decoration: none; background: #d7261e; }
+  a.promobar--live:hover { background: #c11f18; }
+  a.promobar--live:focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+  .promobar--live b { font-weight: 700; letter-spacing: 0.02em; }
+  .live-dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: #fff; margin-right: 0.5rem; vertical-align: middle;
+    animation: livepulse 1.4s ease-in-out infinite;
+  }
+  @keyframes livepulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.55); }
+    50%      { opacity: 0.55; box-shadow: 0 0 0 5px rgba(255, 255, 255, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+  /* Punto rojo para fondos claros (bloque de horarios del hero) */
+  .live-dot--red { background: #d7261e; }
 
   /* ---------- Header ---------- */
   header.site {
@@ -650,10 +668,10 @@
 <!-- Capa opaca: cubre la bandera del fondo hasta llegar al final -->
 <div class="page">
 
-<!-- ============ BARRA DE PROMOCIÓN ============ -->
-<div class="promobar" role="note">
-  <p>Evento solidario en vivo — Sábado 4 de julio · 12 horas en vivo · tu donación se convierte en ayuda real</p>
-</div>
+<!-- ============ BARRA DE PROMOCIÓN / EN VIVO ============ -->
+<a class="promobar promobar--live" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener" aria-label="Estamos en vivo — entra ahora por WhatsApp">
+  <p><span class="live-dot" aria-hidden="true"></span><b>ESTAMOS EN VIVO</b> — entra ahora por WhatsApp y súmate a la transmisión →</p>
+</a>
 
 <!-- ============ HEADER ============ -->
 <header class="site">
@@ -669,7 +687,7 @@
     </div>
     <a class="btn btn--primary btn--sm" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener">
       <svg class="btn-ico" viewBox="0 0 32 32" role="img" aria-label="WhatsApp"><path d="M16.004 0h-.008C7.174 0 .002 7.174.002 16c0 3.498 1.13 6.742 3.05 9.376L1.05 31.31l6.14-1.964A15.9 15.9 0 0 0 16.004 32C24.826 32 32 24.824 32 16S24.826 0 16.004 0zm9.31 22.598c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.7-1.948-7.726-6.724-7.962-7.034-.226-.31-1.9-2.53-1.9-4.826s1.166-3.42 1.636-3.9c.386-.394.98-.574 1.55-.574.184 0 .35.01.5.017.47.02.706.048 1.016.79.386.93 1.326 3.226 1.438 3.462.114.236.228.554.048.864-.168.32-.316.48-.552.762-.236.282-.46.498-.696.8-.216.264-.46.548-.188 1.02.272.462 1.21 1.994 2.598 3.23 1.79 1.594 3.24 2.088 3.76 2.304.386.16.846.122 1.128-.18.358-.386.8-1.028 1.25-1.66.32-.452.724-.508 1.15-.348.434.15 2.72 1.282 3.19 1.516.47.236.78.35.894.544.112.198.112 1.132-.274 2.222z"/></svg>
-      Registrarme
+      Entrar ahora
     </a>
   </div>
 </header>
@@ -690,11 +708,11 @@
         <p><strong>Entrar es gratis.</strong> Si algo te mueve, donas lo que quieras: <strong>cada aporte llega completo a Venezuela.</strong></p>
       </div>
       <div class="cta-row">
-        <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener"><svg class="btn-ico" viewBox="0 0 32 32" role="img" aria-label="WhatsApp"><path d="M16.004 0h-.008C7.174 0 .002 7.174.002 16c0 3.498 1.13 6.742 3.05 9.376L1.05 31.31l6.14-1.964A15.9 15.9 0 0 0 16.004 32C24.826 32 32 24.824 32 16S24.826 0 16.004 0zm9.31 22.598c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.7-1.948-7.726-6.724-7.962-7.034-.226-.31-1.9-2.53-1.9-4.826s1.166-3.42 1.636-3.9c.386-.394.98-.574 1.55-.574.184 0 .35.01.5.017.47.02.706.048 1.016.79.386.93 1.326 3.226 1.438 3.462.114.236.228.554.048.864-.168.32-.316.48-.552.762-.236.282-.46.498-.696.8-.216.264-.46.548-.188 1.02.272.462 1.21 1.994 2.598 3.23 1.79 1.594 3.24 2.088 3.76 2.304.386.16.846.122 1.128-.18.358-.386.8-1.028 1.25-1.66.32-.452.724-.508 1.15-.348.434.15 2.72 1.282 3.19 1.516.47.236.78.35.894.544.112.198.112 1.132-.274 2.222z"/></svg>Quiero registrarme gratis</a>
+        <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener"><svg class="btn-ico" viewBox="0 0 32 32" role="img" aria-label="WhatsApp"><path d="M16.004 0h-.008C7.174 0 .002 7.174.002 16c0 3.498 1.13 6.742 3.05 9.376L1.05 31.31l6.14-1.964A15.9 15.9 0 0 0 16.004 32C24.826 32 32 24.824 32 16S24.826 0 16.004 0zm9.31 22.598c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.7-1.948-7.726-6.724-7.962-7.034-.226-.31-1.9-2.53-1.9-4.826s1.166-3.42 1.636-3.9c.386-.394.98-.574 1.55-.574.184 0 .35.01.5.017.47.02.706.048 1.016.79.386.93 1.326 3.226 1.438 3.462.114.236.228.554.048.864-.168.32-.316.48-.552.762-.236.282-.46.498-.696.8-.216.264-.46.548-.188 1.02.272.462 1.21 1.994 2.598 3.23 1.79 1.594 3.24 2.088 3.76 2.304.386.16.846.122 1.128-.18.358-.386.8-1.028 1.25-1.66.32-.452.724-.508 1.15-.348.434.15 2.72 1.282 3.19 1.516.47.236.78.35.894.544.112.198.112 1.132-.274 2.222z"/></svg>Entrar ahora (es gratis)</a>
         <a class="btn btn--ghost" href="#causa">Conoce la causa</a>
       </div>
       <div class="hero-when">
-        <p class="hw-date">Sábado 4 de julio · <b>En vivo</b></p>
+        <p class="hw-date"><span class="live-dot live-dot--red" aria-hidden="true"></span><b>En vivo ahora</b> · Sábado 4 de julio</p>
         <ul class="hw-zones" aria-label="Horario del evento por país">
           <li>
             <svg class="hw-flag" viewBox="0 0 30 20" role="img" aria-label="México"><rect width="10" height="20" fill="#006847"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#CE1126"/></svg>
@@ -788,7 +806,7 @@
     <div class="howto-close reveal">
       <p class="howto-lead">Al final, todo se reduce a algo muy simple:</p>
       <p class="howto-pivot">estar cuando más nos necesitan.</p>
-      <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener"><svg class="btn-ico" viewBox="0 0 32 32" role="img" aria-label="WhatsApp"><path d="M16.004 0h-.008C7.174 0 .002 7.174.002 16c0 3.498 1.13 6.742 3.05 9.376L1.05 31.31l6.14-1.964A15.9 15.9 0 0 0 16.004 32C24.826 32 32 24.824 32 16S24.826 0 16.004 0zm9.31 22.598c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.7-1.948-7.726-6.724-7.962-7.034-.226-.31-1.9-2.53-1.9-4.826s1.166-3.42 1.636-3.9c.386-.394.98-.574 1.55-.574.184 0 .35.01.5.017.47.02.706.048 1.016.79.386.93 1.326 3.226 1.438 3.462.114.236.228.554.048.864-.168.32-.316.48-.552.762-.236.282-.46.498-.696.8-.216.264-.46.548-.188 1.02.272.462 1.21 1.994 2.598 3.23 1.79 1.594 3.24 2.088 3.76 2.304.386.16.846.122 1.128-.18.358-.386.8-1.028 1.25-1.66.32-.452.724-.508 1.15-.348.434.15 2.72 1.282 3.19 1.516.47.236.78.35.894.544.112.198.112 1.132-.274 2.222z"/></svg>Sí, quiero estar ese día</a>
+      <a class="btn btn--primary" href="https://chat.whatsapp.com/CpK7uCMWMMjJy2SmIO8ttT" target="_blank" rel="noopener"><svg class="btn-ico" viewBox="0 0 32 32" role="img" aria-label="WhatsApp"><path d="M16.004 0h-.008C7.174 0 .002 7.174.002 16c0 3.498 1.13 6.742 3.05 9.376L1.05 31.31l6.14-1.964A15.9 15.9 0 0 0 16.004 32C24.826 32 32 24.824 32 16S24.826 0 16.004 0zm9.31 22.598c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.7-1.948-7.726-6.724-7.962-7.034-.226-.31-1.9-2.53-1.9-4.826s1.166-3.42 1.636-3.9c.386-.394.98-.574 1.55-.574.184 0 .35.01.5.017.47.02.706.048 1.016.79.386.93 1.326 3.226 1.438 3.462.114.236.228.554.048.864-.168.32-.316.48-.552.762-.236.282-.46.498-.696.8-.216.264-.46.548-.188 1.02.272.462 1.21 1.994 2.598 3.23 1.79 1.594 3.24 2.088 3.76 2.304.386.16.846.122 1.128-.18.358-.386.8-1.028 1.25-1.66.32-.452.724-.508 1.15-.348.434.15 2.72 1.282 3.19 1.516.47.236.78.35.894.544.112.198.112 1.132-.274 2.222z"/></svg>Sí, quiero entrar ahora</a>
     </div>
   </section>
 
